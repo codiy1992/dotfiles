@@ -1,0 +1,26 @@
+# This is Git's per-user configuration file.
+[user]
+name = codiy
+email = mail@codiy.net
+[merge]
+    tool = vimdiff
+[color]
+    ui = true
+[core]
+    editor = vim
+[pull]
+    ff = only
+[push]
+    default = simple
+[init]
+    defaultBranch = master
+[alias]
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+    last = log -1 HEAD
+    cem = "commit -a --allow-empty-message -m ''"
+    # such as 'git pr 482 upstream'
+    pr  = "!f() { git fetch -fu ${2:-upstream} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+    prc = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
