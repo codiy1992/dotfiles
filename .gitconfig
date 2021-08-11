@@ -2,8 +2,8 @@
 [user]
 name = codiy
 email = mail@codiy.net
-[merge]
-    tool = vimdiff
+;[merge]
+;    tool = vimdiff
 [color]
     ui = true
 [core]

@@ -18,4 +18,4 @@ fi
 echo -e "\033[49;32mSuccessfully!
 Your \033[49;34mold dotfiles \033[49;32mhas been moved to \033[49;34m~/dotfiles-backup\033[0m\033[49;32m.
 Now you need to run \033[49;34m\`source .zshrc\` \033[49;32mmanually \\
-and then you can use \033[49;34m\`dotf\`\033[49;32m command to manage your dotfiles.\033[0m"
+and then you can use \033[49;34m\`got\`\033[49;32m command to manage your dotfiles.\033[0m"

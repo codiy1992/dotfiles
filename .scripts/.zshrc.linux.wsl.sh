@@ -1,13 +1,10 @@
-ROOT_PATH="${HOME}/Repos/codiy1992/setup"
-source ${ROOT_PATH}/scripts/.zshrc.sh
-
 # 命令行代理, 需打开防火墙(设置 > 更新和安全 > windows安全中心 > 防火墙和网络保护 > 允许应用通过防火墙 > 勾选代理软件)
 export https_proxy=http://$(ip route|awk '/^default/{print $3}'):7890
 export http_proxy=http://$(ip route|awk '/^default/{print $3}'):7890
 export all_proxy=socks5://$(ip route|awk '/^default/{print $3}'):7890
 
 # alias
-alias rc='vim ~/.zshrc.linux.wsl.sh; source ~/.zshrc'
+alias rc='vim ~/.scripts/.zshrc.linux.wsl.sh; source ~/.zshrc'
 
 # apps
 alias idea='/home/codiy/Applications/idea/bin/idea.sh'

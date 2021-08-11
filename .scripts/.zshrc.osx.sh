@@ -1,5 +1,3 @@
-ROOT_PATH="${HOME}/Repos/codiy1992/setup"
-
 # 命令别名 - OSX
 alias sm='emacs -nw'
 alias smq='emacs -nw -Q'
