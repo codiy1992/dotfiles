@@ -1,0 +1,7 @@
+/plugged
+/tmp
+/view
+/autoload
+/_machine_specific.vim
+.DS_Store
+*.swp

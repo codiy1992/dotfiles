@@ -8,3 +8,9 @@
 !/.spacemacs
 !/README.md
 !/.scripts
+
+# .config folder
+!/.config/
+/.config/*
+!/.config/nvim
+
