@@ -228,7 +228,7 @@ Plug 'pechorin/any-jump.vim'
 Plug 'liuchengxu/vista.vim'
 
 " Debugger
-" Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-c --enable-python --enable-go'}
+Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-go'}
 
 " Auto Complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -372,7 +372,6 @@ Plug 'lambdalisue/suda.vim' " do stuff like :sudowrite
 " Plug 'kana/vim-textobj-user'
 " Plug 'roxma/nvim-yarp'
 
-
 call plug#end()
 
 " Use new regular expression engine
@@ -487,27 +486,59 @@ noremap <LEADER>tm :TableModeToggle<CR>
 let g:table_mode_cell_text_object_i_map = 'k<Bar>'
 
 " ===
-" === Leaderf
+" === Leaderf <https://github.com/Yggdroot/LeaderF>
 " ===
-" let g:Lf_WindowPosition = 'popup'
+let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
+let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2" }
+let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
+
 let g:Lf_PreviewCode = 1
 let g:Lf_ShowHidden = 1
-let g:Lf_ShowDevIcons = 1
-let g:Lf_CommandMap = {
-\   '<C-k>': ['<C-u>'],
-\   '<C-j>': ['<C-e>'],
-\   '<C-]>': ['<C-v>'],
-\   '<C-p>': ['<C-n>'],
-\}
+let g:Lf_ShowDevIcons = 0
+let g:Lf_UseCache = 0
+let g:Lf_UseMemoryCache = 1
 let g:Lf_UseVersionControlTool = 0
 let g:Lf_IgnoreCurrentBufferName = 1
+let g:Lf_WorkingDirectoryMode = 'AF'
+let g:Lf_RootMarkers = ['.git']
+" let g:Lf_CommandMap = {
+"         \ '<C-P>': ['<C-O>'],
+"         \ '<C-K>': ['<C-P>'],
+"         \ '<C-J>': ['<C-N>'],
+"         \}
+
 let g:Lf_WildIgnore = {
-        \ 'dir': ['.git', 'vendor', 'node_modules'],
-        \ 'file': ['__vim_project_root', 'class']
+        \ 'dir': [
+            \'.git', 'vendor', 'node_modules', 'plugged', 'elpa', 'cache',
+            \'.cache', 'Bares', '.oh-my-zsh', '.npm', '.storage',  '.vscode',
+            \'Library', 'Applications', 'go', '.local',
+            \'Documents', 'Downloads', 'Movies', 'Music', 'Pictures'],
+        \ 'file': [
+            \'*.css', '*.png', '*.jpg', '*.pdf', '*.gif', '*.mp4',
+            \'*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]',
+            \'__vim_project_root', 'class', '.DS_Store']
         \}
-let g:Lf_UseMemoryCache = 0
-let g:Lf_UseCache = 0
+let g:Lf_ShortcutF = '<leader>ff'
+noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
+
+" noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
+" noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+" search visually selected text literally
+" xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+" noremap go :<C-U>Leaderf! rg --recall<CR>
+
+" should use `Leaderf gtags --update` first
+let g:Lf_GtagsAutoGenerate = 0
+let g:Lf_Gtagslabel = 'native-pygments'
+noremap <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
+noremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+noremap <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
+noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 
 " ===
 " === CTRLP (Dependency for omnisharp)
@@ -554,10 +585,10 @@ let g:VM_maps["Redo"]               = '<C-r>'
 " ===
 " === Far.vim
 " ===
-noremap <LEADER>f :F  **/*<left><left><left><left><left>
-let g:far#mapping = {
-		\ "replace_undo" : ["l"],
-		\ }
+" noremap <LEADER>f :F  **/*<left><left><left><left><left>
+" let g:far#mapping = {
+" 		\ "replace_undo" : ["l"],
+" 		\ }
 
 " ===
 " === Bullets.vim
@@ -782,6 +813,19 @@ command! -bang -nargs=* LoadVimSpectorJsonTemplate call fzf#run({
 sign define vimspectorBP text=☛ texthl=Normal
 sign define vimspectorBPDisabled text=☞ texthl=Normal
 sign define vimspectorPC text=🔶 texthl=SpellBad
+nnoremap <leader>da :call vimspector#Launch()<CR>
+nnoremap <leader>dx :call vimspector#Reset()<CR>
+nnoremap <leader>d_ :call vimspector#Restart()<CR>
+nnoremap <leader>dn :call vimspector#Continue()<CR>
+nnoremap <leader>drc :call vimspector#RuntoCursor()<CR>
+nnoremap <leader>dh :call vimspector#ToggleBreakpoint()<CR>
+nnoremap <leader>de :call vimspector#ToggleConditionalBreakpoint()<CR>
+nnoremap <leader>dX :call vimspector#ClearBreakpoints()<CR>
+nnoremap <S-k> :call vimspector#StepOut()<CR>
+nnoremap <S-l> :call vimspector#StepInto()<CR>
+nnoremap <S-j> :call vimspector#StepOver()<CR>
+
+
 
 " ===
 " === vim-markdown-toc
