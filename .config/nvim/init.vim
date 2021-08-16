@@ -92,8 +92,16 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " --- three cliboards: unamed, *, +
 " see https://vi.stackexchange.com/questions/84/how-can-i-copy-text-to-the-system-clipboard-from-vim
 " see https://unix.stackexchange.com/questions/139578/copy-paste-for-vim-is-not-working-when-mouse-set-mouse-a-is-on
-set clipboard=unnamed 
-set mouse=a "Tips: Press `shift` or `alt/option`(OSX) while selecting 
+set clipboard=unnamed
+set mouse=a "Tips: Press `shift` or `alt/option`(OSX) while selecting
+
+" Auto Remove Trailing Whitespace on Save
+autocmd BufWritePre * :%s/\s\+$//e
+
+
+" Clear highlighting on escape in normal mode
+nnoremap <esc> :noh<return><esc>
+" nnoremap <esc>^[ <esc>^[
 
 " ---
 " --- Terminal Behaviors
@@ -217,7 +225,8 @@ Plug 'RRethy/vim-illuminate'
 " File navigation
 "Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 "Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'kevinhwang91/rnvimr'
 Plug 'airblade/vim-rooter'
@@ -311,12 +320,12 @@ Plug 'dkarter/bullets.vim'
 "Plug 'Raimondi/delimitMate'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mg979/vim-visual-multi'
-Plug 'tomtom/tcomment_vim' " in <space>cn to comment a line
+Plug 'preservim/nerdcommenter'
+"Plug 'tomtom/tcomment_vim' " in <space>cn to comment a line
 Plug 'theniceboy/antovim' " gs to switch
 Plug 'tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
 Plug 'gcmt/wildfire.vim' " in Visual mode, type k' to select all text in '', or type k) k] k} kp
 Plug 'junegunn/vim-after-object' " da= to delete what's after =
-Plug 'godlygeek/tabular' " ga, or :Tabularize <regex> to align
 Plug 'tpope/vim-capslock'	" Ctrl+L (insert) to toggle capslock
 Plug 'easymotion/vim-easymotion'
 " Plug 'Konfekt/FastFold'
@@ -371,6 +380,7 @@ Plug 'lambdalisue/suda.vim' " do stuff like :sudowrite
 " Plug 'kana/vim-textobj-user'
 " Plug 'roxma/nvim-yarp'
 
+Plug 'junegunn/vim-easy-align'
 call plug#end()
 
 " Use new regular expression engine
@@ -490,7 +500,7 @@ let g:table_mode_cell_text_object_i_map = 'k<Bar>'
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
 let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2" }
-let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
+let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0, 'Rg': 1 }
 
 let g:Lf_PreviewCode = 1
 let g:Lf_ShowHidden = 1
@@ -499,7 +509,7 @@ let g:Lf_UseCache = 0
 let g:Lf_UseMemoryCache = 1
 let g:Lf_UseVersionControlTool = 0
 let g:Lf_IgnoreCurrentBufferName = 1
-let g:Lf_WorkingDirectory = finddir('.git', '.;')
+" let g:Lf_WorkingDirectory = finddir('.git', '.;')
 " let g:Lf_WorkingDirectoryMode = 'AF'
 " let g:Lf_RootMarkers = ['.git']
 let g:Lf_CommandMap = {
@@ -513,7 +523,7 @@ let g:Lf_CommandMap = {
 
 let g:Lf_WildIgnore = {
         \ 'dir': [
-            \'.git', 'vendor', 'node_modules', 'plugged', 'elpa', 'cache',
+            \'.git', 'vendor', 'node_modules', 'plugged', 'elpa', 'cache', 'undo',
             \'.cache', 'Bares', '.oh-my-zsh', '.npm', '.storage',  '.vscode',
             \'Library', 'Applications', 'go', '.local', 'workspace.wpay', 'novels',
             \'Documents', 'Downloads', 'Movies', 'Music', 'Pictures'],
@@ -528,11 +538,20 @@ noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
 noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 
-" noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
-" noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+" rg
+let g:Lf_RgConfig = [
+        \ "--max-columns=150",
+        \ "--type-add go:*.{go}*",
+        \ "--type-add php:*.{php}*",
+        \ "--glob=*.{php,go}",
+        \ "--hidden"
+    \ ]
+
+noremap <Leader><C-S> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
+noremap <Leader><C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 " search visually selected text literally
-" xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
-" noremap go :<C-U>Leaderf! rg --recall<CR>
+xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+ noremap go :<C-U>Leaderf! rg --recall<CR>
 
 " should use `Leaderf gtags --update` first
 let g:Lf_GtagsAutoGenerate = 0
@@ -966,6 +985,20 @@ let g:lazygit_floating_window_corner_chars = ['╭', '╮', '╰', '╯'] " cust
 let g:lazygit_use_neovim_remote = 1 " for neovim-remote support
 
 
+" ===
+" === vim-easy-align
+" ===
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap <Leader>a <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap <Leader>a <Plug>(EasyAlign)
+
+" ===
+" === nerdcommenter
+" ===
+let g:NERDSpaceDelims = 1
+
 " ===================== End of Plugin Settings =====================
 
 " ===
@@ -998,4 +1031,5 @@ exec "nohlsearch"
 if has_machine_specific_file == 0
 	exec "e ~/.config/nvim/_machine_specific.vim"
 endif
+
 
