@@ -9,7 +9,7 @@ alias @='_func() { code ~/.workspaces/"$1".code-workspace; }; _func'
 # 命令别名 - 工作
 alias ops='cd ~/Works/wn-devops && make bash'
 alias deploy='ssh -t deploy "cd /devops; make bash"'
-alias work='_func() {cd ~/Works/.wlive; if [ -n "$1" ]; then make "$1"; else make; fi; popd}; _func'
+alias work='_func() {cd ~/Works/.wlive; if [ -n "$1" ]; then make "$@"; else make; fi; popd}; _func'
 
 # 命令别名 - 机器操作
 alias fk.cron='ssh -i ~/.ssh/wlive.pem ec2-user@18.197.217.42'

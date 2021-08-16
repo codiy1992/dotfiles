@@ -93,8 +93,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " see https://vi.stackexchange.com/questions/84/how-can-i-copy-text-to-the-system-clipboard-from-vim
 " see https://unix.stackexchange.com/questions/139578/copy-paste-for-vim-is-not-working-when-mouse-set-mouse-a-is-on
 set clipboard=unnamed 
-set mouse=r
-
+set mouse=a "Tips: Press `shift` or `alt/option`(OSX) while selecting 
 
 " ---
 " --- Terminal Behaviors
@@ -464,7 +463,7 @@ let g:coc_global_extensions = [
 	\ 'coc-yank',
 	\ 'https://github.com/rodrigore/coc-tailwind-intellisense']
 
-nnoremap <space>e :CocCommand explorer<CR>
+nnoremap <leader>e :CocCommand explorer<CR>
 
 
 " ===
@@ -500,9 +499,13 @@ let g:Lf_UseCache = 0
 let g:Lf_UseMemoryCache = 1
 let g:Lf_UseVersionControlTool = 0
 let g:Lf_IgnoreCurrentBufferName = 1
-let g:Lf_WorkingDirectoryMode = 'AF'
-let g:Lf_RootMarkers = ['.git']
-" let g:Lf_CommandMap = {
+let g:Lf_WorkingDirectory = finddir('.git', '.;')
+" let g:Lf_WorkingDirectoryMode = 'AF'
+" let g:Lf_RootMarkers = ['.git']
+let g:Lf_CommandMap = {
+          \ '<C-\>': ['<C-]>'],
+          \ '<C-]>': ['<C-\>'],
+          \}
 "         \ '<C-P>': ['<C-O>'],
 "         \ '<C-K>': ['<C-P>'],
 "         \ '<C-J>': ['<C-N>'],
@@ -512,7 +515,7 @@ let g:Lf_WildIgnore = {
         \ 'dir': [
             \'.git', 'vendor', 'node_modules', 'plugged', 'elpa', 'cache',
             \'.cache', 'Bares', '.oh-my-zsh', '.npm', '.storage',  '.vscode',
-            \'Library', 'Applications', 'go', '.local',
+            \'Library', 'Applications', 'go', '.local', 'workspace.wpay', 'novels',
             \'Documents', 'Downloads', 'Movies', 'Music', 'Pictures'],
         \ 'file': [
             \'*.css', '*.png', '*.jpg', '*.pdf', '*.gif', '*.mp4',
@@ -821,9 +824,9 @@ nnoremap <leader>drc :call vimspector#RuntoCursor()<CR>
 nnoremap <leader>dh :call vimspector#ToggleBreakpoint()<CR>
 nnoremap <leader>de :call vimspector#ToggleConditionalBreakpoint()<CR>
 nnoremap <leader>dX :call vimspector#ClearBreakpoints()<CR>
-nnoremap <S-k> :call vimspector#StepOut()<CR>
-nnoremap <S-l> :call vimspector#StepInto()<CR>
-nnoremap <S-j> :call vimspector#StepOver()<CR>
+" nnoremap <S-k> :call vimspector#StepOut()<CR>
+" nnoremap <S-l> :call vimspector#StepInto()<CR>
+" nnoremap <S-j> :call vimspector#StepOver()<CR>
 
 
 
@@ -962,10 +965,6 @@ let g:lazygit_floating_window_scaling_factor = 1.0 " scaling factor for floating
 let g:lazygit_floating_window_corner_chars = ['╭', '╮', '╰', '╯'] " customize lazygit popup window corner characters
 let g:lazygit_use_neovim_remote = 1 " for neovim-remote support
 
-" ---
-" --- wincent/terminus
-" ---
-let g:TerminusMouse=0 " disabled let mouse=r worked
 
 " ===================== End of Plugin Settings =====================
 
