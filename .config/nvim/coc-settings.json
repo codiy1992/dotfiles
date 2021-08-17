@@ -96,7 +96,7 @@
 		}
 	],
 	"explorer.file.column.indent.indentLine": true,
-	"explorer.file.showHiddenFiles": true,
+	"explorer.file.showHiddenFiles": false,
 	"explorer.icon.enableNerdfont": false,
 	"explorer.keyMappingMode": "default",
 	"explorer.buffer.showHiddenBuffers": false,

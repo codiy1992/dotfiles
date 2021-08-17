@@ -38,7 +38,7 @@ set autochdir
 " ---
 set exrc
 set secure
-set number
+set nonumber
 set relativenumber
 set cursorline
 set hidden
@@ -229,7 +229,7 @@ Plug 'RRethy/vim-illuminate'
 "Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 "Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'kevinhwang91/rnvimr'
 Plug 'airblade/vim-rooter'
@@ -243,7 +243,6 @@ Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-go'}
 
 " Auto Complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'neoclide/coc.nvim', {'branch': 'release', 'tag': 'v0.0.79'}
 Plug 'wellle/tmux-complete.vim'
 
 " Snippets
@@ -306,10 +305,6 @@ Plug 'tweekmonster/braceless.vim', { 'for' :['python', 'vim-plug'] }
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'f-person/pubspec-assist-nvim', { 'for' : ['pubspec.yaml'] }
 
-" Swift
-Plug 'keith/swift.vim'
-Plug 'arzg/vim-swift'
-
 " Markdown
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['text', 'markdown', 'vim-plug'] }
@@ -363,14 +358,11 @@ Plug 'brooth/far.vim', { 'on': ['F', 'Far', 'Fardo'] }
 Plug 'skywind3000/asynctasks.vim'
 Plug 'skywind3000/asyncrun.vim'
 
-" Vim Applications
-Plug 'itchyny/calendar.vim'
-
 " Other visual enhancement
 Plug 'luochen1990/rainbow'
-Plug 'mg979/vim-xtabline'
+" Plug 'mg979/vim-xtabline'
 Plug 'ryanoasis/vim-devicons'
-Plug 'wincent/terminus'
+" Plug 'wincent/terminus'
 
 " Other useful utilities
 Plug 'lambdalisue/suda.vim' " do stuff like :sudowrite
@@ -519,10 +511,6 @@ let g:Lf_CommandMap = {
           \ '<C-]>': ['<C-I>'],
           \ '<C-X>': ['<C-B>'],
           \}
-"         \ '<C-P>': ['<C-O>'],
-"         \ '<C-K>': ['<C-P>'],
-"         \ '<C-J>': ['<C-N>'],
-"         \}
 
 let g:Lf_WildIgnore = {
         \ 'dir': [
@@ -553,7 +541,7 @@ let g:Lf_RgConfig = [
 " search word under cursor literally in all listed buffers
 noremap <Leader><C-B> :<C-U><C-R>=printf("Leaderf! rg -F --all-buffers -e %s ", expand("<cword>"))<CR>
 noremap <Leader><C-C> :<C-U><C-R>=printf("Leaderf! rg -F --current-buffer -e %s ", expand("<cword>"))<CR>
-noremap <Leader><C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+noremap <Leader><C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s", expand(""))<CR>
 " search visually selected text literally
 xnoremap <leader>gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
 noremap <Leader>go :<C-U>Leaderf! rg --recall<CR>
@@ -663,31 +651,6 @@ let g:vimtex_mappings_enabled = 0
 let g:vimtex_text_obj_enabled = 0
 let g:vimtex_motion_enabled = 0
 let maplocalleader=' '
-
-" ===
-" === vim-calendar
-" ===
-"noremap \c :Calendar -position=here<CR>
-noremap \\ :Calendar -view=clock -position=here<CR>
-let g:calendar_google_calendar = 1
-let g:calendar_google_task = 1
-augroup calendar-mappings
-	autocmd!
-	" diamond cursor
-	autocmd FileType calendar nmap <buffer> u <Plug>(calendar_up)
-	autocmd FileType calendar nmap <buffer> n <Plug>(calendar_left)
-	autocmd FileType calendar nmap <buffer> e <Plug>(calendar_down)
-	autocmd FileType calendar nmap <buffer> i <Plug>(calendar_right)
-	autocmd FileType calendar nmap <buffer> <c-u> <Plug>(calendar_move_up)
-	autocmd FileType calendar nmap <buffer> <c-n> <Plug>(calendar_move_left)
-	autocmd FileType calendar nmap <buffer> <c-e> <Plug>(calendar_move_down)
-	autocmd FileType calendar nmap <buffer> <c-i> <Plug>(calendar_move_right)
-	autocmd FileType calendar nmap <buffer> k <Plug>(calendar_start_insert)
-	autocmd FileType calendar nmap <buffer> K <Plug>(calendar_start_insert_head)
-	" unmap <C-n>, <C-p> for other plugins
-	autocmd FileType calendar nunmap <buffer> <C-n>
-	autocmd FileType calendar nunmap <buffer> <C-p>
-augroup END
 
 " ===
 " === vim-go
@@ -808,13 +771,13 @@ let g:rainbow_active = 1
 " ===
 " === xtabline
 " ===
-let g:xtabline_settings = {}
-let g:xtabline_settings.enable_mappings = 0
-let g:xtabline_settings.tabline_modes = ['tabs', 'buffers']
-let g:xtabline_settings.enable_persistance = 0
-let g:xtabline_settings.last_open_first = 1
-noremap to :XTabCycleMode<CR>
-noremap \p :echo expand('%:p')<CR>
+" let g:xtabline_settings = {}
+" let g:xtabline_settings.enable_mappings = 0
+" let g:xtabline_settings.tabline_modes = ['tabs', 'buffers']
+" let g:xtabline_settings.enable_persistance = 0
+" let g:xtabline_settings.last_open_first = 1
+" noremap to :XTabCycleMode<CR>
+" noremap \p :echo expand('%:p')<CR>
 
 " ===
 " === suda.vim
@@ -875,18 +838,18 @@ highlight link RnvimrNormal CursorLine
 nnoremap <silent> R :RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
 let g:rnvimr_action = {
             \ '<C-t>': 'NvimEdit tabedit',
-            \ '<C-x>': 'NvimEdit split',
-            \ '<C-v>': 'NvimEdit vsplit',
+            \ '<C-b>': 'NvimEdit split',
+            \ '<C-i>': 'NvimEdit vsplit',
             \ 'gw': 'JumpNvimCwd',
             \ 'yw': 'EmitRangerCwd'
             \ }
 let g:rnvimr_layout = { 'relative': 'editor',
-            \ 'width': &columns,
-            \ 'height': &lines,
-            \ 'col': 0,
-            \ 'row': 0,
+            \ 'width': float2nr(round(0.6 * &columns)),
+            \ 'height': float2nr(round(0.6 * &lines)),
+            \ 'col': float2nr(round(0.2 * &columns)),
+            \ 'row': float2nr(round(0.2 * &lines)),
             \ 'style': 'minimal' }
-let g:rnvimr_presets = [{'width': 1.0, 'height': 1.0}]
+let g:rnvimr_presets = [{'width': 0.6, 'height': 0.6}]
 
 
 " ===
@@ -906,7 +869,7 @@ hi illuminatedWord cterm=undercurl gui=undercurl
 " ===
 " === vim-rooter
 " ===
-let g:rooter_patterns = ['__vim_project_root', '.git/']
+let g:rooter_patterns = ['__vim_project_root', '.works', '.repos']
 let g:rooter_silent_chdir = 1
 
 
