@@ -101,7 +101,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Clear highlighting on escape in normal mode
 nnoremap <esc> :noh<return><esc>
-" nnoremap <esc>^[ <esc>^[
 
 " ---
 " --- Terminal Behaviors
@@ -207,15 +206,12 @@ noremap <LEADER>snw :set nowrap<CR>
 
 call plug#begin('$HOME/.config/nvim/plugged')
 
-" Plug 'LoricAndre/fzterm.nvim'
-
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/playground'
 
 " Pretty Dress
 Plug 'theniceboy/nvim-deus'
-"Plug 'arzg/vim-colors-xcode'
 
 " Status line
 Plug 'theniceboy/eleline.vim'
@@ -226,8 +222,6 @@ Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'RRethy/vim-illuminate'
 
 " File navigation
-"Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-"Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
@@ -246,7 +240,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'wellle/tmux-complete.vim'
 
 " Snippets
-" Plug 'SirVer/ultisnips'
 Plug 'theniceboy/vim-snippets'
 
 " Undo Tree
@@ -255,7 +248,6 @@ Plug 'mbbill/undotree'
 " Git
 Plug 'theniceboy/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
 Plug 'fszymanski/fzf-gitignore', { 'do': ':UpdateRemotePlugins' }
-"Plug 'mhinz/vim-signify'
 Plug 'airblade/vim-gitgutter'
 Plug 'cohama/agit.vim'
 Plug 'kdheepak/lazygit.nvim'
@@ -263,9 +255,6 @@ Plug 'kdheepak/lazygit.nvim'
 " Autoformat
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
-
-" Tex
-" Plug 'lervag/vimtex'
 
 " HTML, CSS, JavaScript, Typescript, PHP, JSON, etc.
 Plug 'elzr/vim-json'
@@ -286,11 +275,8 @@ Plug 'pantharshit00/vim-prisma'
 Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
 
 " Python
-" Plug 'tmhedberg/SimpylFold', { 'for' :['python', 'vim-plug'] }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug'] }
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-plug'] }
-"Plug 'vim-scripts/indentpython.vim', { 'for' :['python', 'vim-plug'] }
-"Plug 'plytophogy/vim-virtualenv', { 'for' :['python', 'vim-plug'] }
 Plug 'tweekmonster/braceless.vim', { 'for' :['python', 'vim-plug'] }
 
 " Flutter
@@ -302,9 +288,6 @@ Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['text', 'markdown', 'vim-plug'] }
 Plug 'mzlogin/vim-markdown-toc', { 'for': ['gitignore', 'markdown', 'vim-plug'] }
 Plug 'dkarter/bullets.vim'
-
-" Other filetypes
-" Plug 'jceb/vim-orgmode', {'for': ['vim-plug', 'org']}
 
 " Editor Enhancement
 Plug 'jiangmiao/auto-pairs'
@@ -323,45 +306,22 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'theniceboy/pair-maker.vim'
 Plug 'theniceboy/vim-move'
 Plug 'Yggdroot/indentLine'
-
-" For general writing
-" Plug 'junegunn/goyo.vim'
-"Plug 'reedes/vim-wordy'
-"Plug 'ron89/thesaurus_query.vim'
-
-" Bookmarks
-" Plug 'MattesGroeger/vim-bookmarks'
+Plug 'junegunn/vim-easy-align'
 
 " Find & Replace
 Plug 'brooth/far.vim', { 'on': ['F', 'Far', 'Fardo'] }
 
-" Documentation
-"Plug 'KabbAmine/zeavim.vim' " <LEADER>z to find doc
-
 " Mini Vim-APP
-"Plug 'jceb/vim-orgmode'
-"Plug 'mhinz/vim-startify'
 Plug 'skywind3000/asynctasks.vim'
 Plug 'skywind3000/asyncrun.vim'
 
 " Other visual enhancement
 Plug 'luochen1990/rainbow'
-" Plug 'mg979/vim-xtabline'
 Plug 'ryanoasis/vim-devicons'
-" Plug 'wincent/terminus'
 
 " Other useful utilities
 Plug 'lambdalisue/suda.vim' " do stuff like :sudowrite
-" Plug 'makerj/vim-pdf'
-"Plug 'xolox/vim-session'
-"Plug 'xolox/vim-misc' " vim-session dep
 
-" Dependencies
-" Plug 'MarcWeber/vim-addon-mw-utils'
-" Plug 'kana/vim-textobj-user'
-" Plug 'roxma/nvim-yarp'
-
-Plug 'junegunn/vim-easy-align'
 call plug#end()
 
 " Use new regular expression engine
@@ -379,23 +339,10 @@ set lazyredraw
 " ---
 set termguicolors " enable true colors support
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-"set background=dark
-"let ayucolor="mirage"
-"let g:oceanic_next_terminal_bold = 1
-"let g:oceanic_next_terminal_italic = 1
-"let g:one_allow_italics = 1
 
 color deus
-"color gruvbox
-"let ayucolor="light"
-"color ayu
-"color xcodelighthc
-"set background=light
-"set cursorcolumn
 
 hi NonText ctermfg=gray guifg=grey10
-"hi SpecialKey ctermfg=blue guifg=grey70
-
 
 " --------------------- Start of Plugin Settings ---------------------
 
