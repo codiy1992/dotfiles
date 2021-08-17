@@ -46,7 +46,7 @@ set hidden
 set softtabstop=2
 set tabstop=4                   "一个 tab 显示出来是多少个空格，默认 8
 set expandtab ts=4 sw=4 ai      " 设置一个tab为4个空格
-set shiftwidth=4                "每一级缩进是多少个空格
+set shiftwidth=4                " 每一级缩进是多少个空格
 set autoindent
 set list
 set listchars=tab:\|\ ,trail:▫
@@ -93,7 +93,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " see https://vi.stackexchange.com/questions/84/how-can-i-copy-text-to-the-system-clipboard-from-vim
 " see https://unix.stackexchange.com/questions/139578/copy-paste-for-vim-is-not-working-when-mouse-set-mouse-a-is-on
 set clipboard=unnamed
-set mouse=a "Tips: Press `shift` or `alt/option`(OSX) while selecting
+set mouse+=a "Tips: Press `shift` or `alt/option`(OSX) while selecting
 
 " Auto Remove Trailing Whitespace on Save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -125,6 +125,9 @@ noremap <silent> zj 5j
 noremap W 5w
 noremap B 5b
 noremap <silent> - $
+" Source Configuration
+nnoremap <Leader>rr :source $MYVIMRC<CR>
+
 " ---
 " --- Command Mode Cursor Movement
 " ---
@@ -164,7 +167,7 @@ noremap srh <C-w>b<C-w>K
 noremap srv <C-w>b<C-w>H
 
 " Press <SPACE> + q to close the window below the current window
-noremap <LEADER>q <C-w>j:q<CR>
+noremap <LEADER>q <C-w>j:q!<CR>
 
 
 " ---
@@ -510,11 +513,11 @@ let g:Lf_UseMemoryCache = 1
 let g:Lf_UseVersionControlTool = 0
 let g:Lf_IgnoreCurrentBufferName = 1
 " let g:Lf_WorkingDirectory = finddir('.git', '.;')
-" let g:Lf_WorkingDirectoryMode = 'AF'
-" let g:Lf_RootMarkers = ['.git']
+let g:Lf_WorkingDirectoryMode = 'AF'
+let g:Lf_RootMarkers = ['.works', '.repos']
 let g:Lf_CommandMap = {
-          \ '<C-\>': ['<C-]>'],
-          \ '<C-]>': ['<C-\>'],
+          \ '<C-]>': ['<C-I>'],
+          \ '<C-X>': ['<C-B>'],
           \}
 "         \ '<C-P>': ['<C-O>'],
 "         \ '<C-K>': ['<C-P>'],
@@ -541,17 +544,19 @@ noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 " rg
 let g:Lf_RgConfig = [
         \ "--max-columns=150",
-        \ "--type-add go:*.{go}*",
-        \ "--type-add php:*.{php}*",
+        \ "--max-columns-preview",
         \ "--glob=*.{php,go}",
+        \ "--smart-case",
         \ "--hidden"
     \ ]
 
-noremap <Leader><C-S> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
+" search word under cursor literally in all listed buffers
+noremap <Leader><C-B> :<C-U><C-R>=printf("Leaderf! rg -F --all-buffers -e %s ", expand("<cword>"))<CR>
+noremap <Leader><C-C> :<C-U><C-R>=printf("Leaderf! rg -F --current-buffer -e %s ", expand("<cword>"))<CR>
 noremap <Leader><C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 " search visually selected text literally
-xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
- noremap go :<C-U>Leaderf! rg --recall<CR>
+xnoremap <leader>gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+noremap <Leader>go :<C-U>Leaderf! rg --recall<CR>
 
 " should use `Leaderf gtags --update` first
 let g:Lf_GtagsAutoGenerate = 0
