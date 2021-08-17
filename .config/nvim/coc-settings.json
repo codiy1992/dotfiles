@@ -73,7 +73,6 @@
 		"typescript",
 		"html",
 		"css",
-		"json",
 		"java",
 		"python",
 		"vue",
@@ -100,8 +99,7 @@
 	"explorer.icon.enableNerdfont": false,
 	"explorer.keyMappingMode": "default",
 	"explorer.buffer.showHiddenBuffers": false,
-	"explorer.keyMappings.global": {
-	},
+	"explorer.keyMappings.global": {},
 	"tslint.autoFixOnSave": false,
 	"python.autoComplete.addBrackets": true,
 	"python.jediEnabled": false,
