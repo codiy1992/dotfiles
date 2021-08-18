@@ -48,13 +48,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'wellle/tmux-complete.vim'
 
 " Snippets
-Plug 'theniceboy/vim-snippets'
+" Plug 'theniceboy/vim-snippets'
 
 " Undo Tree
 Plug 'mbbill/undotree'
 
 " Git
-Plug 'theniceboy/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
+" Plug 'theniceboy/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
 Plug 'fszymanski/fzf-gitignore', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'cohama/agit.vim'
@@ -87,8 +87,8 @@ Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug'] }
 Plug 'tweekmonster/braceless.vim', { 'for' :['python', 'vim-plug'] }
 
 " Flutter
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'f-person/pubspec-assist-nvim', { 'for' : ['pubspec.yaml'] }
+" Plug 'dart-lang/dart-vim-plugin'
+" Plug 'f-person/pubspec-assist-nvim', { 'for' : ['pubspec.yaml'] }
 
 " Markdown
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
@@ -99,21 +99,17 @@ Plug 'dkarter/bullets.vim'
 " Editor Enhancement
 Plug 'jiangmiao/auto-pairs'
 Plug 'mg979/vim-visual-multi'
-Plug 'preservim/nerdcommenter'
-Plug 'theniceboy/antovim'        " gs to switch
-Plug 'tpope/vim-surround'        " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
-Plug 'gcmt/wildfire.vim'         " in Visual mode, press <Enter> to Select Text
-Plug 'junegunn/vim-after-object' " da= to delete what's after =
-Plug 'tpope/vim-capslock'        " Ctrl+L (insert) to toggle capslock
+Plug 'preservim/nerdcommenter'        " comment and un comment code by type <leader>cc, <leader>cu
+Plug 'tpope/vim-surround'             " type ysiw' to wrap the word with '' or type cs'` to change 'word' to `word`
+Plug 'gcmt/wildfire.vim'              " in Visual mode, press <Enter> to Select Text
+Plug 'junegunn/vim-after-object'      " da= to delete what's after =
 Plug 'easymotion/vim-easymotion'
 Plug 'svermeulen/vim-subversive'
-Plug 'theniceboy/argtextobj.vim'
-Plug 'rhysd/clever-f.vim'
+Plug 'rhysd/clever-f.vim'             " extends f, F, t and T mappings for more convenience
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'theniceboy/pair-maker.vim'
-Plug 'theniceboy/vim-move'
-Plug 'Yggdroot/indentLine'
-Plug 'junegunn/vim-easy-align'
+Plug 'matze/vim-move'                 " Move current line/selection By <A-h>,<A-j>,<A-k>,<A-L>
+Plug 'Yggdroot/indentLine'            " Add indentline every 4 spaces
+Plug 'junegunn/vim-easy-align'        " Align code by type <leader>a=, <leader>a: etc.
 Plug 'christoomey/vim-tmux-navigator' " Move cursor between vim and tmux
 " Mini Vim-APP
 Plug 'skywind3000/asynctasks.vim'
