@@ -98,7 +98,6 @@ Plug 'gcmt/wildfire.vim'              " in Visual mode, press <Enter> to Select 
 Plug 'junegunn/vim-after-object'      " da= to delete what's after =
 " Plug 'easymotion/vim-easymotion'
 Plug 'rhysd/clever-f.vim'             " extends f, F, t and T mappings for more convenience
-Plug 'matze/vim-move'                 " Move current line/selection By <A-h>,<A-j>,<A-k>,<A-L>
 Plug 'Yggdroot/indentLine'            " Add indentline every 4 spaces
 Plug 'junegunn/vim-easy-align'        " Align code by type <leader>a=, <leader>a: etc.
 Plug 'christoomey/vim-tmux-navigator' " Move cursor between vim and tmux

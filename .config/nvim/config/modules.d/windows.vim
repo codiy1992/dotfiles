@@ -13,11 +13,11 @@ noremap sk :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
 noremap sj :set splitbelow<CR>:split<CR>
 noremap sh :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
 noremap sl :set splitright<CR>:vsplit<CR>
-" Resize splits with arrow keys
-noremap <up> :res +5<CR>
-noremap <down> :res -5<CR>
-noremap <left> :vertical resize-5<CR>
-noremap <right> :vertical resize+5<CR>
+" Resize splits with arrow keys (iterm2 need set left Option key to Esc+)
+noremap <A-k> :res +5<CR>
+noremap <A-j> :res -5<CR>
+noremap <A-h> :vertical resize-5<CR>
+noremap <A-l> :vertical resize+5<CR>
 
 " Place the two screens up and down
 noremap st <C-w>t<C-w>K

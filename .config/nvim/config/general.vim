@@ -11,6 +11,7 @@ set exrc
 set secure
 set nonumber
 set relativenumber
+set signcolumn=auto             " 是否显示标志列
 set cursorline
 set hidden
 set softtabstop=2

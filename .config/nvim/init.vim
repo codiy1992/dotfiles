@@ -3,7 +3,7 @@
 
 runtime! config/general.vim
 
-runtime! config/plugins.vim
+runtime! config/packages.vim
 
 runtime! config/functions.vim config/mappings.vim
 
