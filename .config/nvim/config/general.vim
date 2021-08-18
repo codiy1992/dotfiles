@@ -52,3 +52,21 @@ set virtualedit=block
 " see https://unix.stackexchange.com/questions/139578/copy-paste-for-vim-is-not-working-when-mouse-set-mouse-a-is-on
 set clipboard=unnamed
 set mouse+=a "Tips: Press `shift` or `alt/option`(OSX) while selecting
+
+" directories
+silent !mkdir -p $HOME/.config/nvim/tmp/backup
+silent !mkdir -p $HOME/.config/nvim/tmp/swap
+set backupdir=$HOME/.config/nvim/tmp/backup,.
+set directory=$HOME/.config/nvim/tmp/swap,.
+if has('persistent_undo')
+	set undofile
+    silent !mkdir -p $HOME/.config/nvim/tmp/undo
+	set undodir=$HOME/.config/nvim/tmp/undo,.
+endif
+
+" Use new regular expression engine
+set re=0
+
+" experimental
+set lazyredraw
+"set regexpengine=1

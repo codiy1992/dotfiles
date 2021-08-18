@@ -74,12 +74,14 @@ noremap tml :+tabmove<CR>
 " --- Other useful stuff
 " ---
 
+" Clear highlighting on escape in normal mode
+nnoremap <esc> :noh<return><esc>
 " Open a new instance of st with the cwd
 nnoremap \t :tabe<CR>:-tabmove<CR>:term sh -c 'st'<CR><C-\><C-N>:q<CR>
 " Opening a terminal window
 noremap <LEADER>/ :set splitbelow<CR>:split<CR>:res +10<CR>:term<CR>
 " Auto change directory to current dir
-autocmd BufEnter * silent! lcd %:p:h
+" autocmd BufEnter * silent! lcd %:p:h
 " find and replace
 noremap \s :%s//g<left><left>
 " you know
