@@ -28,6 +28,5 @@ set termguicolors " enable true colors support
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 color deus
-
 hi NonText ctermfg=gray guifg=grey10
 

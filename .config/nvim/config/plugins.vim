@@ -22,8 +22,8 @@ Plug 'nvim-treesitter/playground'
 Plug 'theniceboy/nvim-deus'
 
 " Status line
-Plug 'theniceboy/eleline.vim'
-Plug 'ojroques/vim-scrollstatus'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " General Highlighter
 Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
@@ -54,7 +54,6 @@ Plug 'wellle/tmux-complete.vim'
 Plug 'mbbill/undotree'
 
 " Git
-" Plug 'theniceboy/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
 Plug 'fszymanski/fzf-gitignore', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'cohama/agit.vim'
@@ -69,7 +68,6 @@ Plug 'elzr/vim-json'
 Plug 'neoclide/jsonc.vim'
 Plug 'othree/html5.vim'
 Plug 'alvan/vim-closetag'
-" Plug 'spf13/PIV', { 'for' :['php', 'vim-plug'] }
 Plug 'yuezk/vim-js', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'MaxMEllon/vim-jsx-pretty'

@@ -13,7 +13,6 @@ set nonumber
 set relativenumber
 set cursorline
 set hidden
-" set noexpandtab
 set softtabstop=2
 set tabstop=4                   " 一个 tab 显示出来是多少个空格，默认 8
 set expandtab ts=4 sw=4 ai      " 设置一个tab为4个空格
@@ -28,7 +27,7 @@ set viewoptions=cursor,folds,slash,unix
 set wrap
 set tw=0
 set indentexpr=
-set foldmethod=indent
+set foldmethod=indent           " 代码折叠方式
 set foldlevel=99
 set foldenable
 set formatoptions-=tc
@@ -47,7 +46,7 @@ set lazyredraw "same as above
 set colorcolumn=100
 set updatetime=100
 set virtualedit=block
-" --- three cliboards: unamed, *, +
+" --- vim cliboards: unamed, *, +
 " see https://vi.stackexchange.com/questions/84/how-can-i-copy-text-to-the-system-clipboard-from-vim
 " see https://unix.stackexchange.com/questions/139578/copy-paste-for-vim-is-not-working-when-mouse-set-mouse-a-is-on
 set clipboard=unnamed
