@@ -58,6 +58,7 @@ Plug 'fszymanski/fzf-gitignore', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'cohama/agit.vim'
 Plug 'kdheepak/lazygit.nvim'
+Plug 'tpope/vim-fugitive'
 
 " Autoformat
 Plug 'google/vim-maktaba'
