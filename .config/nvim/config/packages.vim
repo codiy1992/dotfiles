@@ -65,18 +65,18 @@ Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 
 " HTML, CSS, JavaScript, Typescript, PHP, JSON, etc.
-Plug 'elzr/vim-json'
-Plug 'neoclide/jsonc.vim'
-Plug 'othree/html5.vim'
-Plug 'alvan/vim-closetag'
-Plug 'yuezk/vim-js', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'MaxMEllon/vim-jsx-pretty'
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'pantharshit00/vim-prisma'
+" Plug 'elzr/vim-json'
+" Plug 'neoclide/jsonc.vim'
+" Plug 'othree/html5.vim'
+" Plug 'alvan/vim-closetag'
+" Plug 'yuezk/vim-js', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
+" Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'MaxMEllon/vim-jsx-pretty'
+" Plug 'pangloss/vim-javascript'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'peitalin/vim-jsx-typescript'
+" Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+" Plug 'pantharshit00/vim-prisma'
 
 " Go
 Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
@@ -103,8 +103,10 @@ Plug 'Yggdroot/indentLine'            " Add indentline every 4 spaces
 Plug 'junegunn/vim-easy-align'        " Align code by type <leader>a=, <leader>a: etc.
 Plug 'christoomey/vim-tmux-navigator' " Move cursor between vim and tmux
 " Mini Vim-APP
-Plug 'skywind3000/asynctasks.vim'
-Plug 'skywind3000/asyncrun.vim'
+" Plug 'skywind3000/asynctasks.vim'
+" Plug 'skywind3000/asyncrun.vim'
+" let g:asyncrun_open = 6
+" noremap gp :AsyncRun git push<CR>
 
 " Other visual enhancement
 Plug 'luochen1990/rainbow'
