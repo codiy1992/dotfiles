@@ -1,12 +1,8 @@
-" ---
-" --- System
-" ---
+
+
+
 let &t_ut=''
 set autochdir
-
-" ---
-" --- Editor behavior
-" ---
 set exrc
 set secure
 set nonumber
@@ -42,16 +38,13 @@ set smartcase
 set shortmess+=c
 set inccommand=split
 set completeopt=longest,noinsert,menuone,noselect,preview
-set ttyfast "should make scrolling faster
-set lazyredraw "same as above
+set ttyfast " should make scrolling faster
+set lazyredraw " same as above
 set colorcolumn=100
 set updatetime=100
 set virtualedit=block
-" --- vim cliboards: unamed, *, +
-" see https://vi.stackexchange.com/questions/84/how-can-i-copy-text-to-the-system-clipboard-from-vim
-" see https://unix.stackexchange.com/questions/139578/copy-paste-for-vim-is-not-working-when-mouse-set-mouse-a-is-on
-set clipboard=unnamed
-set mouse+=a "Tips: Press `shift` or `alt/option`(OSX) while selecting
+set clipboard=unnamed " unamed, *, +
+set mouse+=a " Press `shift` or `alt/option`(OSX) while selecting
 
 " directories
 silent !mkdir -p $HOME/.config/nvim/tmp/backup

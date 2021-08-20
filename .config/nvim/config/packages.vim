@@ -25,9 +25,6 @@ Plug 'theniceboy/nvim-deus'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" General Highlighter
-Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
-Plug 'RRethy/vim-illuminate'
 
 " File navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -65,6 +62,7 @@ Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 
 " HTML, CSS, JavaScript, Typescript, PHP, JSON, etc.
+Plug 'ap/vim-css-color'
 " Plug 'elzr/vim-json'
 " Plug 'neoclide/jsonc.vim'
 " Plug 'othree/html5.vim'
@@ -102,6 +100,7 @@ Plug 'rhysd/clever-f.vim'             " extends f, F, t and T mappings for more 
 Plug 'Yggdroot/indentLine'            " Add indentline every 4 spaces
 Plug 'junegunn/vim-easy-align'        " Align code by type <leader>a=, <leader>a: etc.
 Plug 'christoomey/vim-tmux-navigator' " Move cursor between vim and tmux
+Plug 'rrethy/vim-illuminate'          " Highlight Words Under Cursor
 " Mini Vim-APP
 " Plug 'skywind3000/asynctasks.vim'
 " Plug 'skywind3000/asyncrun.vim'
