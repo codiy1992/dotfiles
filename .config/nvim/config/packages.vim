@@ -14,11 +14,7 @@ endif
 
 call plug#begin('$HOME/.config/nvim/plugged')
 
-" Treesitter
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-treesitter/playground'
-
-" Pretty Dress
+" Color Theme
 Plug 'ajmwagar/vim-deus'
 
 " Status line
@@ -51,10 +47,8 @@ Plug 'wellle/tmux-complete.vim'
 Plug 'mbbill/undotree'
 
 " Git
-Plug 'fszymanski/fzf-gitignore', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'cohama/agit.vim'
-Plug 'kdheepak/lazygit.nvim'
 Plug 'tpope/vim-fugitive'
 
 " Autoformat

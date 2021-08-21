@@ -16,3 +16,11 @@ highlight GitGutterAdd ctermfg=22 guifg=#A9DC76 ctermbg=NONE guibg=#242a32
 highlight GitGutterChange ctermfg=58 guifg=#FC9867 ctermbg=NONE guibg=#242a32
 highlight GitGutterDelete ctermfg=52 guifg=#FF6188 ctermbg=NONE guibg=#242a32
 highlight GitGutterChangeDelete ctermfg=52 guifg=#FF6188 ctermbg=NONE guibg=#242a32
+
+
+" ---
+" --- <cohama/agit.vim>
+" --- @link https://github.com/cohama/agit.vim
+" ---
+nnoremap <LEADER>gl :Agit<CR>
+let g:agit_no_default_mappings = 1
