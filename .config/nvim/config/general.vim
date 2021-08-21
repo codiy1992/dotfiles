@@ -1,12 +1,10 @@
-
-
-
 let &t_ut=''
-set autochdir
+" set autochdir
+set re=0 " Use new regular expression engine
 set exrc
 set secure
-set nonumber
-set relativenumber
+set nonumber                    " Don't Show Line Number
+set relativenumber              " Show Relative Line Number
 set signcolumn=auto             " 是否显示标志列
 set cursorline
 set hidden
@@ -16,7 +14,6 @@ set expandtab ts=4 sw=4 ai      " 设置一个tab为4个空格
 set shiftwidth=4                " 每一级缩进是多少个空格
 set autoindent
 set list
-set listchars=tab:\|\ ,trail:▫
 set scrolloff=4
 set ttimeoutlen=0
 set notimeout
@@ -57,10 +54,4 @@ if has('persistent_undo')
 	set undodir=$HOME/.config/nvim/tmp/undo,.
 endif
 
-" Use new regular expression engine
-set re=0
-
-" experimental
-set lazyredraw
-"set regexpengine=1
 
