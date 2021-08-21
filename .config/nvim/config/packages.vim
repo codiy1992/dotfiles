@@ -19,7 +19,8 @@ Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/playground'
 
 " Pretty Dress
-Plug 'theniceboy/nvim-deus'
+" Plug 'theniceboy/nvim-deus'
+Plug 'ajmwagar/vim-deus'
 
 " Status line
 Plug 'vim-airline/vim-airline'
