@@ -52,8 +52,8 @@ Plug 'cohama/agit.vim'
 Plug 'tpope/vim-fugitive'
 
 " Autoformat
-Plug 'google/vim-maktaba'
-Plug 'google/vim-codefmt'
+" Plug 'google/vim-maktaba'
+" Plug 'google/vim-codefmt'
 
 " HTML, CSS, JavaScript, Typescript, PHP, JSON, etc.
 Plug 'ap/vim-css-color'
@@ -94,15 +94,15 @@ Plug 'Yggdroot/indentLine'            " Add indentline every 4 spaces
 Plug 'junegunn/vim-easy-align'        " Align code by type <leader>a=, <leader>a: etc.
 Plug 'christoomey/vim-tmux-navigator' " Move cursor between vim and tmux
 Plug 'rrethy/vim-illuminate'          " Highlight Words Under Cursor
+Plug 'luochen1990/rainbow'
+Plug 'ryanoasis/vim-devicons'
+
 " Mini Vim-APP
 " Plug 'skywind3000/asynctasks.vim'
 " Plug 'skywind3000/asyncrun.vim'
 " let g:asyncrun_open = 6
 " noremap gp :AsyncRun git push<CR>
 
-" Other visual enhancement
-Plug 'luochen1990/rainbow'
-Plug 'ryanoasis/vim-devicons'
 
 " Other useful utilities
 Plug 'lambdalisue/suda.vim' " do stuff like :sudowrite
