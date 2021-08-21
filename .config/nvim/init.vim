@@ -14,8 +14,8 @@ set t_Co=256
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set background=dark    " Setting dark mode
-color deus
 
+color deus
 
 set listchars=tab:→\ ,trail:·
 " used for `eol`, `extends` and `precedes`
@@ -43,6 +43,4 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 " Auto Remove Trailing Whitespace on Save
 autocmd BufWritePre * :%s/\s\+$//e
-
-
 
