@@ -13,6 +13,8 @@ endif
 " ---
 
 call plug#begin('$HOME/.config/nvim/plugged')
+" treesitter
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 
 " Color Theme
 Plug 'ajmwagar/vim-deus'
@@ -20,7 +22,6 @@ Plug 'ajmwagar/vim-deus'
 " Status line
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
 
 " File navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -39,6 +40,11 @@ Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-go'}
 " Auto Complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'wellle/tmux-complete.vim'
+Plug 'hrsh7th/nvim-compe'
+" lsp support
+Plug 'neovim/nvim-lspconfig'
+Plug 'glepnir/lspsaga.nvim'
+
 
 " Snippets
 " Plug 'theniceboy/vim-snippets'
@@ -80,11 +86,12 @@ Plug 'mzlogin/vim-markdown-toc', { 'for': ['gitignore', 'markdown', 'vim-plug'] 
 Plug 'dkarter/bullets.vim'
 
 " Editor Enhancement
-Plug 'jiangmiao/auto-pairs'
+Plug 'windwp/nvim-autopairs'
 Plug 'preservim/nerdcommenter'        " comment and un comment code by type <leader>cc, <leader>cu
 Plug 'tpope/vim-surround'             " type ysiw' to wrap the word with '' or type cs'` to change 'word' to `word`
 Plug 'gcmt/wildfire.vim'              " in Visual mode, press <Enter> to Select Text
-Plug 'easymotion/vim-easymotion'
+Plug 'phaazon/hop.nvim'
+" Plug 'easymotion/vimreasymotion'
 Plug 'rhysd/clever-f.vim'             " extends f, F, t and T mappings for more convenience
 Plug 'Yggdroot/indentLine'            " Add indentline every 4 spaces
 Plug 'junegunn/vim-easy-align'        " Align code by type <leader>a=, <leader>a: etc.

@@ -13,7 +13,7 @@
     "suggest.noselect": true,
     "suggest.enablePreselect": false,
     "suggest.triggerAfterInsertEnter": true,
-    "suggest.autoTrigger": "always",
+    "suggest.autoTrigger": "none",
     "suggest.timeout": 5000,
     "suggest.enablePreview": true,
     "suggest.floatEnable": true,
@@ -136,15 +136,5 @@
         "eelixir": "mix_format"
     },
     "languageserver": {
-        "golang": {
-            "command": "gopls",
-            "rootPatterns": ["go.mod"],
-            "filetypes": ["go"],
-            "initializationOptions": {
-                "gocodeCompletionEnabled": true,
-                "diagnosticsEnabled": true,
-                "lintTool": "golint"
-            }
-        }
     }
 }
