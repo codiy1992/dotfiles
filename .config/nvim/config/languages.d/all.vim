@@ -1,8 +1,9 @@
-" Completion
-" Lint
 " LSP
+" Linter
+" Completion
 " Diagnostic
-
+" Snippets
+" Prettier
 
 lua <<LUA
 require('nvim-treesitter.configs').setup {
