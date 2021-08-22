@@ -29,7 +29,7 @@ let g:Lf_WildIgnore = {
             \'*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]',
             \'__vim_project_root', 'class', '.DS_Store']
         \}
-let g:Lf_ShortcutF = '<leader>ff'
+let g:Lf_ShortcutF = '<Leader>ff'
 noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
 noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
@@ -39,7 +39,7 @@ noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 let g:Lf_RgConfig = [
         \ "--max-columns=150",
         \ "--max-columns-preview",
-        \ "--glob=*.{php,go}",
+        \ "--glob=*.{php,go,vim,js,md,py}",
         \ "--smart-case",
         \ "--hidden"
     \ ]

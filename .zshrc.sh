@@ -28,10 +28,6 @@ export http_proxy=http://127.0.0.1:7890
 export all_proxy=socks5://127.0.0.1:7891
 # export no_proxy=127.0.0.1,0.0.0.0,localhost
 
-# JDK 版本
-# JDK_VERSION="xxx"
-# export JAVA_HOME=$(/usr/libexec/java_home -v"${JDK_VERSION}")
-
 # 命令别名 - 通用
 alias pd='popd'
 alias ll='ls -al'

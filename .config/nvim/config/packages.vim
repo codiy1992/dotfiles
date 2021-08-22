@@ -51,10 +51,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'cohama/agit.vim'
 Plug 'tpope/vim-fugitive'
 
-" Autoformat
-" Plug 'google/vim-maktaba'
-" Plug 'google/vim-codefmt'
-
 " HTML, CSS, JavaScript, Typescript, PHP, JSON, etc.
 Plug 'ap/vim-css-color'
 " Plug 'elzr/vim-json'
@@ -97,14 +93,6 @@ Plug 'rrethy/vim-illuminate'          " Highlight Words Under Cursor
 Plug 'luochen1990/rainbow'
 Plug 'ryanoasis/vim-devicons'
 
-" Mini Vim-APP
-" Plug 'skywind3000/asynctasks.vim'
-" Plug 'skywind3000/asyncrun.vim'
-" let g:asyncrun_open = 6
-" noremap gp :AsyncRun git push<CR>
-
-
 " Other useful utilities
-Plug 'lambdalisue/suda.vim' " do stuff like :sudowrite
-
+Plug 'lambdalisue/suda.vim'           " do stuff like :sudowrite
 call plug#end()
