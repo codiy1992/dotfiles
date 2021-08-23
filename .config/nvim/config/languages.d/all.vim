@@ -3,7 +3,7 @@
 " Completion
 " Diagnostic
 " Snippets
-" Prettier
+" Formatter(Prettier)
 
 lua <<LUA
 require('nvim-treesitter.configs').setup {

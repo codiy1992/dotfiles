@@ -39,8 +39,10 @@ Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-go'}
 
 " Auto Complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'wellle/tmux-complete.vim'
 Plug 'hrsh7th/nvim-compe'
+Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
+Plug 'andersevenrud/compe-tmux'
+
 " lsp support
 Plug 'neovim/nvim-lspconfig'
 Plug 'glepnir/lspsaga.nvim'

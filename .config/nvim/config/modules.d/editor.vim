@@ -44,7 +44,7 @@ require'compe'.setup {
   autocomplete = true;
   debug = false;
   min_length = 1;
-  preselect = 'enable';
+  preselect = 'always';
   throttle_time = 80;
   source_timeout = 200;
   resolve_timeout = 800;
@@ -70,9 +70,13 @@ require'compe'.setup {
     vsnip = true;
     ultisnips = true;
     luasnip = true;
+    tabnine = true;
+    tmux = true;
   };
 }
 LUA
+
+
 
 inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <CR>      compe#confirm(luaeval("require 'nvim-autopairs'.autopairs_cr()"))
@@ -92,3 +96,4 @@ require'hop'.setup()
 vim.api.nvim_set_keymap("n", "C", ":HopChar2<cr>", { silent = true })
 vim.api.nvim_set_keymap("n", "S", ":HopWord<cr>", { silent = true })
 LUA
+
