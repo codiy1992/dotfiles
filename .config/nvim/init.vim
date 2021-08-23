@@ -44,3 +44,4 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " Auto Remove Trailing Whitespace on Save
 autocmd BufWritePre * :%s/\s\+$//e
 
+command! -nargs=? Epu :enew|pu=execute('<args>')
