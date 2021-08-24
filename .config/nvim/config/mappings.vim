@@ -33,7 +33,8 @@ nnoremap \t :tabe<CR>:-tabmove<CR>:term sh -c 'st'<CR><C-\><C-N>:q<CR>
 " Auto change directory to current dir
 " autocmd BufEnter * silent! lcd %:p:h
 " find and replace
-noremap \s :%s//g<left><left>
+noremap \s :s//g<left><left>
+noremap \S :%s//g<left><left>
 " you know
 noremap <silent> \v v$h
 " set wrap
