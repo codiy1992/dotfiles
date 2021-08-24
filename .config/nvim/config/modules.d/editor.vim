@@ -14,10 +14,6 @@ highlight illuminatedWord cterm=underline guibg=NULL guifg=#11bbcc
 let g:rainbow_active = 1
 
 
-
-
-
-
 " ---
 " --- <windwp/nvim-autopairs>
 " --- @link https://github.com/windwp/nvim-autopairs
@@ -30,8 +26,6 @@ require("nvim-autopairs.completion.compe").setup({
   auto_select = false,  -- auto select first item
 })
 LUA
-
-
 
 
 " ---
@@ -79,7 +73,7 @@ LUA
 
 
 inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR>      compe#confirm(luaeval("require 'nvim-autopairs'.autopairs_cr()"))
+inoremap <silent><expr> <CR>      compe#confirm({ 'keys': '<CR>', 'select': v:true })
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
@@ -93,7 +87,9 @@ inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 " ---
 lua <<LUA
 require'hop'.setup()
-vim.api.nvim_set_keymap("n", "C", ":HopChar2<cr>", { silent = true })
-vim.api.nvim_set_keymap("n", "S", ":HopWord<cr>", { silent = true })
+vim.api.nvim_set_keymap('n', 'w', "<cmd>lua require'hop'.hint_char1()<cr>", { silent = true })
+vim.api.nvim_set_keymap('n', 'W', "<cmd>lua require'hop'.hint_words()<cr>", { silent = true })
+vim.api.nvim_set_keymap('n', 'L', "<cmd>lua require'hop'.hint_lines()<cr>", { silent = true })
+vim.api.nvim_set_keymap('n', 'P', "<cmd>lua require'hop'.hint_patterns()<cr>", { silent = true })
 LUA
 

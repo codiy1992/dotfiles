@@ -11,10 +11,6 @@ nnoremap <Leader>rr :source $MYVIMRC<CR>
 
 
 " Cursor Movement
-noremap <silent> zk 5k
-noremap <silent> zj 5j
-noremap W 5w
-noremap B 5b
 noremap <silent> - $
 
 " ---
