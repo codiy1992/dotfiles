@@ -1,10 +1,13 @@
-" Create a new tab with tu
-noremap tk :tabe<CR>
-noremap tK :tab split<CR>
-" Move around tabs with th and tl
-noremap th :-tabnext<CR>
-noremap tl :+tabnext<CR>
-" Move the tabs with tmh and tml
-noremap tmh :-tabmove<CR>
-noremap tml :+tabmove<CR>
-
+nnoremap th  :tabfirst<CR>
+nnoremap tk  :tabnext<CR>
+nnoremap tj  :tabprev<CR>
+nnoremap tl  :tablast<CR>
+nnoremap tt  :tabedit<CR>
+nnoremap tn  :tabnext<Space>
+nnoremap tm  :tabm<Space>
+nnoremap td  :tabclose<CR>
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>4 4gt
+nnoremap <leader>5 5gt

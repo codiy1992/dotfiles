@@ -22,6 +22,7 @@ cnoremap <C-a> <Home>
 " --- Other useful stuff
 " ---
 
+noremap <LEADER>Q :qa!<CR>
 " Clear highlighting on escape in normal mode
 nnoremap <esc> :noh<return><esc>
 " Open a new instance of st with the cwd
