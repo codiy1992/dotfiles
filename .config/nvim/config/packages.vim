@@ -76,5 +76,7 @@ Plug 'christoomey/vim-tmux-navigator' " Move cursor between vim and tmux
 Plug 'rrethy/vim-illuminate'          " Highlight Words Under Cursor
 Plug 'luochen1990/rainbow'
 Plug 'ryanoasis/vim-devicons'
+Plug 'mhinz/vim-startify'
+Plug 'machakann/vim-highlightedyank'
 
 call plug#end()

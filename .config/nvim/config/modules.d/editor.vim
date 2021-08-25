@@ -79,3 +79,24 @@ vim.api.nvim_set_keymap('n', 'L', "<cmd>lua require'hop'.hint_lines()<cr>", { si
 vim.api.nvim_set_keymap('n', 'P', "<cmd>lua require'hop'.hint_patterns()<cr>", { silent = true })
 LUA
 
+
+
+
+" ---
+" --- <mhinz/vim-startify>
+" --- @link https://github.com/mhinz/vim-startify
+" ---
+let g:startify_enable_special = 0
+let g:startify_change_to_dir = 0
+let g:startify_change_to_vcs_root = 0
+let g:startify_custom_header = []
+let g:startify_bookmarks = [
+            \ { 'a': '~/Works' },
+            \ { 'b': '~/Repos' },
+            \ { 'c': '~/.config/nvim' },
+            \ ]
+let g:startify_lists = [
+          \ { 'type': 'files',     'header': ['   Files']            },
+          \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+          \ { 'type': 'sessions',  'header': ['   Sessions']       },
+          \ ]
