@@ -14,6 +14,17 @@ highlight illuminatedWord cterm=underline guibg=NULL guifg=#11bbcc
 let g:rainbow_active = 1
 
 
+
+" ---
+" --- <windwp/nvim-autopairs>
+" --- @link https://github.com/windwp/nvim-autopairs
+" ---
+lua <<LUA
+require('nvim-autopairs').setup{}
+require('nvim-autopairs').remove_rule('(')-- remove rule (
+LUA
+
+
 " ---
 " --- <hrsh7th/nvim-compe>
 " --- @link https://github.com/hrsh7th/nvim-compe

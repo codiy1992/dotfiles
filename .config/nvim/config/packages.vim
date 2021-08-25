@@ -64,7 +64,7 @@ Plug 'ap/vim-css-color'
 Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
 
 " Editor Enhancement
-Plug 'jiangmiao/auto-pairs'
+Plug 'windwp/nvim-autopairs'
 Plug 'preservim/nerdcommenter'        " comment and un comment code by type <leader>cc, <leader>cu
 Plug 'tpope/vim-surround'             " type ysiw' to wrap the word with '' or type cs'` to change 'word' to `word`
 Plug 'gcmt/wildfire.vim'              " in Visual mode, press <Enter> to Select Text
