@@ -120,8 +120,8 @@
     "prettier.disableLanguages": [],
     "prettier.formatterPriority": 1,
     "prettier.useTabs": false,
-    "prettier.trailingComma": "all",
     "prettier.singleQuote": false,
+    "prettier.tabWidth": 4,
     "diagnostic-languageserver.filetypes": {
         "vim": "vint",
         "email": "languagetool",
