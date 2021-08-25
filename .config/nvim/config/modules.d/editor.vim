@@ -15,20 +15,6 @@ let g:rainbow_active = 1
 
 
 " ---
-" --- <windwp/nvim-autopairs>
-" --- @link https://github.com/windwp/nvim-autopairs
-" ---
-lua <<LUA
-require('nvim-autopairs').setup{}
-require("nvim-autopairs.completion.compe").setup({
-  map_cr = true, --  map <CR> on insert mode
-  map_complete = true, -- it will auto insert `(` after select function or method item
-  auto_select = false,  -- auto select first item
-})
-LUA
-
-
-" ---
 " --- <hrsh7th/nvim-compe>
 " --- @link https://github.com/hrsh7th/nvim-compe
 " ---
