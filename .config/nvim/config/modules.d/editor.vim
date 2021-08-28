@@ -40,7 +40,10 @@ lua <<EOF
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-e>'] = cmp.mapping.close(),
-      ['<CR>'] = cmp.mapping.confirm()
+      ['<CR>'] = cmp.mapping.confirm({
+        behavior = cmp.ConfirmBehavior.Insert,
+        select = true,
+      })
     },
     -- You should specify your *installed* sources.
     sources = {
@@ -60,7 +63,7 @@ EOF
 " ---
 lua <<LUA
 require'hop'.setup()
-vim.api.nvim_set_keymap('n', 'w', "<cmd>lua require'hop'.hint_char1()<cr>", { silent = true })
+vim.api.nvim_set_keymap('n', '<M-space>', "<cmd>lua require'hop'.hint_char1()<cr>", { silent = true })
 vim.api.nvim_set_keymap('n', 'W', "<cmd>lua require'hop'.hint_words()<cr>", { silent = true })
 vim.api.nvim_set_keymap('n', 'L', "<cmd>lua require'hop'.hint_lines()<cr>", { silent = true })
 vim.api.nvim_set_keymap('n', 'P', "<cmd>lua require'hop'.hint_patterns()<cr>", { silent = true })
