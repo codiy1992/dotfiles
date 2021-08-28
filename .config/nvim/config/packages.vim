@@ -14,7 +14,7 @@ endif
 
 call plug#begin('$HOME/.config/nvim/plugged')
 " treesitter
-Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+" Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 
 " Color Theme
 Plug 'ajmwagar/vim-deus'
@@ -27,7 +27,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'kevinhwang91/rnvimr'
 Plug 'airblade/vim-rooter'
-Plug 'pechorin/any-jump.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Taglist
 Plug 'liuchengxu/vista.vim'
@@ -35,16 +35,16 @@ Plug 'liuchengxu/vista.vim'
 " Debugger
 Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-go'}
 
-" Auto Complete
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'hrsh7th/nvim-compe'
-Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
-Plug 'andersevenrud/compe-tmux'
 
-" lsp support
+" LSP, Completion, Linter, Formater, Debugger, Snippets etc.
 Plug 'neovim/nvim-lspconfig'
 Plug 'glepnir/lspsaga.nvim'
-
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'andersevenrud/compe-tmux', { 'branch': 'cmp' }
+Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 
 " Snippets
 " Plug 'theniceboy/vim-snippets'

@@ -17,18 +17,18 @@
     "diagnostic.enable": false,
     "codeLens.enable": false,
     "coc.preferences.formatOnSaveFiletypes": [
-           "javascript",
-           "typescript",
-           "css",
-           "less",
-           "scss",
-           "json",
-           "graphql",
-           "markdown",
-           "vue",
-           "svelte",
-           "yaml",
-           "html"
+        "javascript",
+        "typescript",
+        "css",
+        "less",
+        "scss",
+        "json",
+        "graphql",
+        "markdown",
+        "vue",
+        "svelte",
+        "yaml",
+        "html"
     ],
     "signature.enable": false,
     "signature.target": "float",
@@ -53,6 +53,5 @@
     "prettier.useTabs": false,
     "prettier.singleQuote": false,
     "prettier.tabWidth": 4,
-    "languageserver": {
-    }
+    "languageserver": {}
 }
