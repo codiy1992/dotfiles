@@ -47,10 +47,6 @@ Plug 'andersevenrud/compe-tmux', { 'branch': 'cmp' }
 Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
-
-" Snippets
-" Plug 'theniceboy/vim-snippets'
-
 " Undo Tree
 Plug 'mbbill/undotree'
 
