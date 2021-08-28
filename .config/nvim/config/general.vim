@@ -10,7 +10,7 @@ set cursorline
 set hidden
 set softtabstop=2
 set tabstop=4                   " 一个 tab 显示出来是多少个空格，默认 8
-set expandtab ts=4 sw=4 ai      " 设置一个tab为4个空格
+set expandtab                   " 设置一个tab为4个空格
 set shiftwidth=4                " 每一级缩进是多少个空格
 set autoindent
 set list
@@ -53,5 +53,4 @@ if has('persistent_undo')
     silent !mkdir -p $HOME/.config/nvim/tmp/undo
 	set undodir=$HOME/.config/nvim/tmp/undo,.
 endif
-
 

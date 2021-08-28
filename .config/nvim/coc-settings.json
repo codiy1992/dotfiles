@@ -46,12 +46,5 @@
     "explorer.keyMappingMode": "default",
     "explorer.buffer.showHiddenBuffers": false,
     "explorer.keyMappings.global": {},
-    "prettier.printWidth": 100,
-    "prettier.eslintIntegration": false,
-    "prettier.disableLanguages": [],
-    "prettier.formatterPriority": 1,
-    "prettier.useTabs": false,
-    "prettier.singleQuote": false,
-    "prettier.tabWidth": 4,
     "languageserver": {}
 }

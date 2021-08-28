@@ -1,10 +1,3 @@
-" LSP
-" Linter
-" Completion
-" Diagnostic
-" Snippets
-" Formatter(Prettier)
-
 " lua <<LUA
 " require('nvim-treesitter.configs').setup {
   " ensure_installed = {
@@ -32,3 +25,6 @@
   " textobjects = { enable = true },
 " }
 " LUA
+
+
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab

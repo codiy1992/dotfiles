@@ -3,8 +3,7 @@
 " ---
 
 let g:coc_global_extensions = [
-	\ 'coc-explorer',
-	\ 'coc-prettier']
+	\ 'coc-explorer']
 
 " Coc Plugin coc-explorer
 nnoremap <leader>e :CocCommand explorer<CR>

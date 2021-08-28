@@ -36,7 +36,7 @@ Plug 'liuchengxu/vista.vim'
 Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-go'}
 
 
-" LSP, Completion, Linter, Formater, Debugger, Snippets etc.
+" LSP, Completion, Diagnostic, Linter, Formater, Debugger, Snippets etc.
 Plug 'neovim/nvim-lspconfig'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'hrsh7th/nvim-cmp'
@@ -45,6 +45,8 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'andersevenrud/compe-tmux', { 'branch': 'cmp' }
 Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
 
 " Snippets
 " Plug 'theniceboy/vim-snippets'
