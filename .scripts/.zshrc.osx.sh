@@ -7,7 +7,7 @@ alias rc='vim ~/.scripts/.zshrc.osx.sh; source ~/.zshrc.sh'
 alias @='_func() { code ~/.workspaces/"$1".code-workspace; }; _func'
 
 # 命令别名 - 工作
-alias ops='cd ~/Works/wn-devops && make bash'
+alias ops='_func() {cd ~/Works/wn-devops && make bash PROFILE=${1:-default}}; _func'
 alias deploy='ssh -t deploy "cd /devops; make bash"'
 alias work='_func() {cd ~/Works/.wlive; if [ -n "$1" ]; then make "$@"; else make; fi; popd}; _func'
 
