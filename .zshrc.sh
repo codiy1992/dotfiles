@@ -52,7 +52,7 @@ alias book.push='yes|rclone sync -i ~/Repos/books remote:/books 2> /dev/null'
 alias af.push='yes|rclone sync -i ~/Repos/Alfred remote:Alfred > /dev/null 2>&1'
 alias af.pull='yes|rclone sync -i remote:Alfred ~/Repos/Alfred > /dev/null 2>&1'
 alias todo='cd "${HOME}/Repos/todos";make;popd'
-alias repo='_func() {cd "${HOME}/Repos/mp-backend/.docker"; if [ -n "$1" ]; then make "$1"; else make; fi; popd}; _func'
+alias repo='_func() {cd "${HOME}/Repos/dockers/compose"; if [ -n "$1" ]; then make "$@"; else make; fi; popd}; _func'
 
 # 命令别名 - docker
 alias docker.clean='docker stop $(docker ps -a -q); docker rm $(docker ps -a -q); docker rmi $(docker images -q -f dangling=true);'
