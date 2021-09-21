@@ -25,7 +25,6 @@ Plug 'vim-airline/vim-airline-themes'
 
 " File navigation
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
-Plug 'kevinhwang91/rnvimr'
 Plug 'airblade/vim-rooter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
