@@ -10,13 +10,22 @@
     // Meslo LG
     brew install --cask font-meslo-lg-nerd-font
     ```
-* pynvim
+* python
  * `pip3 install pynvim`
+ * `curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py`
+ * `python2 get-pip.py`
+ * `pip2 install pynvim`
+
+* ruby
+ * `gem install neovim`
+ * `gem environment`
+
+* node
+ * `yarn global add neovim`
+
 * rg
  * `brew install ripgrep`
 
-## Optionals
+## CheckHealth
 
-* ranger
- * `pip3 install ranger-fm`
-
+* `:CheckHealth`
