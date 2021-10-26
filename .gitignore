@@ -13,3 +13,5 @@
 !/.config/
 /.config/*
 !/.config/nvim
+!/.aria2/
+!/.misc/
