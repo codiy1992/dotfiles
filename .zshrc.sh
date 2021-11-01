@@ -25,8 +25,8 @@ fi
 # 命令行代理
 export https_proxy=http://127.0.0.1:7890
 export http_proxy=http://127.0.0.1:7890
-export all_proxy=socks5://127.0.0.1:7891
-# export no_proxy=127.0.0.1,0.0.0.0,localhost
+export all_proxy=socks5://127.0.0.1:7890
+export no_proxy=127.0.0.1,0.0.0.0,localhost
 
 # 命令别名 - 通用
 alias pd='popd'
@@ -44,15 +44,18 @@ alias tma='_func() {tmux attach-session -t ${1:-codiy}}; _func'
 # 命令别名 - 系统管理
 alias tcp='lsof -i -n -P | grep TCP'
 
-# 命令别名 - 私人项目管理
+# 命令别名 - 项目管理
 alias eb.pull='yes|rclone sync -i remote:/eblibs ~/Repos/rc-eblibs 2> /dev/null; cd ~/Repos/eblibs; git checkout .; git pull; popd > /dev/null;'
 alias eb.push='cd ~/Repos/eblibs; git add . && git commit -a --allow-empty-message -m "" && git push; yes|rclone sync -i ~/Repos/rc-eblibs remote:/eblibs 2> /dev/null';
 alias book.pull='yes|rclone sync -i remote:/books ~/Repos/books 2> /dev/null;'
 alias book.push='yes|rclone sync -i ~/Repos/books remote:/books 2> /dev/null'
 alias af.push='yes|rclone sync -i ~/Repos/Alfred remote:Alfred > /dev/null 2>&1'
 alias af.pull='yes|rclone sync -i remote:Alfred ~/Repos/Alfred > /dev/null 2>&1'
-alias todo='cd "${HOME}/Repos/todos";make;popd'
 alias repo='_func() {cd "${HOME}/Repos/dockers/compose"; if [ -n "$1" ]; then make "$@"; else make; fi; popd}; _func'
+alias work='_func() {cd "${HOME}/Works/dockers/compose"; if [ -n "$1" ]; then make "$@"; else make; fi; popd}; _func'
+alias ops='_func() {cd ~/Works/wn-devops && make bash PROFILE=${1:-default}}; _func'
+alias deploy='ssh -t deploy "cd /devops; make bash"'
+alias @='_func() { code ~/.workspaces/"$1".code-workspace; }; _func'
 
 # 命令别名 - docker
 alias docker.clean='docker stop $(docker ps -a -q); docker rm $(docker ps -a -q); docker rmi $(docker images -q -f dangling=true);'

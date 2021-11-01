@@ -11,16 +11,6 @@ function ok() { if [ -z "$1" ]; then echo "params can't be null"; exit; fi; echo
 function warn() { if [ -z "$1" ]; then echo "params can't be null"; exit; fi; echo -e "\033[49;33m$1\033[0m";}
 function info() { if [ -z "$1" ]; then echo "params can't be null"; exit; fi; echo -e "\033[49;34m$1\033[0m";}
 
-# 待办仓库的初始化及更新
-_func_todos() {
-    REPO_PATH_TODO="${HOME}/Repos/todos"
-    if [ ! -d ${REPO_PATH_TODO} ] || [ "`ls -A ${REPO_PATH_TODO}`" = "" ]; then
-        git clone git@github.com:codiy1992/todos.git ${REPO_PATH_TODO}
-    else
-        cd ${REPO_PATH_TODO}; git pull > /dev/null; popd > /dev/null 2>&1;
-    fi
-}
-
 # URL编码
 urlencode() {
   local string="${1}"

@@ -1,7 +1,7 @@
 /*
 !/.gitignore
 !/.gitconfig
-!/.vimrc
+!/.vimrc.bak
 !/.gvimrc
 !/.zshrc
 !/.zshrc.sh
@@ -13,5 +13,6 @@
 !/.config/
 /.config/*
 !/.config/nvim
+
 !/.aria2/
 !/.misc/

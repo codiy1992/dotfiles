@@ -75,5 +75,4 @@ Plug 'luochen1990/rainbow'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
 Plug 'machakann/vim-highlightedyank'
-
 call plug#end()
