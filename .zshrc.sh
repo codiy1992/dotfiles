@@ -32,6 +32,7 @@ export no_proxy=127.0.0.1,0.0.0.0,localhost
 alias pd='popd'
 alias ll='ls -al'
 alias vim='nvim'
+alias copyssh="pbcopy < ${HOME}/.ssh/id_rsa.pub"
 alias rmkh='_func() { sed -i "" "$1"d  ${HOME}/.ssh/known_hosts;}; _func'
 alias ascii2hex='_func(){echo "$1" | hexdump -vC |  awk '\''BEGIN {IFS="\t"} {$1=""; print }'\'' | awk '\''{sub(/\|.*/,"")}1'\'' | tr -d '\''\n'\''|sed '\''s/  / /g'\'' |sed '\''s/ /\\x/g'\''|rev|cut -c 3- |rev }; _func'
 alias ipinfo='_func(){curl "http://ip-api.com/line/$1?lang=zh-CN"}; _func'
@@ -55,7 +56,7 @@ alias repo='_func() {cd "${HOME}/Repos/dockers/compose"; if [ -n "$1" ]; then ma
 alias work='_func() {cd "${HOME}/Works/dockers/compose"; if [ -n "$1" ]; then make "$@"; else make; fi; popd}; _func'
 alias ops='_func() {cd ~/Works/wn-devops && make bash PROFILE=${1:-default}}; _func'
 alias deploy='ssh -t deploy "cd /devops; make bash"'
-alias @='_func() { code ~/.workspaces/"$1".code-workspace; }; _func'
+alias @='_func() { cd ~/Works/"$1"; vim }; _func'
 
 # 命令别名 - docker
 alias docker.clean='docker stop $(docker ps -a -q); docker rm $(docker ps -a -q); docker rmi $(docker images -q -f dangling=true);'

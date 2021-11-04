@@ -60,6 +60,9 @@ Plug 'ap/vim-css-color'
 " Go
 Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
 
+" Markdown
+Plug 'ekickx/clipboard-image.nvim'
+
 " Editor Enhancement
 Plug 'windwp/nvim-autopairs'
 Plug 'preservim/nerdcommenter'        " comment and un comment code by type <leader>cc, <leader>cu

@@ -29,3 +29,12 @@
 ## CheckHealth
 
 * `:CheckHealth`
+
+
+## Markdown Plugins
+
+* [clipboard-image](https://github.com/ekickx/clipboard-image.nvim)
+
+```
+brew install pngpaste
+```
