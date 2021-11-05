@@ -118,3 +118,7 @@ alias ws.weixin='
 
 # -- Auto Add keyfinger to known_hosts
 # ssh-keygen -F git.wangle.ltd || ssh-keyscan git.wangle.ltd >> ~/.ssh/known_hosts
+
+
+# brew bundle dump
+# brew bundle [install]
