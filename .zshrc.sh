@@ -100,6 +100,21 @@ alias ws.weixin='
 '
 
 # -- 根据私钥生成公钥
-# ssh-keygen -y -f ~/.ssh/privateKey > ~/.ssh/PublicKey
-# -- SSH 代理
-# ssh ${PORXY_HOST} -N -L ${LOCAL_PORT}:${TARGET_HOST_DOMAIN}:${TARGET_PORT}
+# ssh-keygen -y -f ~/.ssh/privateKey
+
+# -- SSH 本地端口转发 通过ssh访问目标机器能访问的资源
+# @link https://www.cnblogs.com/f-ck-need-u/p/10482832.html
+# -f 放入后台
+# -g 允许局域网其他机器通过本地建立的端口转发链接到目标机器
+# -N 指明建立的链接不用于执行命令，只用来端口转发
+# -L 指定端口映射
+# ssh ${TARGET_HOST} -f -g -N -L ${LOCAL_PORT}:${TARGET_HOST}:${TARGET_PORT}
+
+# -- SSH 远程端口转发 将本地局域网内端口通过ssh暴露给目标机器
+# ssh ${TARGET_PORT} -fgN -R ${TARGET_PORT}:${LAN_HOST}:${LAN_PORT}
+
+# -- SSH SOCKS5 代理
+# ssh ${TARGET_HOST} -fgN -D [bind_addr:]port
+
+# -- Auto Add keyfinger to known_hosts
+# ssh-keygen -F git.wangle.ltd || ssh-keyscan git.wangle.ltd >> ~/.ssh/known_hosts
