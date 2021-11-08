@@ -120,5 +120,6 @@ alias ws.weixin='
 # ssh-keygen -F git.wangle.ltd || ssh-keyscan git.wangle.ltd >> ~/.ssh/known_hosts
 
 
+# https://github.com/driesvints/dotfiles/blob/main/Brewfile
 # brew bundle dump
 # brew bundle [install]

@@ -12,7 +12,7 @@ let g:Lf_UseVersionControlTool = 0
 let g:Lf_IgnoreCurrentBufferName = 1
 " let g:Lf_WorkingDirectory = finddir('.git', '.;')
 let g:Lf_WorkingDirectoryMode = 'AF'
-let g:Lf_RootMarkers = ['.works', '.repos']
+let g:Lf_RootMarkers = ['dockers', '.git']
 let g:Lf_CommandMap = {
           \ '<C-]>': ['<C-I>'],
           \ '<C-X>': ['<C-B>'],
