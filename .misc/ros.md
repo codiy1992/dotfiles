@@ -16,7 +16,7 @@ set [ find default-name=ether2 ] name=wan1
 /interface pppoe-client add name=pppoe interface=wan1 user=xxxx password=yyyy add-default-route=yes disabled=no
 ```
 
-* 开启IP伪装共享上网
+* 开启IP伪装共享上网(源地址为本局域网IP的IP数据包, 统一替换为路由器公网IP)
 
 ```
 /ip firewall nat add chain=srcnat action=masquerade
