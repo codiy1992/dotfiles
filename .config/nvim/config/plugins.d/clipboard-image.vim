@@ -21,5 +21,5 @@ LUA
 command! -nargs=* PasteImage call luaeval('require"clipboard-image.paste".paste_img({
                 \ img_dir = _A[1], img_dir_txt = _A[2], img_name = _A[3]
                 \ })', split('<args>'))
-noremap <Leader>pp :<C-U><C-R>=printf("PasteImage %s", expand(""))<CR>
+noremap <Leader>P :<C-U><C-R>=printf("PasteImage %s", expand(""))<CR>
 
