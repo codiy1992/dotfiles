@@ -9,6 +9,9 @@
 !/README.md
 !/.scripts
 !/.tmux.conf
+!/.gnupg/
+/.gnupg/*
+!/.gnupg/gpg.conf
 # .config folder
 !/.config/
 /.config/*
