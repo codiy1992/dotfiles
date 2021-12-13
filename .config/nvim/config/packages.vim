@@ -42,7 +42,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'andersevenrud/compe-tmux', { 'branch': 'cmp' }
+Plug 'andersevenrud/compe-tmux', { 'branch': 'compe' }
 Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
