@@ -2,10 +2,13 @@
 
 BARES_DIR=${HOME}/Bares
 REPOSITORY=${BARES_DIR}/dotfiles.git
+REPO_REMOTE=github.com/codiy1992/dotfiles.git
+REPO_SSH=git@github.com:codiy1992/dotfiles.git
+
 if [ ! -d ${REPOSITORY} ] || [ "`ls -A ${REPOSITORY}`" = "" ]; then
     # Clone Repository
     mkdir -p ${BARES_DIR}
-    git clone --bare https://github.com/codiy1992/dotfiles.git ${REPOSITORY}
+    git clone --bare https://${REPO_REMOTE} ${REPOSITORY}
     # Backup dotfiles
     cd ${HOME}
     mkdir -p ${HOME}/dotfiles-backup
@@ -13,6 +16,10 @@ if [ ! -d ${REPOSITORY} ] || [ "`ls -A ${REPOSITORY}`" = "" ]; then
     git --git-dir=${REPOSITORY} --work-tree=${HOME} checkout 2>&1 |egrep "\s+(\.|README\.md)" | awk {'print $1'} | xargs -I{} mv {} ${HOME}/dotfiles-backup/{}
     # Checkout Repository to your ${HOME}
     git --git-dir=${REPOSITORY} --work-tree=${HOME} checkout
+    # Replace config
+    REPO_SSH=${REPO_SSH//\//\\\/}
+    CONFIG=`sed "s/^\turl = http.*/\turl = git@${REPO_REMOTE}/" ${REPOSITORY}/config`
+    echo -e "${CONFIG}" > ${REPOSITORY}/config
 fi
 
 echo -e "\033[49;32mSuccessfully!
