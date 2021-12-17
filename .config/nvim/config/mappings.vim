@@ -9,6 +9,7 @@ noremap <LEADER>rc :e $MYVIMRC<CR>
 " Source Configuration
 nnoremap <Leader>rr :source $MYVIMRC<CR>
 
+noremap <LEADER>w <ESC>:w <CR>
 
 " Cursor Movement
 noremap <silent> - $
