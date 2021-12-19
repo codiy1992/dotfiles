@@ -13,13 +13,13 @@ require'clipboard-image'.setup {
   markdown = {
     img_dir = "img",
     img_dir_txt = "img",
-    affix = "![](https://static.codiy.net%s)"
+    affix = "![](https://static.codiy.net/%s)"
   }
 }
 LUA
 
 command! -nargs=* PasteImage call luaeval('require"clipboard-image.paste".paste_img({
-                \ img_dir = _A[1], img_dir_txt = _A[2], img_name = _A[3]
+                \ img_dir = "~/Assets/".._A[1], img_dir_txt = _A[2] or _A[1], img_name = _A[3]
                 \ })', split('<args>'))
 noremap <Leader>P :<C-U><C-R>=printf("PasteImage %s", expand(""))<CR>
 

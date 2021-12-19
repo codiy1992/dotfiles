@@ -73,6 +73,17 @@ alias play='ansible-playbook'
 alias vault='ansible-vault'
 alias encrypt='ansible-vault encrypt '
 
+# 命令别名 - rclone
+function kfc() {
+    X=$#
+    ARR=("$@")
+    if [ "$#" -ge 2 ]; then
+        rclone "${ARR[@]:0:$((X-1))}" "kfcs3:kfc-storage${ARR[X]}"
+    else
+        rclone "$@" kfcs3:kfc-storage
+    fi
+}
+
 # 命令别名 - youtube-dl
 # --proxy "socks5://127.0.0.1:7891" \
 alias ydl='
