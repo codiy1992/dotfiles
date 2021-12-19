@@ -52,38 +52,9 @@ date: 2020-03-09 14:07:18
     ZSH_THEME="agnoster"
     ```
 
-## 3. 文件拷贝,配置ssh及vim
+## 3. 文件拷贝
 
 ```shell
-# 从原Mac拷贝以下文件到新Mac
-~/.ssh/id_rsa
-~/.ssh/id_rsa.pub
-~/.ssh/config
-~/.ssh/各类ssh的rsa密钥
-
-# 安装macvim
-brew install --cask macvim
-# 从原Mac拷贝以下文件到新Mac
-~/.vim/
-~/.vimrc
-~/.gvimrc
-
-# 工作代码
-~/Works
-
-# 自己代码
-~/Repos
-
-# 其他有用的文件
-~/.aws/
-~/.gvimrc
-~/.config
-~/.ssh/
-~/.vim/
-~/.vimrc
-~/.zshrc
-~/.zshrc.osx.sh
-~/.workspaces
 ~/Works
 ~/Repos
 ```
@@ -98,13 +69,12 @@ brew install --cask docker
 brew install --cask clashx
 brew install --cask google-chrome
 
-# gpg2
-brew insall gpg2
-brew install --cask gpg-suite
+# gnupg
+brew insall gnupg
 # pinentry for gpg
-brew install pinentry-mac
-echo "pinentry-program /usr/local/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
-killall gpg-agent
+#brew install pinentry-mac
+#echo "pinentry-program /usr/local/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
+#killall gpg-agent
 
 # 数据库工具
 brew install --cask sequel-ace
@@ -148,6 +118,4 @@ LABEL=移动硬盘名称 none ntfs rw,auto,nobrowse
 ```shell
 brew install gnu-sed
 brew install grep
-echo 'export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"' >> ~/.zshrc
-echo 'export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"' >> ~/.zshrc
 ```
