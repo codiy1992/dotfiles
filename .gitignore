@@ -8,6 +8,7 @@
 !/.spacemacs
 !/README.md
 !/.scripts
+!/.secrets
 !/.tmux.conf
 !/.gnupg/
 /.gnupg/*
