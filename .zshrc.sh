@@ -84,6 +84,9 @@ function kfc() {
     fi
 }
 
+function tiny() {
+    ${HOME}/.scripts/tinypng.sh "$@"
+}
 # 命令别名 - youtube-dl
 # --proxy "socks5://127.0.0.1:7891" \
 alias ydl='
