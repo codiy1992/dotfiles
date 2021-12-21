@@ -61,7 +61,7 @@ Plug 'ap/vim-css-color'
 Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
 
 " Markdown
-Plug 'ekickx/clipboard-image.nvim'
+Plug 'codiy1992/clipboard-image.nvim'
 
 " Editor Enhancement
 Plug 'windwp/nvim-autopairs'

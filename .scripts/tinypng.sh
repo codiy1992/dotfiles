@@ -263,7 +263,7 @@ if (( ${#image_urls[@]} )); then
         for key in "${!image_urls[@]}"; do
             download_dir=`dirname ${key}`
             [ $silent -gt 0 ] || printf 'Downloading %s to %s\n' "$key" "$download_dir" >&2
-            if ! download "$download_dir/$key" "${image_urls[$key]}"; then
+            if ! download "$download_dir/${key#${download_dir}}" "${image_urls[$key]}"; then
                 printf 'tinypng: Failed to download %s from %s to %s.\n' "$key" "${image_urls[$key]}" "$download_dir" >&2
             fi
         done
