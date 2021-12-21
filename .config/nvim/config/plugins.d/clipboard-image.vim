@@ -7,7 +7,11 @@ require'clipboard-image'.setup {
     img_dir_txt = "img",
     img_name = function () return os.date('%Y-%m-%d-%H-%M-%S') end,
     affix = "![](https://s3.codiy.net/%s)",
-    img_handler = function () return function (path) return os.execute(string.format('~/.scripts/tinypng.sh -s -f %s &', path)) end end
+    img_handler = function ()
+        return function (path)
+            return os.execute(string.format('~/.scripts/tinypng.sh -s -f %s &', path))
+        end
+    end
   },
   -- You can create configuration for ceartain filetype by creating another field (markdown, in this case)
   -- If you're uncertain what to name your field to, you can run `:set filetype?`

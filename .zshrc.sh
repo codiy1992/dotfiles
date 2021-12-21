@@ -80,7 +80,7 @@ function kfc() {
     if [ "$#" -ge 2 ]; then
         rclone "${ARR[@]:0:$((X-1))}" "kfcs3:s3.codiy.net${ARR[X]}"
     else
-        rclone "$@" kfcs3:kfc-storage
+        rclone "$@" kfcs3:s3.codiy.net
     fi
 }
 

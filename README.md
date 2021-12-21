@@ -1,5 +1,5 @@
+![](https://s3.codiy.net/repo/dotfiles/tiny-2021-12-21-21-16-35.png)
 # dotfiles
-
 ## How to Setup
 
 * `curl -fsSL https://raw.githubusercontent.com/codiy1992/dotfiles/master/.scripts/setup.sh | bash`

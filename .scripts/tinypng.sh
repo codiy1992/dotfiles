@@ -218,12 +218,12 @@ while (( $# ));do
     shift
 done
 
-(( ${#org_images[@]} )) || { show_help; exit 1; }
-
 check_requirements
 
+(( ${#org_images[@]} )) || { show_help; exit 1; }
+
 # Check if tinify.com is indeed reachable.
-is_reachable "$baseurl" || die "tinify.com is not reachable."
+# is_reachable "$baseurl" || die "tinify.com is not reachable."
 
 # Save and/or get API key.
 if [[ ! $apikey ]]; then
