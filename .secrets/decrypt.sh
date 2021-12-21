@@ -41,6 +41,7 @@ for FILE in ${FILES[@]}; do
     DECR_PATH=${RUNTIME}/${FILE##${PWD}/}
     BACKUP_PATH=${BACKUP}/${FILE##${PWD}/}
 
+    mkdir -p `dirname ${DIST_PATH}`
     mkdir -p `dirname ${DECR_PATH}`
 
     gpg --quiet --yes -r ${RECIPIENT} -o ${DECR_PATH} -d ${FILE}
