@@ -2,14 +2,14 @@
 # Use tinypng.com API to shrink a png/jpeg image.
 # Requires Bash 4 (or above) and curl.
 
-# Base URL for tinypng.com API service.
+# Base URL for tinify.com API service.
 baseurl=api.tinify.com
 # API URL.
 apiurl=https://$baseurl/shrink
 # Developers URL.
-dev_url=https://tinypng.com/developers
+dev_url=https://tinify.com/developers
 # A file to keep the API key for future requests.
-keyfile="$HOME/.config/tinypng/api.key"
+keyfile="$HOME/.config/tinify/api.key"
 # The API key.
 apikey=
 # PNGs to shrink.
@@ -32,11 +32,11 @@ show_help() {
     local reset=$(tput sgr0)
 cat<<-EOF
 ${bold}NAME${reset}
-        tinypng - Shrink PNG/JPEGs using tinypng.com service.
+        tinypng - Shrink PNG/JPEGs using tinify.com service.
 ${bold}SYNOPSIS${reset}
         tinypng [-dkph] -f FILE
 ${bold}DESCRIPTION${reset}
-        Shrink PNG/JPEGs using tinypng.com service.
+        Shrink PNG/JPEGs using tinify.com service.
 
         On first execution, or if $keyfile is not present, tinypng will ask for an API key.
         Obtain your API key from $dev_url, copy and paste it when prompted.
@@ -119,7 +119,7 @@ check_and_store_image() {
 # Args: URL.
 is_reachable() {
     local url=$1
-    if [[ "$(uname)" == "Darwin" ]]; then
+    if [ "$(uname)" == "Darwin" ]; then
         ping -c1 -W2 "$url" >/dev/null 2>&1
     else
         ping -c1 -w2 "$url" >/dev/null 2>&1
@@ -148,7 +148,7 @@ save_apikey() {
     printf '%s\n' "$key" > "$keyfile"
 }
 
-# Request a tiny URL from tinypng.com.
+# Request a tiny URL from tinify.com.
 # Args: PNGs.
 get_shrinked_url() {
     local png=$1
@@ -222,8 +222,8 @@ done
 
 check_requirements
 
-# Check if tinypng.com is indeed reachable.
-is_reachable "$baseurl" || die "tinypng.com is not reachable."
+# Check if tinify.com is indeed reachable.
+is_reachable "$baseurl" || die "tinify.com is not reachable."
 
 # Save and/or get API key.
 if [[ ! $apikey ]]; then
@@ -233,7 +233,7 @@ if [[ ! $apikey ]]; then
     fi
 fi
 
-# Request tinypng.com to shrink imagess.
+# Request tinify.com to shrink imagess.
 for image in "${org_images[@]}"; do
     [ $silent -gt 0 ] || printf 'Shrinking %s\n' "${image##*/} ..." >&2
 
@@ -243,7 +243,7 @@ for image in "${org_images[@]}"; do
         org_dir=`dirname ${image}`
         image_urls["${org_dir}/${name}"]="$image_url"
     else
-        printf 'tinypng: tinypng.com failed to shrink %s.\n' "$image" >&2
+        printf 'tinypng: tinify.com failed to shrink %s.\n' "$image" >&2
     fi
 done
 

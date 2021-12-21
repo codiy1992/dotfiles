@@ -18,6 +18,7 @@ PATTERNS=(
     ~/.ssh/*.pem
     ~/.ssh/config
     ~/.ssh/id_rsa*
+    ~/.config/tinify/api.key
     ~/.config/rclone/rclone.conf
 )
 
