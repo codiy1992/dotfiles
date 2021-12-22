@@ -1,6 +1,6 @@
 # dotfiles
 
-![](https://img.codiy.net/repo/dotfiles/2021-12-21-21-16-35.png)
+![](https://img.codiy.net/repo/dotfiles/2021-12/22215235.png)
 
 ## How to Setup
 
