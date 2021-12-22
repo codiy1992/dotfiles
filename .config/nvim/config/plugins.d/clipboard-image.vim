@@ -6,10 +6,10 @@ require'clipboard-image'.setup {
     img_dir = "img",
     img_dir_txt = "img",
     img_name = function () return os.date('%Y-%m-%d-%H-%M-%S') end,
-    affix = "![](https://s3.codiy.net/%s)",
+    affix = "![](https://img.codiy.net/%s)",
     img_handler = function ()
         return function (path)
-            return os.execute(string.format('~/.scripts/tinypng.sh -s -f %s &', path))
+            return os.execute(string.format('~/.scripts/image.sh %s &', path))
         end
     end
   },
@@ -19,13 +19,17 @@ require'clipboard-image'.setup {
   markdown = {
     img_dir = "img",
     img_dir_txt = "img",
-    affix = "![](https://s3.codiy.net/%s)"
+    affix = "![](https://img.codiy.net/%s)"
   }
 }
-LUA
 
-command! -nargs=* PasteImage call luaeval('require"clipboard-image.paste".paste_img({
-                \ img_dir = "~/Assets/".._A[1], img_dir_txt = _A[2] or _A[1], img_name = _A[3]
-                \ })', split('<args>'))
-noremap <Leader>P :<C-U><C-R>=printf("PasteImage %s", expand(""))<CR>
+LUA
+command! -nargs=* PasteImage call luaeval('
+    \ require"clipboard-image.paste".paste_img({
+        \ img_dir = "~/Assets/".._A[1],
+        \ img_dir_txt = _A[1],
+        \ img_name = os.date("%Y-%m-%d-") .. (_A[2] or os.date("%H-%M-%S"))
+    \ })
+    \ ', split('<args>'))
+noremap <Leader>P :<C-U><C-R>="PasteImage "<CR>
 

@@ -36,7 +36,7 @@ done
 `
 
 for FILE in ${FILES[@]}; do
-    FILE_PATH=${FILE##${HOME}/}
+    FILE_PATH=${FILE#${HOME}/}
     mkdir -p `dirname ${FILE_PATH}`
     # 通过文件指纹查询
     HASH=`git hash-object ${FILE}`
@@ -78,7 +78,7 @@ DB_FILES=`cat ${FILE_HASH_DB} | awk {'print $1'}`
 for DB_FILE in ${DB_FILES[@]}; do
     EXISTS=false
     for FILE in ${FILES[@]}; do
-        FILE_PATH="${FILE##${HOME}/}"
+        FILE_PATH="${FILE#${HOME}/}"
         if [ "${FILE_PATH}" == "${DB_FILE}" ]; then
             EXISTS=true
             break
