@@ -32,4 +32,4 @@ command! -nargs=* PasteImage call luaeval('
     \ })
     \ ', split('<args>'))
 noremap <Leader>P :<C-U><C-R>="PasteImage "<CR>
-
+![](https://img.codiy.net/test/2021-12-22-15-04-44.png)
