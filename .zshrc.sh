@@ -84,9 +84,24 @@ function kfc() {
     fi
 }
 
+function kfc.check() {
+    rclone check --exclude ".DS_Store" ~/Assets/"$1" kfcs3:s3.codiy.net/"$1"
+}
+
+function kfc.push() {
+    kfc.check
+    confirm || rclone sync --exclude ".DS_Store" ~/Assets/"$1" kfcs3:s3.codiy.net/"$1"
+}
+
+function kfc.pull() {
+    kfc.check
+    confirm || rclone sync --exclude ".DS_Store" kfcs3:s3.codiy.net/"$1" ~/Assets/"$1"
+}
+
 function tiny() {
     ${HOME}/.scripts/tinypng.sh "$@"
 }
+
 # 命令别名 - youtube-dl
 # --proxy "socks5://127.0.0.1:7891" \
 alias ydl='

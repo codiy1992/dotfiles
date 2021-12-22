@@ -11,6 +11,18 @@ function ok() { if [ -z "$1" ]; then echo "params can't be null"; exit; fi; echo
 function warn() { if [ -z "$1" ]; then echo "params can't be null"; exit; fi; echo -e "\033[49;33m$1\033[0m";}
 function info() { if [ -z "$1" ]; then echo "params can't be null"; exit; fi; echo -e "\033[49;34m$1\033[0m";}
 
+# 确认
+confirm() {
+    echo "${1-Do you want to continue}?"
+    select yn in "Yes" "No"; do
+        case $yn in
+            Yes ) break;;
+            No ) return;;
+        esac
+    done
+    return 1
+}
+
 # URL编码
 urlencode() {
   local string="${1}"
