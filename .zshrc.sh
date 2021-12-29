@@ -102,6 +102,9 @@ function tiny() {
     ${HOME}/.scripts/tinypng.sh "$@"
 }
 
+function toc() {
+    ${HOME}/.scripts/gh-md-toc.sh "$@" |pbcopy
+}
 # 命令别名 - youtube-dl
 # --proxy "socks5://127.0.0.1:7891" \
 alias ydl='
