@@ -105,6 +105,17 @@ function tiny() {
 function toc() {
     ${HOME}/.scripts/gh-md-toc.sh "$@" |pbcopy
 }
+
+function git.fresh() {
+    git checkout --orphan tmp_fresh
+    git add -A
+    git commit -am 'first commit'
+    git branch -D master
+    git branch -m master
+    git push -f origin master
+    git gc --aggressive --prune=all
+}
+
 # 命令别名 - youtube-dl
 # --proxy "socks5://127.0.0.1:7891" \
 alias ydl='
