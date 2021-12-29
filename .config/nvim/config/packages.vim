@@ -62,6 +62,7 @@ Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
 
 " Markdown
 Plug 'codiy1992/clipboard-image.nvim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " Editor Enhancement
 Plug 'windwp/nvim-autopairs'
