@@ -6,7 +6,7 @@ require'clipboard-image'.setup {
     img_dir = "img",
     img_dir_txt = "img",
     img_name = function () return os.date('%Y-%m-%d-%H-%M-%S') end,
-    affix = "![](https://img.codiy.net/%s)",
+    affix = "![](/%s)",
     img_handler = function ()
         return function (path)
             return os.execute(string.format('~/.scripts/image.sh %s &', path))
@@ -19,7 +19,7 @@ require'clipboard-image'.setup {
   markdown = {
     img_dir = "img",
     img_dir_txt = "img",
-    affix = "![](https://img.codiy.net/%s)"
+    affix = "![](/%s)"
   }
 }
 
@@ -28,7 +28,7 @@ command! -nargs=* PasteImage call luaeval('
     \ require"clipboard-image.paste".paste_img({
         \ img_dir = "~/Assets/"..(_A[1] and _A[1] or "uncataloged")..os.date("/%Y-%m"),
         \ img_dir_txt = (_A[1] and _A[1] or "uncataloged")..os.date("/%Y-%m"),
-        \ img_name = _A[2] or os.date("%d%H%M%S")
+        \ img_name = os.date("%d%H%M%S")..(_A[2] or "")
     \ })
     \ ', split('<args>'))
 
@@ -36,7 +36,7 @@ command! -nargs=* PasteImage2 call luaeval('
     \ require"clipboard-image.paste".paste_img({
         \ img_dir = "~/Assets/"..(_A[1] and _A[1] or "uncataloged"..os.date("/%Y-%m")),
         \ img_dir_txt = (_A[1] and _A[1] or "uncataloged"..os.date("/%Y-%m")),
-        \ img_name = _A[2] or os.date("%d%H%M%S")
+        \ img_name = _A[2]
     \ })
     \ ', split('<args>'))
 
