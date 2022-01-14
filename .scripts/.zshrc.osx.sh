@@ -30,5 +30,6 @@ function hk03() {
     CODE_PATHS['activity']='/data/wn-activity'
     CODE_PATHS['core']='/data/wn-core'
     CODE_PATHS['admin']='/data/wn-admin'
+    CODE_PATHS['meta']='/data/cn-meta'
     ssh hk.03 sudo /data/dockers/compose/develop/deploy.sh "$1" "${CODE_PATHS['$1']}" "$2"
 }

@@ -55,6 +55,7 @@ alias af.pull='yes|rclone sync -i remote:Alfred ~/Repos/Alfred > /dev/null 2>&1'
 alias repo='_func() {cd "${HOME}/Repos/dockers/compose"; if [ -n "$1" ]; then make "$@"; else make; fi; popd}; _func'
 alias work='_func() {cd "${HOME}/Works/dockers/compose"; if [ -n "$1" ]; then make "$@"; else make; fi; popd}; _func'
 alias ops='_func() {cd ~/Works/wn-devops && make bash PROFILE=${1:-default}}; _func'
+alias scrapy='_func() {cd "${HOME}/Works/dockers/compose"; make scrapy}; _func'
 alias deploy='ssh -t deploy "cd /devops; make bash"'
 alias @='_func() { cd ~/Works/"$1"; vim }; _func'
 
@@ -142,6 +143,20 @@ alias ws.weixin='
     +short | grep -oP '\''((\d)+.){3}\d+'\''| sort | sed '\'':a;N;s/\n/ || ip.addr == /;t a;'\''`
 '
 
+function jwt() {
+    . ~/.config/work/jwt.sh
+    SECRET=$JWT_SECRETS[$1]
+    curl --location --request POST 'http://ucenter.cnbiz.testc.cc/v1/signup/generate' \
+    --header 'Content-Type: application/json' \
+    --header 'Accept-Language: en' \
+    --header 'X-Host: ucenter.cnbiz.testc.cc' \
+    --header 'X-HTTPS: off' \
+    --data-raw '{
+        "user_id": "1",
+        "days": 10000,
+        "secret": "${SECRET}"
+    }'
+}
 # -- 根据私钥生成公钥
 # ssh-keygen -y -f ~/.ssh/privateKey
 
@@ -166,3 +181,12 @@ alias ws.weixin='
 # https://github.com/driesvints/dotfiles/blob/main/Brewfile
 # brew bundle dump
 # brew bundle [install]
+
+# Git remove a submodule
+#  rm -fr .gitmodules
+# git add .gitmodules
+# vim .git/config or git submodule deinit
+# git rm --cached path_to_submodule
+# rm -fr .git/modules/path_to_submodule
+# git commit -m 'Removed submodule xxx'
+# rm -fr path_to_submodule
