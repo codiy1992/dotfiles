@@ -157,6 +157,7 @@ function jwt() {
         "secret": "${SECRET}"
     }'
 }
+
 # -- 根据私钥生成公钥
 # ssh-keygen -y -f ~/.ssh/privateKey
 
@@ -190,3 +191,7 @@ function jwt() {
 # rm -fr .git/modules/path_to_submodule
 # git commit -m 'Removed submodule xxx'
 # rm -fr path_to_submodule
+
+# Subscriable Clash Container
+# docker run -d --name=clash --net=host --log-opt max-size=10m -e CLASH_SUBSCRIBE_URL=http://xxxxxx/config/docker codiy/clash
+
