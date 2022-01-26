@@ -21,9 +21,8 @@ let g:Lf_CommandMap = {
 let g:Lf_WildIgnore = {
         \ 'dir': [
             \'.git', 'vendor', 'node_modules', 'plugged', 'elpa', 'cache', 'undo',
-            \'.cache', 'Bares', '.oh-my-zsh', '.npm', '.storage',  '.vscode',
-            \'Library', 'Applications', 'go', '.local', 'workspace.wpay', 'novels',
-            \'Documents', 'Downloads', 'Movies', 'Music', 'Pictures'],
+            \'.cache', '.oh-my-zsh', '.npm', '.vscode',
+            \'Library', 'Applications', 'Documents', 'Downloads', 'Movies', 'Music', 'Pictures'],
         \ 'file': [
             \'*.css', '*.png', '*.jpg', '*.pdf', '*.gif', '*.mp4',
             \'*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]',
@@ -36,10 +35,10 @@ noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
 noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 
 " rg
+" \ "--glob=*.{php,go,vim,js,md,py}",
 let g:Lf_RgConfig = [
         \ "--max-columns=150",
         \ "--max-columns-preview",
-        \ "--glob=*.{php,go,vim,js,md,py}",
         \ "--smart-case",
         \ "--hidden"
     \ ]
@@ -47,7 +46,7 @@ let g:Lf_RgConfig = [
 " search word under cursor literally in all listed buffers
 noremap <Leader><C-B> :<C-U><C-R>=printf("Leaderf! rg -F --all-buffers -e %s ", expand("<cword>"))<CR>
 noremap <Leader><C-C> :<C-U><C-R>=printf("Leaderf! rg -F --current-buffer -e %s ", expand("<cword>"))<CR>
-noremap <Leader><C-F> :<C-U><C-R>=printf("Leaderf! rg ~/Works -e %s", expand(""))<CR>
+noremap <Leader><C-F> :<C-U><C-R>=printf("Leaderf! rg %s -e ", expand(getcwd()))<CR>
 " search visually selected text literally
 xnoremap <leader>gf :<C-U><C-R>=printf("Leaderf! rg -e %s ", leaderf#Rg#visual())<CR>
 noremap <Leader>go :<C-U>Leaderf! rg --recall<CR>

@@ -31,5 +31,6 @@ function hk03() {
     CODE_PATHS['core']='/data/wn-core'
     CODE_PATHS['admin']='/data/wn-admin'
     CODE_PATHS['meta']='/data/cn-meta'
+    CODE_PATHS['ucenter']='/data/wn-ucenter'
     ssh hk.03 sudo /data/dockers/compose/develop/deploy.sh "$1" "${CODE_PATHS['$1']}" "$2"
 }
