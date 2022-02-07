@@ -46,7 +46,7 @@ let g:Lf_RgConfig = [
 " search word under cursor literally in all listed buffers
 noremap <Leader><C-B> :<C-U><C-R>=printf("Leaderf! rg -F --all-buffers -e %s ", expand("<cword>"))<CR>
 noremap <Leader><C-C> :<C-U><C-R>=printf("Leaderf! rg -F --current-buffer -e %s ", expand("<cword>"))<CR>
-noremap <Leader><C-F> :<C-U><C-R>=printf("Leaderf! rg %s -e ", expand(getcwd()))<CR>
+noremap <Leader><C-F> :<C-U><C-R>=printf("Leaderf! rg %s -e \"\"", expand(getcwd()))<CR>
 " search visually selected text literally
 xnoremap <leader>gf :<C-U><C-R>=printf("Leaderf! rg -e %s ", leaderf#Rg#visual())<CR>
 noremap <Leader>go :<C-U>Leaderf! rg --recall<CR>

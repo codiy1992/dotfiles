@@ -158,6 +158,13 @@ function jwt() {
     }'
 }
 
+# 比较两个文本行的不同(找出在 $2 里但不在 $1 中的行)
+function gdiff() {
+    grep -vxFf <(grep -o '^[^#]*' $1 | sort) <(grep -o '^[^#]*' $2 |sort)
+}
+function cdiff() {
+    comm ${3--13i} <(grep -o '^[^#]*' $1 | sort) <(grep -o '^[^#]*' $2 |sort)
+}
 # -- 根据私钥生成公钥
 # ssh-keygen -y -f ~/.ssh/privateKey
 
@@ -184,9 +191,9 @@ function jwt() {
 # brew bundle [install]
 
 # Git remove a submodule
-#  rm -fr .gitmodules
+# git submodule deinit
+# rm -fr .gitmodules
 # git add .gitmodules
-# vim .git/config or git submodule deinit
 # git rm --cached path_to_submodule
 # rm -fr .git/modules/path_to_submodule
 # git commit -m 'Removed submodule xxx'
