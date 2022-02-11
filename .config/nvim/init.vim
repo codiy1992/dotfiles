@@ -42,6 +42,6 @@ runtime! _machine_specific.vim
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " Auto Remove Trailing Whitespace on Save
-autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre *[^{.md}] :%s/\s\+$//e
 
 command! -nargs=? Epu :enew|pu=execute('<args>')

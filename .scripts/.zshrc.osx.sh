@@ -21,6 +21,7 @@ function hk01() {
     CODE_PATHS['activity']='/data/wn-activity'
     CODE_PATHS['core']='/data/wn-core'
     CODE_PATHS['admin']='/data/wn-admin'
+    CODE_PATHS['cntask']='/data/cn-task'
     ssh hk.01 sudo /data/dockers/compose/develop/deploy.sh "$1" "${CODE_PATHS['$1']}" "$2"
 }
 

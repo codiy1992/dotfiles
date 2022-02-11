@@ -145,17 +145,23 @@ alias ws.weixin='
 
 function jwt() {
     . ~/.config/work/jwt.sh
-    SECRET=$JWT_SECRETS[$1]
+    [[ $1 == dev* ]] && HTTPS="off" || HTTPS="on"
+    [[ $1 == dev* ]] && [[ $1 == *wlive* ]] && HOST="ucenter.testc.cc"
+    [[ $1 == dev* ]] && [[ $1 != *wlive* ]] && HOST="ucenter.cnbiz.testc.cc"
+    [[ $1 != dev* ]] && [[ $1 == *wlive* ]] && HOST="ucenter.bluepapa.net"
+    [[ $1 != dev* ]] && [[ $1 != *wlive* ]] && HOST="ucenter.cnbiz.netappeasy.com"
+    SECRET=$SECRETS["$1"]
+    USER_ID=${2-${USERS["$1"]-30000000}}
     curl --location --request POST 'http://ucenter.cnbiz.testc.cc/v1/signup/generate' \
     --header 'Content-Type: application/json' \
     --header 'Accept-Language: en' \
-    --header 'X-Host: ucenter.cnbiz.testc.cc' \
-    --header 'X-HTTPS: off' \
-    --data-raw '{
-        "user_id": "1",
-        "days": 10000,
-        "secret": "${SECRET}"
-    }'
+    --header 'X-Host: '${HOST} \
+    --header 'X-HTTPS: '${HTTPS} \
+    --data-raw "{
+        "\""user_id"\"": ${USER_ID},
+        "\""days"\"": 10000,
+        "\""secret"\"": "\""${SECRET}"\""
+    }"
 }
 
 # 比较两个文本行的不同(找出在 $2 里但不在 $1 中的行)
