@@ -1,3 +1,0 @@
-[submodule ".secrets/data"]
-	path = .secrets/data
-	url = git@github.com:codiy1992/secrets.git
