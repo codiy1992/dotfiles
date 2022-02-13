@@ -38,6 +38,8 @@ alias ascii2hex='_func(){echo "$1" | hexdump -vC |  awk '\''BEGIN {IFS="\t"} {$1
 alias ipinfo='_func(){curl "http://ip-api.com/line/$1?lang=zh-CN"}; _func'
 alias git.branch.rm='_func(){git branch -d "$1"; git push origin --delete "$1"}; _func'
 alias got='git --git-dir=${HOME}/Bares/dotfiles.git --work-tree=${HOME}'
+alias got.en='${HOME}/.secrets/encrypt'
+alias got.de='${HOME}/.secrets/decrypt'
 alias tmd='_func() {tmux new -s ${1:-codiy}}; _func'
 alias tmx='_func() {tmux new -s ${1:-codiy} ${2:-nvim}}; _func'
 alias tma='_func() {tmux attach-session -t ${1:-codiy}}; _func'

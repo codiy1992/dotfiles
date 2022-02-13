@@ -4,12 +4,12 @@ WORKDIR=$(cd "`dirname $0`"; pwd)
 SOURCE=${WORKDIR}/data
 TARGET=${HOME}
 
+cd ${WORKDIR}
+
 . ./common
 
 RUNTIME=${WORKDIR}/runtime
 BACKUP=${WORKDIR}/backup
-
-cd ${WORKDIR}
 
 FILES=`
 for pattern in ${PATTERNS[@]} ; do
