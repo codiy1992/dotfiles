@@ -1,46 +1,30 @@
 #!/bin/bash
-# set -ex
 
-if ! [ -x "$(command -v git)" ]; then
-    echo 'Error: git is not installed.' >&2
-    exit 1
-fi
+WORKDIR=$(cd "`dirname $0`"; pwd)
+SOURCE=${WORKDIR}/data
+TARGET=${HOME}
 
-if ! [ -x "$(command -v gpg)" ]; then
-    echo 'Error: gpg is not installed.' >&2
-    exit 1
-fi
+. ./common
 
-WORKDIR="${PWD}/data"
-RECIPIENT="mail@codiy.net"
-PATTERNS=(
-    .aws/*
-    .ssh/*.pem
-    .ssh/config
-    .ssh/id_rsa*
-    .gnupg/*.sec.key
-    .config/tinify/api.key
-    .config/rclone/rclone.conf
-)
+RUNTIME=${WORKDIR}/runtime
+BACKUP=${WORKDIR}/backup
 
 cd ${WORKDIR}
 
 FILES=`
 for pattern in ${PATTERNS[@]} ; do
-    ls ${pattern}
+    find ${SOURCE}/${pattern} -type f | tr '\n' ' '
 done
 `
-DIST=${HOME}
-RUNTIME=${PWD}/runtime
-BACKUP=${PWD}/backup
+
 rm -fr ${RUNTIME} ${BACKUP}
 mkdir -p ${RUNTIME} ${BACKUP}
 touch ${BACKUP}/diff.log
 
 for FILE in ${FILES[@]}; do
-    DIST_PATH=${DIST}/${FILE#${PWD}/}
-    DECR_PATH=${RUNTIME}/${FILE#${PWD}/}
-    BACKUP_PATH=${BACKUP}/${FILE#${PWD}/}
+    DIST_PATH=${TARGET}/${FILE#${SOURCE}/}
+    DECR_PATH=${RUNTIME}/${FILE#${SOURCE}/}
+    BACKUP_PATH=${BACKUP}/${FILE#${SOURCE}/}
 
     mkdir -p `dirname ${DIST_PATH}`
     mkdir -p `dirname ${DECR_PATH}`

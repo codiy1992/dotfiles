@@ -166,10 +166,16 @@ function jwt() {
 
 # 比较两个文本行的不同(找出在 $2 里但不在 $1 中的行)
 function gdiff() {
-    grep -vxFf <(grep -o '^[^#]*' $1 | sort) <(grep -o '^[^#]*' $2 |sort)
+    grep -vxFf <(grep -o '^[^#]*' $1 | sort|uniq) <(grep -o '^[^#]*' $2 |sort|uniq)
 }
 function cdiff() {
-    comm ${3--13i} <(grep -o '^[^#]*' $1 | sort) <(grep -o '^[^#]*' $2 |sort)
+    comm ${3--13} <(grep -o '^[^#]*' $1 | sort|uniq) <(grep -o '^[^#]*' $2 |sort|uniq)
+}
+function normal() {
+   grep -o '^[^#]*' </dev/stdin|sort|uniq
+}
+function intersect() {
+    comm ${3--12} <(grep -o '^[^#]*' $1 | sort|uniq) <(grep -o '^[^#]*' $2 |sort|uniq)
 }
 # -- 根据私钥生成公钥
 # ssh-keygen -y -f ~/.ssh/privateKey
