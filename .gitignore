@@ -1,25 +1,15 @@
-.DS_Store
 /*
+.DS_Store
 !/.gitignore
 !/.gitconfig
-!/.vimrc.bak
-!/.gvimrc
 !/.zshrc
 !/.zshrc.sh
-!/.spacemacs
 !/README.md
-!/.scripts
-!/.secrets
 !/.tmux.conf
 !/.gnupg/
-/.gnupg/*
-!/.gnupg/gpg.conf
-# .config folder
 !/.config/
-/.config/*
-!/.config/nvim
-
 !/.aria2/
-!/.misc/
+!/scripts/
+!/secrets/
 !/Brewfile
 

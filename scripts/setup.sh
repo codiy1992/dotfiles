@@ -17,8 +17,8 @@ if [ ! -d ${REPOSITORY} ] || [ "`ls -A ${REPOSITORY}`" = "" ]; then
     # Checkout Repository to your ${HOME}
     git --git-dir=${REPOSITORY} --work-tree=${HOME} checkout
     # Replace config
-    REPO_SSH=${REPO_SSH//\//\\\/}
-    CONFIG=`sed "s/^\turl = http.*/\turl = git@${REPO_REMOTE}/" ${REPOSITORY}/config`
+    REPO_SSH=${REPO_SSH//\./\\\.}
+    CONFIG=`sed "s/^\turl = http.*/\turl = ${REPO_SSH//\//\\\/}/" ${REPOSITORY}/config`
     echo -e "${CONFIG}" > ${REPOSITORY}/config
 fi
 
