@@ -76,6 +76,12 @@ alias play='ansible-playbook'
 alias vault='ansible-vault'
 alias encrypt='ansible-vault encrypt '
 
+# brew
+alias brew.bundle="brew bundle --file=${HOME}/Brewfile --force --cleanup"
+alias brew.dump="brew bundle dump --file=${HOME}/Brewfile --force"
+alias brew.cu="brew cu"
+alias brew.zap="brew cask zap "
+
 # 命令别名 - rclone
 function kfc() {
     X=$#
