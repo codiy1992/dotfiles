@@ -11,14 +11,14 @@ export LC_ALL="en_US.UTF-8"
 OS_TYPE=$(uname)
 
 # 导入函数
-source ${HOME}/.scripts/functions.sh
+source ${HOME}/scripts/functions.sh
 
 if [[ "${OS_TYPE}" == "Darwin" ]]; then
-    source ${HOME}/.scripts/.zshrc.osx.sh
+    source ${HOME}/scripts/.zshrc.osx.sh
 else
     DISTRO=$(lsb_release -i | cut -f 2-)
     if [[ ! "${DISTRO}" == "Ubuntu" ]]; then
-        source ${HOME}/.scripts/.zshrc.linux.wsl.sh
+        source ${HOME}/scripts/.zshrc.linux.wsl.sh
     fi
 fi
 
@@ -102,11 +102,11 @@ function kfc.pull() {
 }
 
 function tiny() {
-    ${HOME}/.scripts/tinypng.sh "$@"
+    ${HOME}/scripts/tinypng.sh "$@"
 }
 
 function toc() {
-    ${HOME}/.scripts/gh-md-toc.sh "$@" |pbcopy
+    ${HOME}/scripts/gh-md-toc.sh "$@" |pbcopy
 }
 
 function git.fresh() {
