@@ -32,12 +32,12 @@ if [ ! -d ${REPOSITORY} ] || [ "$(ls -A ${REPOSITORY})" = "" ]; then
 fi
 
 echo -e "\033[49;32mSuccessfully!
-Your \033[49;34mold dotfiles \033[49;32mhas been moved to \033[49;34m~/.dotfiles-backup\033[0m\033[49;32m.
+The \033[49;34mconflict dotfiles \033[49;32mhas been moved to \033[49;34m~/.dotfiles-backup\033[0m\033[49;32m.
 
 Now you need to add aliases showed below and \033[49;34msource your .zshrc or .bashrc file \033[49;32mmanually
 \033[49;34m
-alias got='git --git-dir=${HOME}/.dotfiles --work-tree=${HOME}'
-alias got.encrypt='${HOME}/secrets/encrypt'
-alias got.decrypt='${HOME}/secrets/decrypt'
+alias got='git --git-dir=\${HOME}/.dotfiles --work-tree=${HOME}'
+alias got.encrypt='\${HOME}/secrets/encrypt'
+alias got.decrypt='\${HOME}/secrets/decrypt'
 \033[49;32m
 and then you can use \033[49;34m\`got\`\033[49;32m command to manage your dotfiles.\033[0m"
