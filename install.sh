@@ -10,7 +10,7 @@ cd ${HOME}
 if [ ! -d ${REPOSITORY} ] || [ "$(ls -A ${REPOSITORY})" = "" ]; then
     # Clone Repository
     git clone --bare https://${REPO_DOMAIN}/${REPO_NAME}.git ${REPOSITORY}
-    # Backup old files
+    # Backup conflict files
     mkdir -p ${BACKUP_DIR}
     git --git-dir=${REPOSITORY} --work-tree=${HOME} checkout 2>&1 \
         | egrep '^[[:space:]]+.*' \
