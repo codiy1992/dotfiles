@@ -3,7 +3,7 @@ alias sm='emacs -nw'
 alias smq='emacs -nw -Q'
 alias sed='gsed'
 alias grep='ggrep'
-alias rc='vim ~/.scripts/.zshrc.osx.sh; source ~/.zshrc.sh'
+alias rc='vim ~/scripts/.zshrc.osx.sh; source ~/.zshrc.sh'
 
 # 命令别名 - 机器操作
 alias fk.cron='ssh -i ~/.ssh/wlive.pem ec2-user@18.197.217.42'
