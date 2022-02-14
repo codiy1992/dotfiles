@@ -1,16 +1,14 @@
 #!/bin/bash
 
-BARES_DIR=${HOME}
-REPOSITORY=${BARES_DIR}/.dotfiles
 REPO_DOMAIN=github.com
 REPO_NAME=codiy1992/dotfiles
+REPOSITORY=${HOME}/.dotfiles
 BACKUP_DIR=${HOME}/.dotfiles-backup
 
 cd ${HOME}
 
 if [ ! -d ${REPOSITORY} ] || [ "$(ls -A ${REPOSITORY})" = "" ]; then
     # Clone Repository
-    mkdir -p ${BARES_DIR}
     git clone --bare https://${REPO_DOMAIN}/${REPO_NAME}.git ${REPOSITORY}
     # Backup old files
     mkdir -p ${BACKUP_DIR}
