@@ -6,6 +6,7 @@
 !/.zshrc.sh
 !/README.md
 !/.tmux.conf
+!/install.sh
 !/.gnupg/
 !/.config/
 !/.aria2/
