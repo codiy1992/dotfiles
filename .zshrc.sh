@@ -80,6 +80,11 @@ alias brew.dump="brew bundle dump --file=${HOME}/Brewfile --force"
 alias brew.cu="brew cu"
 alias brew.zap="brew cask zap "
 
+# asciinema
+alias rec.start='asciinema rec '
+alias rec.upload='asciinema upload '
+alias rec.auth='asciinema auth'
+
 # 命令别名 - rclone
 function kfc() {
     X=$#
@@ -183,6 +188,11 @@ function normal() {
 function intersect() {
     comm ${3--12} <(grep -o '^[^#]*' $1 | sort|uniq) <(grep -o '^[^#]*' $2 |sort|uniq)
 }
+
+# terraform auto-complete
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
+
 # -- 根据私钥生成公钥
 # ssh-keygen -y -f ~/.ssh/privateKey
 
