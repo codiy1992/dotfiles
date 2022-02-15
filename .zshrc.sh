@@ -23,10 +23,8 @@ else
 fi
 
 # 命令行代理
-# export https_proxy=http://127.0.0.1:7890
-# export http_proxy=http://127.0.0.1:7890
-# export all_proxy=socks5://127.0.0.1:7890
-# export no_proxy=127.0.0.1,0.0.0.0,localhost
+alias proxy.on='proxy_on 127.0.0.1:7890'
+alias proxy.off='proxy_off'
 
 # 命令别名 - 通用
 alias pd='popd'
