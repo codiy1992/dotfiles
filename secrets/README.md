@@ -15,69 +15,76 @@ date: 2020-11-18 15:20:27
 * 创建新密钥对
 
 ```
-  gpg --full-gen-key
+gpg --full-gen-key
 ```
 
 * 导入私钥(公钥可由私钥生成，无需导入)
 
 ```
-  // 导入公钥或私钥
-  gpg --import xxx.pub.key
-  gpg --import xxx.sec.key
+// 导入公钥或私钥
+gpg --import xxx.pub.key
+gpg --import xxx.sec.key
 ```
 
 * 信任密钥
 
 ```
-  // 方式1
-  cat 'trusted-key B2980F3D615692897D3F344FAC8E655219F3ABB3' >> ~/.gnupg/gpg.conf
-  // 方式2, 选5 I trust ultimately
-  gpg --edit-key <user-id> trust
+// 方式1
+cat 'trusted-key B2980F3D615692897D3F344FAC8E655219F3ABB3' >> ~/.gnupg/gpg.conf
+// 方式2, 选5 I trust ultimately
+gpg --edit-key <user-id> trust
 ```
 
 * 列出公钥私钥
 
 ```
-  gpg --list-keys
-  gpg --list-secret-keys
+gpg --list-keys
+gpg --list-secret-keys
 ```
 
 * 加密，解密，签名
 
 ```
-  // 加密文档, 使用对方公钥进行加密
-  gpg --recipient <user-id> --encrypt doc
-  // 解密文档
-  gpg --decrypt doc.gpg --output doc
-  // 对文档进行加密并签名
-  gpg --sign --recipient <user-id> --encrypt doc
+// 加密文档, 使用对方公钥进行加密
+gpg --recipient <user-id> --encrypt doc
+// 解密文档
+gpg --decrypt doc.gpg --output doc
+// 对文档进行加密并签名
+gpg --sign --recipient <user-id> --encrypt doc
 ```
 
 * 导出
 
 ```
-  // 导出公钥
-  gpg --export <user-id> > xxx.pub.key
-  // 导出公钥(以纯 ASCII 文本形式)
-  gpg --armor --export <user-id> > xxx.pub.asc
-  // 导出私钥
-  gpg --export-secret-keys <user-id> > xxx.sec.key
+// 导出公钥
+gpg --export <user-id> > xxx.pub.key
+// 导出公钥(以纯 ASCII 文本形式)
+gpg --armor --export <user-id> > xxx.pub.asc
+// 导出私钥
+gpg --export-secret-keys <user-id> > xxx.sec.key
 ```
 
 * 管理已有密钥对
 
 ```
-  gpg --edit-key <user-id>
-  // 改密码
-  gpg --edit-key <user-id> passwd
-  // 改过期时间
-  gpg --edit-key <user-id> expire
+gpg --edit-key <user-id>
+// 改密码
+gpg --edit-key <user-id> passwd
+// 改过期时间
+gpg --edit-key <user-id> expire
+```
+
+* 移除
+
+```
+gpg --delete-keys xxxx
+gpg --delete-secret-keys xxxx
 ```
 
 * 公钥服务器的使用
 
 ```
-  gpg --send-keys <key-id>
-  gpg --search-keys <key-id>
-  gpg --recv-keys <key-id>
+gpg --send-keys <key-id>
+gpg --search-keys <key-id>
+gpg --recv-keys <key-id>
 ```
