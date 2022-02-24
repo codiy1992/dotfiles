@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+
+shVersion='0.0.1'
+
+minioBucket="minio:calibre-libraries"
+fileLocation="${HOME}/Repos/calibre/libraries"
+
+confirm() {
+    echo "${1-Do you want to continue}?"
+    select yn in "Yes" "No"; do
+        case $yn in
+            Yes ) break;;
+            No ) return;;
+        esac
+    done
+    return 1
+}
+
+function Check() {
+    rclone check --exclude ".DS_Store" "$fileLocation/$1" "$minioBucket/$1"
+}
+
+function Push() {
+    Check
+    confirm || {
+        rclone sync --exclude ".DS_Store" "$fileLocation/$1" "$minioBucket/$1"
+    }
+}
+
+function Pull() {
+    Check
+    confirm || {
+        rclone sync --exclude ".DS_Store" "$minioBucket$1" "$fileLocation/$1"
+    }
+}
+
+Print_Usage() {
+    echo -e "
+Calibre libraries Manager [${shVersion}] By Codiy
+USAGE:
+    ast [SUBCOMMAND]
+SUBCOMMANDS:
+    check,c     Check differences between local and remote
+    push,P      Post changes to remote
+    pull,p      Pull lastest to local
+"
+}
+
+if [ $# -ge 1 ]; then
+    case ${1} in
+    check | c)
+        Check
+        ;;
+    push | P)
+        Push
+        ;;
+    pull | p)
+        Pull
+        ;;
+    *)
+        log ERROR "Invalid Parameters: $*"
+        Print_Usage
+        exit 1
+        ;;
+    esac
+else
+    Print_Usage
+fi

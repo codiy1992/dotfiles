@@ -8,6 +8,8 @@ export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
+export PATH="${HOME}/bin:${PATH}"
+
 OS_TYPE=$(uname)
 
 # 导入函数
@@ -48,8 +50,6 @@ alias tcp='lsof -i -n -P | grep TCP'
 # 命令别名 - 项目管理
 alias eb.pull='yes|rclone sync -i remote:/eblibs ~/Repos/rc-eblibs 2> /dev/null; cd ~/Repos/eblibs; git checkout .; git pull; popd > /dev/null;'
 alias eb.push='cd ~/Repos/eblibs; git add . && git commit -a --allow-empty-message -m "" && git push; yes|rclone sync -i ~/Repos/rc-eblibs remote:/eblibs 2> /dev/null';
-alias book.pull='yes|rclone sync -i remote:/books ~/Repos/books 2> /dev/null;'
-alias book.push='yes|rclone sync -i ~/Repos/books remote:/books 2> /dev/null'
 alias af.push='yes|rclone sync -i ~/Repos/Alfred remote:Alfred > /dev/null 2>&1'
 alias af.pull='yes|rclone sync -i remote:Alfred ~/Repos/Alfred > /dev/null 2>&1'
 alias repo='_func() {cd "${HOME}/Repos/dockers/compose"; if [ -n "$1" ]; then make "$@"; else make; fi; popd}; _func'

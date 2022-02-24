@@ -10,6 +10,7 @@
 !/.gnupg/
 !/.config/
 !/.aria2/
+!/bin/
 !/scripts/
 !/secrets/
 !/Brewfile

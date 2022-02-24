@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+
+shVersion='0.0.1'
+
+s3Bucket="kfcs3:s3.codiy.net"
+minioBucket="minio:s3.codiy.net"
+
+confirm() {
+    echo "${1-Do you want to continue}?"
+    select yn in "Yes" "No"; do
+        case $yn in
+            Yes ) break;;
+            No ) return;;
+        esac
+    done
+    return 1
+}
+
+function kfc() {
+    X=$#
+    ARR=("$@")
+    if [ "$#" -ge 2 ]; then
+        rclone "${ARR[@]:0:$((X-1))}" "kfcs3:s3.codiy.net${ARR[X]}"
+    else
+        rclone "$@" kfcs3:s3.codiy.net
+    fi
+}
+
+function Check() {
+    rclone check --exclude ".DS_Store" ~/Assets/"$1" "$s3Bucket/$1"
+}
+
+function Push() {
+    Check
+    confirm || {
+        rclone sync --exclude ".DS_Store" ~/Assets/"$1" "$s3Bucket/$1"
+        rclone sync --exclude ".DS_Store" ~/Assets/"$1" "$minioBucket$1"
+    }
+}
+
+function Pull() {
+    Check
+    confirm || {
+        rclone sync --exclude ".DS_Store" "$s3Bucket/$1"  ~/Assets/"$1"
+        rclone sync --exclude ".DS_Store" "$minioBucket$1" ~/Assets/"$1"
+    }
+}
+
+Print_Usage() {
+    echo -e "
+Assets Manager [${shVersion}] By Codiy
+USAGE:
+    ast [SUBCOMMAND]
+SUBCOMMANDS:
+    check     Check Differences between local and remote
+"
+}
+
+if [ $# -ge 1 ]; then
+    case ${1} in
+    check | c)
+        Check
+        ;;
+    push)
+        Push
+        ;;
+    pull)
+        Pull
+        ;;
+    *)
+        log ERROR "Invalid Parameters: $*"
+        Print_Usage
+        exit 1
+        ;;
+    esac
+else
+    Print_Usage
+fi
