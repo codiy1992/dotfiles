@@ -2,8 +2,8 @@
 
 shVersion='0.0.1'
 
-minioBucket="minio:calibre-libraries"
-fileLocation="${HOME}/Repos/calibre/libraries"
+minioBucket="minio:calibre-library"
+fileLocation="${HOME}/Calibre"
 
 confirm() {
     echo "${1-Do you want to continue}?"
@@ -36,7 +36,7 @@ function Pull() {
 
 Print_Usage() {
     echo -e "
-Calibre libraries Manager [${shVersion}] By Codiy
+Calibre library Manager [${shVersion}] By Codiy
 USAGE:
     ast [SUBCOMMAND]
 SUBCOMMANDS:
