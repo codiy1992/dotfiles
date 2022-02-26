@@ -1,0 +1,38 @@
+{
+  "configure-viewer-toolbar-geometry": {
+    "__class__": "bytearray",
+    "__value__": "AdnQywADAAAAAAFCAAAAagAAA6sAAAKaAAABQgAAAIYAAAOrAAACmgAAAAAAAAAABpAAAAFCAAAAhgAAA6sAAAKa"
+  },
+  "main_window_geometry": {
+    "__class__": "bytearray",
+    "__value__": "AdnQywADAAAAAAIIAAABDgAABGsAAAPlAAACCAAAASoAAARrAAAD5QAAAAAAAAAABpAAAAIIAAABKgAABGsAAAPl"
+  },
+  "main_window_state": {
+    "__class__": "bytearray",
+    "__value__": "AAAA/wAAAAH9AAAAAgAAAAAAAAAAAAAAAPwCAAAAAvsAAAAQAHQAbwBjAC0AZABvAGMAawAAAAAA/////wAAAIcA////+wAAABYAcwBlAGEAcgBjAGgALQBkAG8AYwBrAAAAAAD/////AAAAlQD///8AAAABAAAAAAAAAAD8AgAAAAT7AAAAFgBsAG8AbwBrAHUAcAAtAGQAbwBjAGsAAAAAAP////8AAAB9AP////sAAAAcAGIAbwBvAGsAbQBhAHIAawBzAC0AZABvAGMAawAAAAAA/////wAAAOcA////+wAAABwAaQBuAHMAcABlAGMAdABvAHIALQBkAG8AYwBrAAAAAAD/////AAAAEwD////7AAAAHgBoAGkAZwBoAGwAaQBnAGgAdABzAC0AZABvAGMAawAAAAAA/////wAAAMkA////AAACMAAAArwAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAAAAAAAAQAAAB4AYQBjAHQAaQBvAG4AcwBfAHQAbwBvAGwAYgBhAHIDAAAAAP////8AAAAAAAAAAA=="
+  },
+  "old_prefs_migrated": true,
+  "session_data": {
+    "controls_help_shown_count": 2,
+    "current_color_scheme": "sepia-light",
+    "hide_tooltips": null,
+    "max_text_height": 997,
+    "max_text_width": 837,
+    "standalone_font_settings": {},
+    "standalone_misc_settings": {
+      "show_actions_toolbar": true
+    },
+    "standalone_recently_opened": [
+      {
+        "authors": [
+          "谢希仁"
+        ],
+        "key": "/Users/codiy/Calibre/default/Xie Xi Ren/Ji Suan Ji Wang Luo (Di 7Ban ) (_Shi Er Wu _Pu Tong Gao Deng Jiao Yu Ben Ke Guo Jia Ji Gui Hua J (54)/Ji Suan Ji Wang Luo (Di 7Ban ) (_Shi Er Wu - Xie Xi Ren.azw3",
+        "pathtoebook": "/Users/codiy/Calibre/default/Xie Xi Ren/Ji Suan Ji Wang Luo (Di 7Ban ) (_Shi Er Wu _Pu Tong Gao Deng Jiao Yu Ben Ke Guo Jia Ji Gui Hua J (54)/Ji Suan Ji Wang Luo (Di 7Ban ) (_Shi Er Wu - Xie Xi Ren.azw3",
+        "timestamp": "2022-02-26T07:27:32.499Z",
+        "title": "计算机网络（第7版） (\"十二五\"普通高等教育本科国家级规划教材)"
+      }
+    ],
+    "user_stylesheet": "body {\n        line-height:1.5em !important;\n}"
+  }
+}

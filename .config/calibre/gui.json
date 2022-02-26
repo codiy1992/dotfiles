@@ -5,7 +5,7 @@
   ],
   "book_list_pin_splitter_state": {
     "__class__": "bytearray",
-    "__value__": "AAAA/wAAAAEAAAACAAABAP////8A/////wEAAAABAA=="
+    "__value__": "AAAA/wAAAAEAAAACAAABAAAAAEYA/////wEAAAABAA=="
   },
   "cover_browser_splitter_vertical_state": [
     false,
@@ -13,7 +13,7 @@
   ],
   "grid view visible": false,
   "library_usage_stats": {
-    "/Users/codiy/Calibre/default": 2
+    "/Users/codiy/Calibre/default": 4
   },
   "preferences dialog geometry": {
     "__class__": "bytearray",
