@@ -2,16 +2,16 @@
   "database location dialog": "/Users/codiy/Calibre/default",
   "sort_history": [
     [
+      "tags",
+      false
+    ],
+    [
       "timestamp",
       false
     ],
     [
       "title",
       true
-    ],
-    [
-      "timestamp",
-      false
     ],
     [
       "timestamp",

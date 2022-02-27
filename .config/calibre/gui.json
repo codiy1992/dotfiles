@@ -1,30 +1,68 @@
 {
+  "basic_metadata_widget_splitter_state": {
+    "__class__": "bytearray",
+    "__value__": "AAAA/wAAAAEAAAADAAAA7wAAAWMAAAEKAf////8BAAAAAQA="
+  },
   "book_details_splitter_horizontal_state": [
     true,
     200
+  ],
+  "book_details_splitter_vertical_state": [
+    true,
+    120
   ],
   "book_list_pin_splitter_state": {
     "__class__": "bytearray",
     "__value__": "AAAA/wAAAAEAAAACAAABAAAAAEYA/////wEAAAABAA=="
   },
+  "cover_browser_splitter_horizontal_state": [
+    false,
+    550
+  ],
   "cover_browser_splitter_vertical_state": [
     false,
     300
   ],
+  "cover_grid_color": [
+    80,
+    80,
+    80
+  ],
+  "cover_grid_texture": null,
+  "default_author_link": null,
+  "diff_dialog_geom": {
+    "__class__": "bytearray",
+    "__value__": "AdnQywADAAAAAAFkAAAAMQAABRkAAAPpAAABZAAAAE0AAAUZAAAD6QAAAAAAAAAABpAAAAFkAAAATQAABRkAAAPp"
+  },
   "grid view visible": false,
   "library_usage_stats": {
-    "/Users/codiy/Calibre/default": 4
+    "/Users/codiy/Calibre/default": 12
+  },
+  "metasingle_window_geometry3": {
+    "__class__": "bytearray",
+    "__value__": "AdnQywADAAAAAAAZAAAAGQAABmIAAAQDAAAAGQAAADUAAAZiAAAEAwAAAAAAAAAABpAAAAAZAAAANQAABmIAAAQD"
   },
   "preferences dialog geometry": {
     "__class__": "bytearray",
     "__value__": "AdnQywADAAAAAAFtAAAAigAABQ4AAAN1AAABbQAAAKYAAAUOAAADdQAAAAAAAAAABpAAAAFtAAAApgAABQ4AAAN1"
   },
+  "previous_sort_order_BooksView": {
+    "tags": false
+  },
   "quick_start_guide_added": true,
   "quickview visible": false,
+  "recently_used_languages": [],
+  "scheduler_dialog_geometry": {
+    "__class__": "bytearray",
+    "__value__": "AdnQywADAAAAAAGuAAAAxQAABM0AAAM4AAABrgAAAOEAAATNAAADOAAAAAAAAAAABpAAAAGuAAAA4QAABM0AAAM4"
+  },
   "search bar visible": true,
+  "show_emblems": false,
+  "show_vl_tabs": true,
   "tag browser search box visible": false,
   "tag_browser_splitter_horizontal_state": [
     true,
     200
-  ]
+  ],
+  "toolbar_icon_size": "small"
 }
