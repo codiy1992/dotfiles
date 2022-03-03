@@ -87,6 +87,19 @@ alias rec.start='asciinema rec '
 alias rec.upload='asciinema upload '
 alias rec.auth='asciinema auth'
 
+function calibre() {
+    remote="nas:/share/CACHEDEV2_DATA/calibre/library"
+    local="${HOME}/Calibre"
+    rclone sync --dry-run --exclude '.DS_Store' $remote $local
+    confirm || {
+        rclone sync --progress --exclude '.DS_Store' $remote $local
+    }
+    /usr/local/bin/calibre
+    rclone sync --dry-run --exclude '.DS_Store' $local $remote
+    confirm || {
+        rclone sync --progress --exclude '.DS_Store' $local $remote
+    }
+}
 # 命令别名 - rclone
 function kfc() {
     X=$#
