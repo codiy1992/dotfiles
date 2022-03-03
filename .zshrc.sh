@@ -28,6 +28,8 @@ fi
 alias proxy.on='proxy_on 127.0.0.1:7890'
 alias proxy.off='proxy_off'
 
+alias restic='. ~/.config/restic/env; restic'
+
 # 命令别名 - 通用
 alias pd='popd'
 alias ll='ls -al'
@@ -188,6 +190,7 @@ function normal() {
 function intersect() {
     comm ${3--12} <(grep -o '^[^#]*' $1 | sort|uniq) <(grep -o '^[^#]*' $2 |sort|uniq)
 }
+
 
 # terraform auto-complete
 autoload -U +X bashcompinit && bashcompinit
