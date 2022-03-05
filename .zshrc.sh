@@ -93,11 +93,11 @@ function calibre() {
     rclone sync --dry-run --checksum --exclude-from ~/calibre/.rcexclude $remote $local
     confirm || {
         rclone sync --progress --checksum --exclude-from ~/calibre/.rcexclude $remote $local
-    }
-    /usr/local/bin/calibre
-    rclone sync --dry-run --checksum --exclude-from ~/calibre/.rcexclude $local $remote
-    confirm || {
-        rclone sync --progress --checksum --exclude-from ~/calibre/.rcexclude $local $remote
+        /usr/local/bin/calibre
+        rclone sync --dry-run --checksum --exclude-from ~/calibre/.rcexclude $local $remote
+        confirm || {
+            rclone sync --progress --checksum --exclude-from ~/calibre/.rcexclude $local $remote
+        }
     }
 }
 # 命令别名 - rclone
