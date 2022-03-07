@@ -9,7 +9,7 @@ require'clipboard-image'.setup {
     affix = "![](/%s)",
     img_handler = function ()
         return function (path)
-            return os.execute(string.format('~/.scripts/image.sh %s &', path))
+            return os.execute(string.format('~/bin/imgup %s &', path))
         end
     end
   },
@@ -26,16 +26,16 @@ require'clipboard-image'.setup {
 LUA
 command! -nargs=* PasteImage call luaeval('
     \ require"clipboard-image.paste".paste_img({
-        \ img_dir = "~/Assets/"..(_A[1] and _A[1] or "uncataloged")..os.date("/%Y-%m"),
-        \ img_dir_txt = (_A[1] and _A[1] or "uncataloged")..os.date("/%Y-%m"),
+        \ img_dir = "~/Assets/"..(_A[1] and _A[1] or os.date("/%Y/%m"),
+        \ img_dir_txt = (_A[1] and _A[1] or os.date("/%Y/%m"),
         \ img_name = os.date("%d%H%M%S")..(_A[2] or "")
     \ })
     \ ', split('<args>'))
 
 command! -nargs=* PasteImage2 call luaeval('
     \ require"clipboard-image.paste".paste_img({
-        \ img_dir = "~/Assets/"..(_A[1] and _A[1] or "uncataloged"..os.date("/%Y-%m")),
-        \ img_dir_txt = (_A[1] and _A[1] or "uncataloged"..os.date("/%Y-%m")),
+        \ img_dir = "~/Assets/"..(_A[1] and _A[1] or os.date("/%Y/%m")),
+        \ img_dir_txt = (_A[1] and _A[1] or os.date("/%Y/%m")),
         \ img_name = _A[2]
     \ })
     \ ', split('<args>'))

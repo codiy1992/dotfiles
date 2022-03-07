@@ -98,37 +98,46 @@ function calibre() {
         }
     }
 }
+
 # 命令别名 - rclone
-function kfc() {
+function a() {
+    assetRoot=~/Assets
+    s3Bucket="kfcs3:s3.codiy.net"
+    minioBucket="minio:s3.codiy.net"
     X=$#
     ARR=("$@")
     if [ "$#" -ge 2 ]; then
-        rclone "${ARR[@]:0:$((X-1))}" "kfcs3:s3.codiy.net${ARR[X]}"
+        RC_OPTIONS="${ARR[@]:0:$((X-1))}"
+        RC_LOCATION="${ARR[X]}"
     else
-        rclone "$@" kfcs3:s3.codiy.net
+        RC_OPTIONS="$@"
     fi
+
+    rclone "$RC_OPTIONS" "$s3Bucket${RC_LOCATION+/}$RC_LOCATION"
+    # rclone "$RC_OPTIONS" "$minioBucket${RC_LOCATION+/}/$RC_LOCATION"
 }
 
-function kfc.check() {
-    rclone check --exclude ".DS_Store" ~/Assets/"$1" kfcs3:s3.codiy.net/"$1"
+function a.pull() {
+    assetRoot=~/Assets
+    s3Bucket="kfcs3:s3.codiy.net"
+    minioBucket="minio:s3.codiy.net"
+
+    rclone sync --dry-run --exclude ".DS_Store" "$s3Bucket/$@" "$assetRoot/$@"
+    confirm || {
+        rclone sync --exclude ".DS_Store" "$minioBucket/$@" "$assetRoot/$@"
+    }
 }
 
-function kfc.push() {
-    kfc.check
-    confirm || rclone sync --exclude ".DS_Store" ~/Assets/"$1" kfcs3:s3.codiy.net/"$1"
-}
+function a.push() {
+    assetRoot=~/Assets
+    s3Bucket="kfcs3:s3.codiy.net"
+    minioBucket="minio:s3.codiy.net"
 
-function kfc.pull() {
-    kfc.check
-    confirm || rclone sync --exclude ".DS_Store" kfcs3:s3.codiy.net/"$1" ~/Assets/"$1"
-}
-
-function tiny() {
-    ${HOME}/scripts/tinypng.sh "$@"
-}
-
-function toc() {
-    ${HOME}/scripts/gh-md-toc.sh "$@" |pbcopy
+    rclone sync --dry-run --exclude ".DS_Store" "$assetRoot/$@" "$s3Bucket/$@"
+    confirm || {
+        rclone sync --exclude ".DS_Store" "$assetRoot/$@" "$s3Bucket/$@"
+        rclone sync --exclude ".DS_Store" "$assetRoot/$@" "$minioBucket/$@"
+    }
 }
 
 function git.fresh() {
@@ -166,27 +175,6 @@ alias ws.weixin='
         safebrowsing.urlsec.qq.com \
     +short | grep -oP '\''((\d)+.){3}\d+'\''| sort | sed '\'':a;N;s/\n/ || ip.addr == /;t a;'\''`
 '
-
-function jwt() {
-    . ~/.config/work/jwt.sh
-    [[ $1 == dev* ]] && HTTPS="off" || HTTPS="on"
-    [[ $1 == dev* ]] && [[ $1 == *wlive* ]] && HOST="ucenter.testc.cc"
-    [[ $1 == dev* ]] && [[ $1 != *wlive* ]] && HOST="ucenter.cnbiz.testc.cc"
-    [[ $1 != dev* ]] && [[ $1 == *wlive* ]] && HOST="ucenter.bluepapa.net"
-    [[ $1 != dev* ]] && [[ $1 != *wlive* ]] && HOST="ucenter.cnbiz.netappeasy.com"
-    SECRET=$SECRETS["$1"]
-    USER_ID=${2-${USERS["$1"]-30000000}}
-    curl --location --request POST 'http://ucenter.cnbiz.testc.cc/v1/signup/generate' \
-    --header 'Content-Type: application/json' \
-    --header 'Accept-Language: en' \
-    --header 'X-Host: '${HOST} \
-    --header 'X-HTTPS: '${HTTPS} \
-    --data-raw "{
-        "\""user_id"\"": ${USER_ID},
-        "\""days"\"": 10000,
-        "\""secret"\"": "\""${SECRET}"\""
-    }"
-}
 
 # 比较两个文本行的不同(找出在 $2 里但不在 $1 中的行)
 function gdiff() {

@@ -2,6 +2,12 @@
   "choose calibre library": "/Users/codiy/calibre/library/default",
   "choose library location": "/Users/codiy/calibre/library/default",
   "database location dialog": "/Users/codiy/Calibre/default",
+  "notified-version-updates": {
+    "__class__": "set",
+    "__value__": [
+      "5.38"
+    ]
+  },
   "sort_history": [
     [
       "tags",

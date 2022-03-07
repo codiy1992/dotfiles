@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+${HOME}/scripts/gh-md-toc.sh "$@" |pbcopy
