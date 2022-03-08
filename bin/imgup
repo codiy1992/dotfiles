@@ -3,6 +3,8 @@
 OS_TYPE=$(uname)
 ASSET_PATH=~/Assets
 
+[ -x "$(command -v pngpaste)" ] || { echo -e "\033[49;31mpngpaste doesn't installed yet.\034[0m"; exit 1; }
+
 if [[ "$#" == "1" ]] && [[ $(dirname $1) == ~/Assets* ]] && [[ -f $1 ]]; then
     ORG_IMAGE="$1"
     ORG_IMAGE_DIR=$(dirname ${ORG_IMAGE})
@@ -19,7 +21,7 @@ else
             mkdir -p $(dirname $ORG_IMAGE)
             pngpaste $ORG_IMAGE
         } || {
-            echo 'Invalid image data!'; exit 1;
+            echo "[Invaild Image]: $DATA"; exit 1;
         }
     } || {
         echo 'Not Supported Yet!'; exit 1;
@@ -36,5 +38,6 @@ mkdir -p $TINY_DIR
     rclone copy ${TINY_DIR}/${ORG_IMAGE##*/} minio:s3.codiy.net/${TINY_DIR#${ASSET_PATH}/}
 } &
 
-echo "https://img.codiy.net/${ORG_IMAGE#${ASSET_PATH}/}" |pbcopy
-
+IMAGE_URL="https://img.codiy.net/${ORG_IMAGE#${ASSET_PATH}/}"
+echo $IMAGE_URL |pbcopy
+echo $IMAGE_URL
