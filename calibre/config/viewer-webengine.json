@@ -1,102 +1,117 @@
 {
-    "actions-toolbar-actions": [
-        "back",
-        "forward",
-        null,
-        "open",
-        "increase_font_size",
-        "decrease_font_size",
-        "fullscreen",
-        null,
-        "previous",
-        "next",
-        null,
-        "toc",
-        "search",
-        "bookmarks",
-        "lookup",
-        "toggle_highlights",
-        null,
-        "mode",
-        "preferences",
-        "metadata"
+  "actions-toolbar-actions": [
+    "back",
+    "forward",
+    null,
+    "open",
+    "increase_font_size",
+    "decrease_font_size",
+    "fullscreen",
+    null,
+    "previous",
+    "next",
+    null,
+    "toc",
+    "search",
+    "bookmarks",
+    "lookup",
+    "toggle_highlights",
+    null,
+    "mode",
+    "preferences",
+    "metadata"
+  ],
+  "configure-viewer-toolbar-geometry": {
+    "__class__": "bytearray",
+    "__value__": "AdnQywADAAAAAAFCAAAAagAAA6sAAAKaAAABQgAAAIYAAAOrAAACmgAAAAAAAAAABpAAAAFCAAAAhgAAA6sAAAKa"
+  },
+  "local_storage": {
+    "search-bar-history-search-for-sc": [
+      "table"
     ],
-    "configure-viewer-toolbar-geometry": {
-        "__class__": "bytearray",
-        "__value__": "AdnQywADAAAAAAFCAAAAagAAA6sAAAKaAAABQgAAAIYAAAOrAAACmgAAAAAAAAAABpAAAAFCAAAAhgAAA6sAAAKa"
+    "simple_input_history_net_search_url": [
+      "https://google.com/search?q={q}"
+    ]
+  },
+  "main_window_geometry": {
+    "__class__": "bytearray",
+    "__value__": "AdnQywADAAAAAACRAAAAGQAABVUAAAQZAAAAkQAAADUAAAVVAAAEGQAAAAAAAAAABpAAAACRAAAANQAABVUAAAQZ"
+  },
+  "main_window_state": {
+    "__class__": "bytearray",
+    "__value__": "AAAA/wAAAAH9AAAAAgAAAAAAAAEeAAAD5fwCAAAAAvsAAAAQAHQAbwBjAC0AZABvAGMAawEAAAAAAAAD5QAAAIcA////+wAAABYAcwBlAGEAcgBjAGgALQBkAG8AYwBrAAAAAAD/////AAAAlQD///8AAAABAAACKgAAA+X8AgAAAAT7AAAAFgBsAG8AbwBrAHUAcAAtAGQAbwBjAGsAAAAAAP////8AAAB9AP////sAAAAcAGIAbwBvAGsAbQBhAHIAawBzAC0AZABvAGMAawAAAAAAAAAD5QAAAOcA////+wAAABwAaQBuAHMAcABlAGMAdABvAHIALQBkAG8AYwBrAAAAAAAAAAK8AAAAEwD////7AAAAHgBoAGkAZwBoAGwAaQBnAGgAdABzAC0AZABvAGMAawAAAAAAAAACvAAAAMkA////AAADbQAAA+UAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAAAAAAAAQAAAB4AYQBjAHQAaQBvAG4AcwBfAHQAbwBvAGwAYgBhAHIDAAAAAP////8AAAAAAAAAAA=="
+  },
+  "old_prefs_migrated": true,
+  "session_data": {
+    "base_font_size": 19,
+    "controls_help_shown_count": 2,
+    "current_color_scheme": "sepia-light",
+    "hide_tooltips": null,
+    "keyboard_shortcuts": {},
+    "max_text_height": 997,
+    "max_text_width": 837,
+    "selection_bar_actions": [
+      "copy",
+      "bookmark",
+      "quick_highlight",
+      "highlight",
+      "remove_highlight",
+      "clear"
+    ],
+    "selection_bar_quick_highlights": [
+      "type:builtin;kind:color;which:yellow;light:undefined;dark:undefined;background-color:undefined;text-decoration-line:undefined;text-decoration-color:undefined;text-decoration-style:undefined",
+      "type:builtin;kind:color;which:green;light:undefined;dark:undefined;background-color:undefined;text-decoration-line:undefined;text-decoration-color:undefined;text-decoration-style:undefined",
+      "type:builtin;kind:color;which:blue;light:undefined;dark:undefined;background-color:undefined;text-decoration-line:undefined;text-decoration-color:undefined;text-decoration-style:undefined",
+      "type:builtin;kind:color;which:red;light:undefined;dark:undefined;background-color:undefined;text-decoration-line:undefined;text-decoration-color:undefined;text-decoration-style:undefined",
+      "type:builtin;kind:color;which:purple;light:undefined;dark:undefined;background-color:undefined;text-decoration-line:undefined;text-decoration-color:undefined;text-decoration-style:undefined"
+    ],
+    "show_selection_bar": true,
+    "standalone_font_settings": {},
+    "standalone_misc_settings": {
+      "auto_hide_mouse": false,
+      "remember_window_geometry": true,
+      "show_actions_toolbar": true,
+      "show_actions_toolbar_in_fullscreen": true,
+      "singleinstance": true
     },
-    "local_storage": {
-        "search-bar-history-search-for-sc": ["table"],
-        "simple_input_history_net_search_url": [
-            "https://google.com/search?q={q}"
-        ]
-    },
-    "main_window_geometry": {
-        "__class__": "bytearray",
-        "__value__": "AdnQywADAAAAAACRAAAAGQAABVUAAAQZAAAAkQAAADUAAAVVAAAEGQAAAAAAAAAABpAAAACRAAAANQAABVUAAAQZ"
-    },
-    "main_window_state": {
-        "__class__": "bytearray",
-        "__value__": "AAAA/wAAAAH9AAAAAgAAAAAAAAEeAAAD5fwCAAAAAvsAAAAQAHQAbwBjAC0AZABvAGMAawEAAAAAAAAD5QAAAIcA////+wAAABYAcwBlAGEAcgBjAGgALQBkAG8AYwBrAAAAAAD/////AAAAlQD///8AAAABAAACKgAAA+X8AgAAAAT7AAAAFgBsAG8AbwBrAHUAcAAtAGQAbwBjAGsAAAAAAP////8AAAB9AP////sAAAAcAGIAbwBvAGsAbQBhAHIAawBzAC0AZABvAGMAawAAAAAAAAAD5QAAAOcA////+wAAABwAaQBuAHMAcABlAGMAdABvAHIALQBkAG8AYwBrAAAAAAAAAAK8AAAAEwD////7AAAAHgBoAGkAZwBoAGwAaQBnAGgAdABzAC0AZABvAGMAawAAAAAAAAACvAAAAMkA////AAADbQAAA+UAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAAAAAAAAQAAAB4AYQBjAHQAaQBvAG4AcwBfAHQAbwBvAGwAYgBhAHIDAAAAAP////8AAAAAAAAAAA=="
-    },
-    "old_prefs_migrated": true,
-    "session_data": {
-        "base_font_size": 19,
-        "controls_help_shown_count": 2,
-        "current_color_scheme": "sepia-light",
-        "hide_tooltips": null,
-        "keyboard_shortcuts": {},
-        "max_text_height": 997,
-        "max_text_width": 837,
-        "selection_bar_actions": [
-            "copy",
-            "bookmark",
-            "quick_highlight",
-            "highlight",
-            "remove_highlight",
-            "clear"
+    "standalone_recently_opened": [
+      {
+        "authors": [
+          "calibre"
         ],
-        "selection_bar_quick_highlights": [
-            "type:builtin;kind:color;which:yellow;light:undefined;dark:undefined;background-color:undefined;text-decoration-line:undefined;text-decoration-color:undefined;text-decoration-style:undefined",
-            "type:builtin;kind:color;which:green;light:undefined;dark:undefined;background-color:undefined;text-decoration-line:undefined;text-decoration-color:undefined;text-decoration-style:undefined",
-            "type:builtin;kind:color;which:blue;light:undefined;dark:undefined;background-color:undefined;text-decoration-line:undefined;text-decoration-color:undefined;text-decoration-style:undefined",
-            "type:builtin;kind:color;which:red;light:undefined;dark:undefined;background-color:undefined;text-decoration-line:undefined;text-decoration-color:undefined;text-decoration-style:undefined",
-            "type:builtin;kind:color;which:purple;light:undefined;dark:undefined;background-color:undefined;text-decoration-line:undefined;text-decoration-color:undefined;text-decoration-style:undefined"
+        "key": "/Users/codiy/calibre/library/default/calibre/National Geographic [Wed, 09 Mar, 2022] (71)/National Geographic [Wed, 09 Mar, 2022] - calibre.epub",
+        "pathtoebook": "/Users/codiy/calibre/library/default/calibre/National Geographic [Wed, 09 Mar, 2022] (71)/National Geographic [Wed, 09 Mar, 2022] - calibre.epub",
+        "timestamp": "2022-03-09T08:00:24.449Z",
+        "title": "National Geographic [Wed, 09 Mar, 2022]"
+      },
+      {
+        "authors": [
+          "Scott Chacon, Ben Straub"
         ],
-        "show_selection_bar": true,
-        "standalone_font_settings": {},
-        "standalone_misc_settings": {
-            "auto_hide_mouse": false,
-            "remember_window_geometry": true,
-            "show_actions_toolbar": true,
-            "show_actions_toolbar_in_fullscreen": true,
-            "singleinstance": true
-        },
-        "standalone_recently_opened": [
-            {
-                "authors": ["Scott Chacon, Ben Straub"],
-                "key": "/Users/codiy/Calibre/default/Scott Chacon, Ben Straub/Pro Git (57)/Pro Git - Scott Chacon, Ben Straub.epub",
-                "pathtoebook": "/Users/codiy/Calibre/default/Scott Chacon, Ben Straub/Pro Git (57)/Pro Git - Scott Chacon, Ben Straub.epub",
-                "timestamp": "2022-03-03T15:01:58.487Z",
-                "title": "Pro Git"
-            },
-            {
-                "authors": [
-                    "Alfred V. Aho,Monica S. Lam,Ravi Sethi,Jeffrey D. Ullman"
-                ],
-                "key": "/Users/codiy/Calibre/default/Alfred V. Aho,Monica S. Lam,Ravi Sethi,Jeffrey D. Ullman/Bian Yi Yuan Li (Di 2Ban ) (Ji Suan Ji Ke Xue Cong Shu ) (55)/Bian Yi Yuan Li (Di 2Ban ) (Ji Suan Ji Ke - Alfred V. Aho,Monica S. Lam,Ravi Sethi,Jef.azw3",
-                "pathtoebook": "/Users/codiy/Calibre/default/Alfred V. Aho,Monica S. Lam,Ravi Sethi,Jeffrey D. Ullman/Bian Yi Yuan Li (Di 2Ban ) (Ji Suan Ji Ke Xue Cong Shu ) (55)/Bian Yi Yuan Li (Di 2Ban ) (Ji Suan Ji Ke - Alfred V. Aho,Monica S. Lam,Ravi Sethi,Jef.azw3",
-                "timestamp": "2022-02-26T12:04:06.649Z",
-                "title": "编译原理（第2版） (计算机科学丛书)"
-            },
-            {
-                "authors": ["谢希仁"],
-                "key": "/Users/codiy/Calibre/default/Xie Xi Ren/Ji Suan Ji Wang Luo (Di 7Ban ) (_Shi Er Wu _Pu Tong Gao Deng Jiao Yu Ben Ke Guo Jia Ji Gui Hua J (54)/Ji Suan Ji Wang Luo (Di 7Ban ) (_Shi Er Wu - Xie Xi Ren.azw3",
-                "pathtoebook": "/Users/codiy/Calibre/default/Xie Xi Ren/Ji Suan Ji Wang Luo (Di 7Ban ) (_Shi Er Wu _Pu Tong Gao Deng Jiao Yu Ben Ke Guo Jia Ji Gui Hua J (54)/Ji Suan Ji Wang Luo (Di 7Ban ) (_Shi Er Wu - Xie Xi Ren.azw3",
-                "timestamp": "2022-02-26T07:27:32.499Z",
-                "title": "计算机网络（第7版） (\"十二五\"普通高等教育本科国家级规划教材)"
-            }
+        "key": "/Users/codiy/Calibre/default/Scott Chacon, Ben Straub/Pro Git (57)/Pro Git - Scott Chacon, Ben Straub.epub",
+        "pathtoebook": "/Users/codiy/Calibre/default/Scott Chacon, Ben Straub/Pro Git (57)/Pro Git - Scott Chacon, Ben Straub.epub",
+        "timestamp": "2022-03-03T15:01:58.487Z",
+        "title": "Pro Git"
+      },
+      {
+        "authors": [
+          "Alfred V. Aho,Monica S. Lam,Ravi Sethi,Jeffrey D. Ullman"
         ],
-        "user_stylesheet": "body {\n        line-height:1.5em !important;\n}"
-    }
+        "key": "/Users/codiy/Calibre/default/Alfred V. Aho,Monica S. Lam,Ravi Sethi,Jeffrey D. Ullman/Bian Yi Yuan Li (Di 2Ban ) (Ji Suan Ji Ke Xue Cong Shu ) (55)/Bian Yi Yuan Li (Di 2Ban ) (Ji Suan Ji Ke - Alfred V. Aho,Monica S. Lam,Ravi Sethi,Jef.azw3",
+        "pathtoebook": "/Users/codiy/Calibre/default/Alfred V. Aho,Monica S. Lam,Ravi Sethi,Jeffrey D. Ullman/Bian Yi Yuan Li (Di 2Ban ) (Ji Suan Ji Ke Xue Cong Shu ) (55)/Bian Yi Yuan Li (Di 2Ban ) (Ji Suan Ji Ke - Alfred V. Aho,Monica S. Lam,Ravi Sethi,Jef.azw3",
+        "timestamp": "2022-02-26T12:04:06.649Z",
+        "title": "编译原理（第2版） (计算机科学丛书)"
+      },
+      {
+        "authors": [
+          "谢希仁"
+        ],
+        "key": "/Users/codiy/Calibre/default/Xie Xi Ren/Ji Suan Ji Wang Luo (Di 7Ban ) (_Shi Er Wu _Pu Tong Gao Deng Jiao Yu Ben Ke Guo Jia Ji Gui Hua J (54)/Ji Suan Ji Wang Luo (Di 7Ban ) (_Shi Er Wu - Xie Xi Ren.azw3",
+        "pathtoebook": "/Users/codiy/Calibre/default/Xie Xi Ren/Ji Suan Ji Wang Luo (Di 7Ban ) (_Shi Er Wu _Pu Tong Gao Deng Jiao Yu Ben Ke Guo Jia Ji Gui Hua J (54)/Ji Suan Ji Wang Luo (Di 7Ban ) (_Shi Er Wu - Xie Xi Ren.azw3",
+        "timestamp": "2022-02-26T07:27:32.499Z",
+        "title": "计算机网络（第7版） (\"十二五\"普通高等教育本科国家级规划教材)"
+      }
+    ],
+    "user_stylesheet": "body {\n        line-height:1.5em !important;\n}"
+  }
 }

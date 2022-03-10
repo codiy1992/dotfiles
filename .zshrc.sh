@@ -8,7 +8,7 @@ export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-export PATH="${HOME}/bin:${PATH}"
+export PATH="${HOME}/bin:${HOME}/go/bin:${PATH}"
 
 OS_TYPE=$(uname)
 
@@ -42,6 +42,9 @@ alias git.branch.rm='_func(){git branch -d "$1"; git push origin --delete "$1"};
 alias got='git --git-dir=${HOME}/.dotfiles --work-tree=${HOME}'
 alias got.encrypt='${HOME}/secrets/encrypt'
 alias got.decrypt='${HOME}/secrets/decrypt'
+alias gat='git --git-dir=${HOME}/.anki --work-tree=${HOME}/Library/Application\ Support/Anki2'
+alias gat.encrypt='gpg --quiet --yes --armor -e ${HOME}/Library/Application\ Support/Anki2/prefs21.db'
+alias gat.decrypt='TARGET_DIR="${HOME}/Library/Application Support/Anki2"; gpg --quiet --yes -o "${TARGET_DIR}"/prefs21.db -d "${TARGET_DIR}"/prefs21.db.asc'
 alias tmd='_func() {tmux new -s ${1:-codiy}}; _func'
 alias tmx='_func() {tmux new -s ${1:-codiy} ${2:-nvim}}; _func'
 alias tma='_func() {tmux attach-session -t ${1:-codiy}}; _func'
