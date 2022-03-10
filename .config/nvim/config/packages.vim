@@ -58,7 +58,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'ap/vim-css-color'
 
 " Go
-Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
+Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' , 'do': 'go install golang.org/x/tools/gopls@latest'}
 
 " Markdown
 Plug 'codiy1992/clipboard-image.nvim'
