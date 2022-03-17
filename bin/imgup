@@ -11,7 +11,9 @@ if [[ "$#" == "1" ]] && [[ $(dirname $1) == ~/Assets* ]] && [[ -f $1 ]]; then
     IMAGE_DIR=${ORG_IMAGE_DIR#${ASSET_PATH}/}
     TINY_DIR="${ASSET_PATH}/_optimized/${IMAGE_DIR}"
 else
-    [[ "$1" != "" ]] && IMAGE_DIR="$1" || IMAGE_DIR="$(date +'%Y/%m')"
+    [[ "$1" != "" ]] && {
+        [[ $(echo "$1" | awk -F'/' '{print NF-1}') > 1 ]] && IMAGE_DIR="$1" || IMAGE_DIR="$1/$(date +'%Y/%m')"
+    } || IMAGE_DIR="$(date +'%Y/%m')"
     [[ "$2" != "" ]] && IMAGE_NAME="${2%.png}.png" || IMAGE_NAME="$(date +'%d%H%M%S').png"
     ORG_IMAGE="$ASSET_PATH/$IMAGE_DIR/$IMAGE_NAME"
     TINY_DIR="${ASSET_PATH}/_optimized/${IMAGE_DIR}"

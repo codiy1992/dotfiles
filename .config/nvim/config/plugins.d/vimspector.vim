@@ -1,4 +1,4 @@
-let g:vimspector_enable_mappings = 'HUMAN'
+" let g:vimspector_enable_mappings = 'HUMAN'
 function! s:read_template_into_buffer(template)
 	" has to be a function to avoid the extra space fzf#run insers otherwise
 	execute '0r ~/.config/nvim/sample_vimspector_json/'.a:template
@@ -20,7 +20,12 @@ nnoremap <leader>drc :call vimspector#RuntoCursor()<CR>
 nnoremap <leader>dh :call vimspector#ToggleBreakpoint()<CR>
 nnoremap <leader>de :call vimspector#ToggleConditionalBreakpoint()<CR>
 nnoremap <leader>dX :call vimspector#ClearBreakpoints()<CR>
-" nnoremap <S-k> :call vimspector#StepOut()<CR>
-" nnoremap <S-l> :call vimspector#StepInto()<CR>
-" nnoremap <S-j> :call vimspector#StepOver()<CR>
+nnoremap <leader>dk :call vimspector#StepOut()<CR>
+nnoremap <leader>dl :call vimspector#StepInto()<CR>
+nnoremap <leader>dj :call vimspector#StepOver()<CR>
+" for normal mode - the word under the cursor
+nmap <Leader>di <Plug>VimspectorBalloonEval
+" for visual mode, the visually selected text
+xmap <Leader>di <Plug>VimspectorBalloonEval
+
 
