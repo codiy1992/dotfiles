@@ -32,19 +32,22 @@ if [[ $# == 2 ]]; then
     query="deck:$deck Word:$1"
     field="${FIELDS[$2]-$2}"
     if [[ "$field" == "Pictures" ]]; then
-        value=$(imgup anki/english/vocab "$1-$(date +'%Y%m%d%H%M%S').png")
+        value=$(imgup "anki/english/vocab/$(date +'%Y')" "$1-$(date +'%m%d%H%M%S').png")
         value="<img src='$value' />"
     else
         [[ "${OS_TYPE}" == "Darwin" ]] && {
-            value="$(pbpaste)"
+            value="$(pbpaste)<br/>"
         }
     fi
 fi
 
 if [[ $# == 3 ]]; then
     query="deck:$deck Word:$1"
-    field="$2"
+    field="${FIELDS[$2]-$2}"
     value="$3"
+    if [[ "$field" == "Pictures" ]]; then
+        value="<img src='$3' />"
+    fi
 fi
 
 {
