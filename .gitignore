@@ -11,6 +11,7 @@
 !/.config/
 !/.aria2/
 !/bin/
+!/certs/
 !/scripts/
 !/secrets/
 !/calibre/

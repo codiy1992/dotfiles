@@ -1,0 +1,82 @@
+#!/bin/bash
+#!/usr/bin/env bash
+
+BASE_DIR="${HOME}/certs"
+
+# Make sure this script is run as root
+if [ "$EUID" -ne 0 ] ; then
+        echo "Please run as root. Try again by typing: sudo !!"
+    exit
+fi
+
+function command_exists () {
+    type "$1" &> /dev/null ;
+}
+
+# Make sure openssl exists
+if ! command_exists openssl ; then
+        echo "OpenSSL isn't installed. You need that to generate SSL certificates."
+    exit
+fi
+
+domain=$1
+if [ -z "$domain" ]; then
+        echo "No name argument provided!"
+        echo "Try ./generate-ssl.sh name.dev"
+    exit
+fi
+
+TARGET_DIR="${BASE_DIR}/${domain}"
+
+rm -fr $TARGET_DIR
+
+## Make sure the tmp/ directory exists
+if [ ! -d "$TARGET_DIR" ]; then
+    mkdir -p $TARGET_DIR/
+fi
+
+[[ -f ${TARGET_DIR}/CA.pem ]] || {
+    # Remove any lines that start with CN
+    sed -i '' '/^CN/ d' ${BASE_DIR}/options.conf
+    # Modify the conf file to set CN = ${domain}
+    echo "CN = ${domain}" >> ${BASE_DIR}/options.conf
+
+    # Generate Certificate Authority
+    openssl genrsa -des3 -out "${TARGET_DIR}/CA.key" 2048
+    openssl req -x509 -config options.conf -new -nodes -key "${TARGET_DIR}/CA.key" -sha256 -days 3650 -out "${TARGET_DIR}/CA.pem"
+
+    if command_exists security ; then
+        # Delete trusted certs by their common name via https://unix.stackexchange.com/a/227014
+        security find-certificate -c "${domain}" -a -Z | sudo awk '/SHA-1/{system("security delete-certificate -Z "$NF)}'
+
+        # Trust the Root Certificate cert
+        security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain "${TARGET_DIR}/CA.pem"
+    fi
+}
+
+cat > ${TARGET_DIR}/$domain.ext << EOF
+authorityKeyIdentifier=keyid,issuer
+basicConstraints=CA:FALSE
+keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+subjectAltName = @alt_names
+[alt_names]
+# Local hosts
+DNS.1 = localhost
+DNS.2 = 127.0.0.1
+DNS.3 = ::1
+DNS.4 = $domain
+EOF
+
+# Generate CA-signed Certificate
+openssl genrsa -out "${TARGET_DIR}/${domain}.key" 2048
+openssl req -new -config options.conf -key "${TARGET_DIR}/${domain}.key" -out "${TARGET_DIR}/${domain}.csr"
+
+# Generate SSL Certificate
+openssl x509 -req -in "${TARGET_DIR}/${domain}.csr" -CA "${TARGET_DIR}/CA.pem" -CAkey "${TARGET_DIR}/CA.key" -CAcreateserial -out "${TARGET_DIR}/${domain}.crt" -days 3650 -sha256 -extfile ${TARGET_DIR}/$domain.ext
+
+# Cleanup a stray file
+rm ./*.srl
+
+# The username behind sudo, to give ownership back
+user=$( who am i | awk '{ print $1 }')
+chown -R "$user" ${TARGET_DIR}/*
