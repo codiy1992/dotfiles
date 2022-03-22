@@ -8,7 +8,7 @@ model="Vocabulary"
 query=""
 field=""
 value=""
-tags=""
+tag=""
 
 declare -A FIELDS
 
@@ -51,9 +51,9 @@ if [[ $# == 3 ]]; then
 fi
 
 {
-    acla -deck $deck -model $model -query "$query" -field $field -value "$value" -tags "$tags"
-
-    if [[ "$field" == "Word" ]]; then
-        acla -deck $deck -query "deck:$deck Word:$value" -field Text -value "{{c1::$value}}"
+    if [[ "$query" != "" ]]; then
+        aclt note -d $deck -q "$query" -f "$field:$value" -t "$tag"
+    else
+        aclt note -d $deck -m $model -M Word -f "$field:$value" -f "Text:{{c1::$value}}" -t "$tag"
     fi
 } &
