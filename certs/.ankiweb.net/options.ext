@@ -7,4 +7,5 @@ subjectAltName = @alt_names
 DNS.1 = localhost
 DNS.2 = 127.0.0.1
 DNS.3 = ::1
-DNS.4 = ankiweb.net
+DNS.4 = sync15.ankiweb.net
+DNS.5 = *.ankiweb.net
