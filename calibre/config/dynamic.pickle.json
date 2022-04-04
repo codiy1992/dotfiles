@@ -5,10 +5,15 @@
   "notified-version-updates": {
     "__class__": "set",
     "__value__": [
-      "5.38"
+      "5.38",
+      "5.39"
     ]
   },
   "sort_history": [
+    [
+      "title",
+      true
+    ],
     [
       "tags",
       false

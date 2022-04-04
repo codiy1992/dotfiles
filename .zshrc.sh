@@ -127,7 +127,7 @@ function a.pull() {
 
     rclone sync --dry-run --exclude ".DS_Store" "$s3Bucket/$@" "$assetRoot/$@"
     confirm || {
-        rclone sync --exclude ".DS_Store" "$minioBucket/$@" "$assetRoot/$@"
+        rclone sync --exclude ".DS_Store" "$s3Bucket/$@" "$assetRoot/$@"
     }
 }
 
