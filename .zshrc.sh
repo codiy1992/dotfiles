@@ -235,3 +235,8 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 # Subscriable Clash Container
 # docker run -d --name=clash --net=host --log-opt max-size=10m -e CLASH_SUBSCRIBE_URL=http://xxxxxx/config/docker codiy/clash
 
+
+# -- eudic crack method
+# mv ~/.config/eudic/com.eusoft.eudic.plist
+# sudo chmod 0444 ~/Library/Preferences/com.eusoft.eudic.plist
+# sudo chflags -r schg ~/Library/Preferences/com.eusoft.eudic.plist
