@@ -241,3 +241,7 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 # sudo chmod 0444 ~/Library/Preferences/com.eusoft.eudic.plist
 # sudo chflags -R schg ~/Library/Preferences/com.eusoft.eudic.plist
 # sudo chflags -R noschg ~/Library/Preferences/com.eusoft.eudic.plist
+# 词根词缀词典
+# https://api.frdic.com/api/v2/dictlib/download?dict_id=792060457
+# 词根词缀词典(纯文字版)
+# https://api.frdic.com/api/v2/dictlib/download?dict_id=792060557
