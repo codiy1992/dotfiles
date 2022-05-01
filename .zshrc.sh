@@ -237,6 +237,7 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 
 
 # -- eudic crack method
-# mv ~/.config/eudic/com.eusoft.eudic.plist
+# cp ~/.config/eudic/com.eusoft.eudic.plist ~/Library/Preferences/
 # sudo chmod 0444 ~/Library/Preferences/com.eusoft.eudic.plist
-# sudo chflags -r schg ~/Library/Preferences/com.eusoft.eudic.plist
+# sudo chflags -R schg ~/Library/Preferences/com.eusoft.eudic.plist
+# sudo chflags -R noschg ~/Library/Preferences/com.eusoft.eudic.plist
