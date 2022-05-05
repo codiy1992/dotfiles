@@ -35,7 +35,7 @@
   },
   "main_window_geometry": {
     "__class__": "bytearray",
-    "__value__": "AdnQywADAAAAAACRAAAAGQAABVUAAAQZAAAAkQAAADUAAAVVAAAEGQAAAAAAAAAABpAAAACRAAAANQAABVUAAAQZ"
+    "__value__": "AdnQywADAAAAAAABAAAAGQAABMUAAAQZAAAAAQAAADUAAATFAAAEGQAAAAAAAAAABpAAAAABAAAANQAABMUAAAQZ"
   },
   "main_window_state": {
     "__class__": "bytearray",
@@ -75,6 +75,78 @@
       "singleinstance": true
     },
     "standalone_recently_opened": [
+      {
+        "authors": [
+          "Alexander, L. G. (Louis George), author"
+        ],
+        "key": "/Users/codiy/calibre/library/default/Alexander, L. G. (Louis George), author/Xin gai nian ying yu = New concept English _ [Student's book] (107)/Xin gai nian ying yu = New concept English - Alexander, L. G. (Louis George), author.epub",
+        "pathtoebook": "/Users/codiy/calibre/library/default/Alexander, L. G. (Louis George), author/Xin gai nian ying yu = New concept English _ [Student's book] (107)/Xin gai nian ying yu = New concept English - Alexander, L. G. (Louis George), author.epub",
+        "timestamp": "2022-04-28T02:33:51.392Z",
+        "title": "Xin gai nian ying yu = New concept English : [Student's book]"
+      },
+      {
+        "authors": [
+          "亚历山大",
+          "何其莘"
+        ],
+        "key": "/Users/codiy/calibre/library/default/Ya Li Shan Da/Xin Gai Nian Ying Yu Di Yi Ce (105)/Xin Gai Nian Ying Yu Di Yi Ce - Ya Li Shan Da.epub",
+        "pathtoebook": "/Users/codiy/calibre/library/default/Ya Li Shan Da/Xin Gai Nian Ying Yu Di Yi Ce (105)/Xin Gai Nian Ying Yu Di Yi Ce - Ya Li Shan Da.epub",
+        "timestamp": "2022-04-28T02:24:49.231Z",
+        "title": "新概念英语第一册"
+      },
+      {
+        "authors": [
+          "亚历山大",
+          "何其莘"
+        ],
+        "key": "/Users/codiy/calibre/library/default/Ya Li Shan Da/Xin Gai Nian Ying Yu Di Er Ce (75)/Xin Gai Nian Ying Yu Di Er Ce - Ya Li Shan Da.mobi",
+        "pathtoebook": "/Users/codiy/calibre/library/default/Ya Li Shan Da/Xin Gai Nian Ying Yu Di Er Ce (75)/Xin Gai Nian Ying Yu Di Er Ce - Ya Li Shan Da.mobi",
+        "timestamp": "2022-04-28T02:01:54.746Z",
+        "title": "新概念英语第二册"
+      },
+      {
+        "authors": [
+          "Randal E. Bryant",
+          "David R. O'Hallaron"
+        ],
+        "key": "/Users/codiy/calibre/library/default/Randal E. Bryant/Computer Systems_ A Programmer's Perspective (84)/Computer Systems_ A Programmer's Perspecti - Randal E. Bryant.epub",
+        "pathtoebook": "/Users/codiy/calibre/library/default/Randal E. Bryant/Computer Systems_ A Programmer's Perspective (84)/Computer Systems_ A Programmer's Perspecti - Randal E. Bryant.epub",
+        "timestamp": "2022-04-20T09:37:55.870Z",
+        "title": "Computer Systems: A Programmer's Perspective"
+      },
+      {
+        "key": "/Users/codiy/calibre/library/default/Unknown/Shen Ru Li Jie Ji Suan Ji Xi Tong (85)/Shen Ru Li Jie Ji Suan Ji Xi Tong - Unknown.epub",
+        "pathtoebook": "/Users/codiy/calibre/library/default/Unknown/Shen Ru Li Jie Ji Suan Ji Xi Tong (85)/Shen Ru Li Jie Ji Suan Ji Xi Tong - Unknown.epub",
+        "timestamp": "2022-04-20T08:03:25.919Z",
+        "title": "深入理解计算机系统"
+      },
+      {
+        "authors": [
+          "H. Thomas, David"
+        ],
+        "key": "/Users/codiy/calibre/library/default/H. Thomas, David/Laravel (8) PHP Framework Handbook _ Start From Zero Knowledge._ Ideal programming book for anyo (82)/Laravel (8) PHP Framework Handbook _ Start - H. Thomas, David.epub",
+        "pathtoebook": "/Users/codiy/calibre/library/default/H. Thomas, David/Laravel (8) PHP Framework Handbook _ Start From Zero Knowledge._ Ideal programming book for anyo (82)/Laravel (8) PHP Framework Handbook _ Start - H. Thomas, David.epub",
+        "timestamp": "2022-04-20T07:43:06.793Z",
+        "title": "Laravel (8) PHP Framework Handbook | Start From Zero Knowledge.: Ideal programming book for anyone who wants to learn more about the implementation, practical use of Laravel 8.x"
+      },
+      {
+        "authors": [
+          "Donald E. Knuth"
+        ],
+        "key": "/Users/codiy/calibre/library/default/Donald E. Knuth/Art of Computer Programming, Volume 2_ Seminumerical Algorithms, Third Edition (78)/Art of Computer Programming, Volume 2_ Sem - Donald E. Knuth.epub",
+        "pathtoebook": "/Users/codiy/calibre/library/default/Donald E. Knuth/Art of Computer Programming, Volume 2_ Seminumerical Algorithms, Third Edition (78)/Art of Computer Programming, Volume 2_ Sem - Donald E. Knuth.epub",
+        "timestamp": "2022-04-20T07:14:41.500Z",
+        "title": "Art of Computer Programming, Volume 2: Seminumerical Algorithms, Third Edition"
+      },
+      {
+        "authors": [
+          "Donald E. Knuth"
+        ],
+        "key": "/Users/codiy/calibre/library/default/Donald E. Knuth/The Art of Computer Programming_ Volume 1 _ Fundamental Algorithms, Third Edition (77)/The Art of Computer Programming_ Volume 1 - Donald E. Knuth.epub",
+        "pathtoebook": "/Users/codiy/calibre/library/default/Donald E. Knuth/The Art of Computer Programming_ Volume 1 _ Fundamental Algorithms, Third Edition (77)/The Art of Computer Programming_ Volume 1 - Donald E. Knuth.epub",
+        "timestamp": "2022-04-20T07:07:21.136Z",
+        "title": "The Art of Computer Programming: Volume 1 / Fundamental Algorithms, Third Edition"
+      },
       {
         "authors": [
           "Felicity O'Dell Michael McCarthy"

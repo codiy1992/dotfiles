@@ -11,7 +11,7 @@
 SECRET=$SECRETS["$1"]
 USER_ID=${2-${USERS["$1"]-30000000}}
 
-curl --location --request POST 'http://ucenter.cnbiz.testc.cc/v1/signup/generate' \
+curl -v --location --request POST 'http://ucenter.cnbiz.testc.cc/v1/signup/generate' \
 --header 'Content-Type: application/json' \
 --header 'Accept-Language: en' \
 --header 'X-Host: '${HOST} \

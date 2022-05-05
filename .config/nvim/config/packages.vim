@@ -66,7 +66,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " Editor Enhancement
 Plug 'windwp/nvim-autopairs'
-Plug 'preservim/nerdcommenter'        " comment and un comment code by type <leader>cc, <leader>cu
+Plug 'numToStr/Comment.nvim'
 Plug 'tpope/vim-surround'             " type ysiw' to wrap the word with '' or type cs'` to change 'word' to `word`
 Plug 'gcmt/wildfire.vim'              " in Visual mode, press <Enter> to Select Text
 Plug 'phaazon/hop.nvim'               " easy motion
