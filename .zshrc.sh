@@ -240,7 +240,9 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 # cp ~/.config/eudic/com.eusoft.eudic.plist ~/Library/Preferences/
 # sudo chmod 0444 ~/Library/Preferences/com.eusoft.eudic.plist
 # sudo chflags -R schg ~/Library/Preferences/com.eusoft.eudic.plist
-# sudo chflags -R noschg ~/Library/Preferences/com.eusoft.eudic.plist
+# [optional] sudo chflags -R noschg ~/Library/Preferences/com.eusoft.eudic.plist
+# 剑桥英汉在线词典
+# https://api.frdic.com/api/v2/dictlib/download?dict_id=20607
 # 词根词缀词典
 # https://api.frdic.com/api/v2/dictlib/download?dict_id=792060457
 # 词根词缀词典(纯文字版)
