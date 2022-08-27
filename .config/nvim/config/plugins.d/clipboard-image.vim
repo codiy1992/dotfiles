@@ -26,8 +26,8 @@ require'clipboard-image'.setup {
 LUA
 command! -nargs=* PasteImage call luaeval('
     \ require"clipboard-image.paste".paste_img({
-        \ img_dir = "~/Assets/"..(_A[1] and _A[1] or os.date("/%Y/%m"),
-        \ img_dir_txt = (_A[1] and _A[1] or os.date("/%Y/%m"),
+        \ img_dir = "~/Assets/"..(_A[1] and _A[1] or os.date("/%Y/%m")),
+        \ img_dir_txt = (_A[1] and _A[1] or os.date("/%Y/%m")),
         \ img_name = os.date("%d%H%M%S")..(_A[2] or "")
     \ })
     \ ', split('<args>'))
