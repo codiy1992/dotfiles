@@ -7,10 +7,9 @@ require'clipboard-image'.setup {
     img_dir_txt = "img",
     img_name = function () return os.date('%Y-%m-%d-%H-%M-%S') end,
     affix = "![](/%s)",
-    img_handler = function ()
-        return function (path)
-            return os.execute(string.format('~/bin/imgup %s &', path))
-        end
+    img_handler = function (img)
+        local script = string.format('~/bin/imgup %s &', img.path)
+        os.execute(script)
     end
   },
   -- You can create configuration for ceartain filetype by creating another field (markdown, in this case)
