@@ -143,6 +143,63 @@ function a.push() {
     }
 }
 
+function wlive.pull() {
+    assetRoot=~/Works/wlive
+    s3Bucket="wlive:wl-habibi-bucket"
+    rclone sync --dry-run --exclude ".DS_Store" "$s3Bucket/$@" "$assetRoot/$@"
+    confirm || {
+        rclone sync --exclude ".DS_Store" "$s3Bucket/$@" "$assetRoot/$@"
+    }
+}
+
+function wlive.push() {
+    assetRoot=~/Works/wlive
+    s3Bucket="wlive:wl-habibi-bucket"
+
+    rclone sync --dry-run --exclude ".DS_Store" "$assetRoot/$@" "$s3Bucket/$@"
+    confirm || {
+        rclone sync --exclude ".DS_Store" "$assetRoot/$@" "$s3Bucket/$@"
+    }
+}
+function cnbiz.push() {
+    assetRoot=~/Works/cnbiz
+    s3Bucket="cnbiz:cnbiz.baka"
+
+    rclone sync --dry-run --exclude ".DS_Store" "$assetRoot/$@" "$s3Bucket/$@"
+    confirm || {
+        rclone sync --exclude ".DS_Store" "$assetRoot/$@" "$s3Bucket/$@"
+    }
+}
+
+function yemen.pull() {
+    assetRoot=~/Works/yemen
+    s3Bucket="yemen:ye-storage"
+    rclone sync --dry-run --exclude ".DS_Store" "$s3Bucket/$@" "$assetRoot/$@"
+    confirm || {
+        rclone sync --exclude ".DS_Store" "$s3Bucket/$@" "$assetRoot/$@"
+    }
+}
+function yemen.push() {
+    assetRoot=~/Works/yemen
+    s3Bucket="yemen:ye-storage"
+
+    rclone sync --dry-run --exclude ".DS_Store" "$assetRoot/$@" "$s3Bucket/$@"
+    confirm || {
+        rclone sync --exclude ".DS_Store" "$assetRoot/$@" "$s3Bucket/$@"
+    }
+}
+
+function xf.www() {
+    assetRoot=~/Works/w3-xignfuli
+    s3Bucket="cnbiz:cnbiz.baka"
+
+    rclone sync --dry-run --exclude ".DS_Store" "$assetRoot/$@" "$s3Bucket/www/$@"
+    confirm || {
+        rclone sync --exclude ".DS_Store" "$assetRoot/$@" "$s3Bucket/www/$@"
+    }
+    aws cloudfront create-invalidation --profile cnbiz --distribution-id E17ZUU2DN8QFRJ --paths "/www/*"
+}
+
 function git.fresh() {
     git checkout --orphan tmp_fresh
     git add -A
