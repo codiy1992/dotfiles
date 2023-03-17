@@ -163,7 +163,7 @@ function wlive.push() {
 }
 function cnbiz.push() {
     assetRoot=~/Works/cnbiz
-    s3Bucket="cnbiz:cnbiz.baka"
+    s3Bucket="cnbiz:cnbiz-baka"
 
     rclone sync --dry-run --exclude ".DS_Store" "$assetRoot/$@" "$s3Bucket/$@"
     confirm || {
@@ -189,15 +189,18 @@ function yemen.push() {
     }
 }
 
-function xf.www() {
-    assetRoot=~/Works/w3-xignfuli
-    s3Bucket="cnbiz:cnbiz.baka"
-
-    rclone sync --dry-run --exclude ".DS_Store" "$assetRoot/$@" "$s3Bucket/www/$@"
+function xf.push() {
+    assetRoot=~/Works/w3-xingfuli
+    s3Bucket="cnbiz:cnbiz-baka"
+    cd ${assetRoot}
+    git checkout .
+    git clean -f
+    git pull
+    rclone sync --dry-run --exclude ".DS_Store" --exclude ".git/**" "$assetRoot/$@" "$s3Bucket/www/$@"
     confirm || {
-        rclone sync --exclude ".DS_Store" "$assetRoot/$@" "$s3Bucket/www/$@"
+        rclone sync --exclude ".DS_Store" --exclude ".git/**" "$assetRoot/$@" "$s3Bucket/www/$@"
+        aws cloudfront create-invalidation --profile cnbiz --distribution-id E17ZUU2DN8QFRJ --paths "/www/*"
     }
-    aws cloudfront create-invalidation --profile cnbiz --distribution-id E17ZUU2DN8QFRJ --paths "/www/*"
 }
 
 function git.fresh() {
