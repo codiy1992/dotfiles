@@ -46,7 +46,6 @@ alias gat='git --git-dir=${HOME}/.anki --work-tree=${HOME}/Library/Application\ 
 alias gat.encrypt='gpg --quiet --yes --armor -e ${HOME}/Library/Application\ Support/Anki2/prefs21.db'
 alias gat.decrypt='TARGET_DIR="${HOME}/Library/Application Support/Anki2"; gpg --quiet --yes -o "${TARGET_DIR}"/prefs21.db -d "${TARGET_DIR}"/prefs21.db.asc'
 alias tmd='_func() {tmux new -s ${1:-codiy}}; _func'
-alias tmx='_func() {tmux new -s ${1:-codiy} ${2:-nvim}}; _func'
 alias tma='_func() {tmux attach-session -t ${1:-codiy}}; _func'
 
 # 命令别名 - 系统管理
