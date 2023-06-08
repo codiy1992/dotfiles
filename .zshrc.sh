@@ -12,6 +12,10 @@ export PATH="${HOME}/bin:${HOME}/go/bin:${PATH}"
 
 OS_TYPE=$(uname)
 
+function dev() {
+    ssh wangle@192.168.50.10 /Users/wangle/Works/dockers/compose/devmacos/deploy.sh "$1" "${1//_/-}" "$2"
+}
+
 # 导入函数
 source ${HOME}/scripts/functions.sh
 
