@@ -12,8 +12,20 @@ export PATH="${HOME}/bin:${HOME}/go/bin:${PATH}"
 
 OS_TYPE=$(uname)
 
-function dev() {
-    ssh wangle@192.168.50.10 /Users/wangle/Works/dockers/compose/devmacos/deploy.sh "$1" "${1//_/-}" "$2"
+function dev01() {
+    if [[ "${1:0:5}" = "dev01" || "${1:0:2}" = "wn" || "${1:0:2}" = "cn" || "${1:0:2}" = "bk" ]]; then
+        ssh wangle@192.168.50.10 /Users/wangle/Works/dockers/compose/devmacos/deploy.sh "$1" "${1//_/-}" "$2"
+    else
+        ssh wangle@192.168.50.10 /Users/wangle/Works/dockers/compose/devmacos/deploy.sh "dev01_$1" "dev01-${1//_/-}" "$2"
+    fi
+}
+
+function dev03() {
+    if [[ "${1:0:5}" = "dev01" || "${1:0:2}" = "wn" || "${1:0:2}" = "cn" || "${1:0:2}" = "bk" ]]; then
+        ssh wangle@192.168.50.30 /Users/wangle/Works/dockers/compose/devmacos/deploy.sh "$1" "${1//_/-}" "$2"
+    else
+        ssh wangle@192.168.50.30 /Users/wangle/Works/dockers/compose/devmacos/deploy.sh "dev01_$1" "dev01-${1//_/-}" "$2"
+    fi
 }
 
 # 导入函数
