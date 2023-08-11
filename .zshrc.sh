@@ -24,7 +24,7 @@ function dev03() {
     if [[ "${1:0:5}" = "dev01" || "${1:0:2}" = "wn" || "${1:0:2}" = "cn" || "${1:0:2}" = "bk" ]]; then
         ssh wangle@192.168.50.30 /Users/wangle/Works/dockers/compose/devmacos/deploy.sh "$1" "${1//_/-}" "$2"
     else
-        ssh wangle@192.168.50.30 /Users/wangle/Works/dockers/compose/devmacos/deploy.sh "dev01_$1" "dev01-${1//_/-}" "$2"
+        ssh wangle@192.168.50.30 /Users/wangle/Works/dockers/compose/devmacos/deploy.sh "dev03_$1" "dev03-${1//_/-}" "$2"
     fi
 }
 
@@ -45,6 +45,18 @@ alias proxy.on='proxy_on 127.0.0.1:7890'
 alias proxy.off='proxy_off'
 
 alias restic='. ~/.config/restic/env; restic'
+
+function backup {
+    restic backup --quiet --tag canada /Users/codiy/Documents/canada/*
+    # 最近10年每年保留1条, 最近6个月每个月保留1条, 最近4周每周保留1条, 保留最近5条
+    restic forget --quiet --cleanup-cache --host mbp.local \
+        --tag canada \
+        --keep-weekly 4 \
+        --keep-monthly 6 \
+        --keep-yearly 10 \
+        --keep-last 5 \
+        --prune
+}
 
 # 命令别名 - 通用
 alias pd='popd'
