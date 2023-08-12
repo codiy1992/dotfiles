@@ -58,6 +58,10 @@ function backup {
         --prune
 }
 
+function restore {
+    restic restore latest --host mbp.local --path /Users/codiy/Documents/canada/$1 --target ${2:-/}
+}
+
 # 命令别名 - 通用
 alias pd='popd'
 alias ll='ls -al'
