@@ -25,6 +25,57 @@
     "__class__": "bytearray",
     "__value__": "AdnQywADAAAAAAFCAAAAagAAA6sAAAKaAAABQgAAAIYAAAOrAAACmgAAAAAAAAAABpAAAAFCAAAAhgAAA6sAAAKa"
   },
+  "geometry-of-main_window_geometry": {
+    "frame_geometry": {
+      "height": 988,
+      "width": 1155,
+      "x": 367,
+      "y": 314
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 960,
+      "width": 1155,
+      "x": 367,
+      "y": 342
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 960,
+      "width": 1155,
+      "x": 367,
+      "y": 342
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAFvAAABOgAABfEAAAUVAAABbwAAAVYAAAXxAAAFFQAAAAAAAAAACgAAAAFvAAABVgAABfEAAAUV"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1440,
+        "width": 2560,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "",
+      "model": "",
+      "name": "Q27G2SG4B+",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 1440,
+        "width": 2560
+      },
+      "virtual_geometry": {
+        "height": 1440,
+        "width": 4240,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
   "local_storage": {
     "search-bar-history-search-for-sc": [
       "table"
@@ -35,37 +86,24 @@
   },
   "main_window_geometry": {
     "__class__": "bytearray",
-    "__value__": "AdnQywADAAAAAAABAAAAGQAABMUAAAQZAAAAAQAAADUAAATFAAAEGQAAAAAAAAAABpAAAAABAAAANQAABMUAAAQZ"
+    "__value__": "AdnQywADAAAAAAFvAAABOgAABf0AAAUVAAABbwAAAVYAAAX9AAAFFQAAAAAAAAAACgAAAAFvAAABVgAABf0AAAUV"
   },
   "main_window_state": {
     "__class__": "bytearray",
-    "__value__": "AAAA/wAAAAH9AAAAAgAAAAAAAAEeAAAD5fwCAAAAAvsAAAAQAHQAbwBjAC0AZABvAGMAawEAAAAAAAAD5QAAAIcA////+wAAABYAcwBlAGEAcgBjAGgALQBkAG8AYwBrAAAAAAD/////AAAAlQD///8AAAABAAACKgAAA+X8AgAAAAT7AAAAFgBsAG8AbwBrAHUAcAAtAGQAbwBjAGsAAAAAAP////8AAAB9AP////sAAAAcAGIAbwBvAGsAbQBhAHIAawBzAC0AZABvAGMAawAAAAAAAAAD5QAAAOcA////+wAAABwAaQBuAHMAcABlAGMAdABvAHIALQBkAG8AYwBrAAAAAAAAAAK8AAAAEwD////7AAAAHgBoAGkAZwBoAGwAaQBnAGgAdABzAC0AZABvAGMAawAAAAAAAAACvAAAAMkA////AAADbQAAA+UAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAAAAAAAAQAAAB4AYQBjAHQAaQBvAG4AcwBfAHQAbwBvAGwAYgBhAHIDAAAAAP////8AAAAAAAAAAA=="
+    "__value__": "AAAA/wAAAAH9AAAAAgAAAAAAAAEeAAADwPwCAAAAAvsAAAAQAHQAbwBjAC0AZABvAGMAawEAAAAAAAADwAAAAIcA////+wAAABYAcwBlAGEAcgBjAGgALQBkAG8AYwBrAAAAAAD/////AAAAlQD///8AAAABAAACKgAAA+X8AgAAAAT7AAAAFgBsAG8AbwBrAHUAcAAtAGQAbwBjAGsAAAAAAP////8AAAB9AP////sAAAAcAGIAbwBvAGsAbQBhAHIAawBzAC0AZABvAGMAawAAAAAAAAAD5QAAAOcA////+wAAABwAaQBuAHMAcABlAGMAdABvAHIALQBkAG8AYwBrAAAAAAAAAAK8AAAAEwD////7AAAAHgBoAGkAZwBoAGwAaQBnAGgAdABzAC0AZABvAGMAawAAAAAAAAACvAAAAMkA////AAADKwAAA8AAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAAAAAAAAQAAAB4AYQBjAHQAaQBvAG4AcwBfAHQAbwBvAGwAYgBhAHIDAAAAAP////8AAAAAAAAAAA=="
   },
   "old_prefs_migrated": true,
   "session_data": {
     "base_font_size": 19,
     "controls_help_shown_count": 2,
-    "current_color_scheme": "sepia-light",
+    "current_color_scheme": "white",
     "hide_tooltips": null,
     "keyboard_shortcuts": {},
     "max_text_height": 997,
     "max_text_width": 837,
-    "selection_bar_actions": [
-      "copy",
-      "bookmark",
-      "quick_highlight",
-      "highlight",
-      "remove_highlight",
-      "clear"
-    ],
-    "selection_bar_quick_highlights": [
-      "type:builtin;kind:color;which:yellow;light:undefined;dark:undefined;background-color:undefined;text-decoration-line:undefined;text-decoration-color:undefined;text-decoration-style:undefined",
-      "type:builtin;kind:color;which:green;light:undefined;dark:undefined;background-color:undefined;text-decoration-line:undefined;text-decoration-color:undefined;text-decoration-style:undefined",
-      "type:builtin;kind:color;which:blue;light:undefined;dark:undefined;background-color:undefined;text-decoration-line:undefined;text-decoration-color:undefined;text-decoration-style:undefined",
-      "type:builtin;kind:color;which:red;light:undefined;dark:undefined;background-color:undefined;text-decoration-line:undefined;text-decoration-color:undefined;text-decoration-style:undefined",
-      "type:builtin;kind:color;which:purple;light:undefined;dark:undefined;background-color:undefined;text-decoration-line:undefined;text-decoration-color:undefined;text-decoration-style:undefined"
-    ],
-    "show_selection_bar": true,
+    "selection_bar_actions": [],
+    "selection_bar_quick_highlights": [],
+    "show_selection_bar": false,
     "standalone_font_settings": {},
     "standalone_misc_settings": {
       "auto_hide_mouse": false,
@@ -75,6 +113,26 @@
       "singleinstance": true
     },
     "standalone_recently_opened": [
+      {
+        "authors": [
+          "[美]Ian Goodfellow（伊恩·古德费洛）",
+          "[加]Aaron Courville（亚伦·库维尔）",
+          "[加]Yoshua Bengio（约书亚·本吉奥）"
+        ],
+        "key": "/Users/codiy/calibre/library/default/[Mei ]Ian Goodfellow(Yi En _Gu De Fe/Shen Du Xue Xi (35)/Shen Du Xue Xi - [Mei ]Ian Goodfellow(Yi En _Gu .epub",
+        "pathtoebook": "/Users/codiy/calibre/library/default/[Mei ]Ian Goodfellow(Yi En _Gu De Fe/Shen Du Xue Xi (35)/Shen Du Xue Xi - [Mei ]Ian Goodfellow(Yi En _Gu .epub",
+        "timestamp": "2024-01-13T12:02:25.212Z",
+        "title": "深度学习"
+      },
+      {
+        "authors": [
+          "Nanami SHIONO"
+        ],
+        "key": "/Users/codiy/calibre/library/default/Nanami SHIONO/Rome Was Not Built in a Day - The Story of the Roman People vol. I (123)/Rome Was Not Built in a Day - The Story of - Nanami SHIONO.epub",
+        "pathtoebook": "/Users/codiy/calibre/library/default/Nanami SHIONO/Rome Was Not Built in a Day - The Story of the Roman People vol. I (123)/Rome Was Not Built in a Day - The Story of - Nanami SHIONO.epub",
+        "timestamp": "2023-11-01T14:56:03.815Z",
+        "title": "Rome Was Not Built in a Day - The Story of the Roman People vol. I"
+      },
       {
         "authors": [
           "Alexander, L. G. (Louis George), author"
