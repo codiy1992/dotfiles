@@ -34,15 +34,14 @@ fi
 if [ ! -f ~/.ssh/config ]; then
     echo '-----BEGIN PGP MESSAGE-----
 
-hF4DsfM9uMGpI1YSAQdAyAV/iZeoiIBeDGM3UqVjmx1lSAfkd4q0K7z3I/292Ugw
-3oNfJiK4PbVyzbh2aln4wvFQTcxBQD/wMTm7ZIVig1Vj9Bas2xtF6XWIRw3hJhMc
-1KsBCQIQH2grJSeNvCmJvCyOYNQBEsAclMwMyhXXLKry4Z/mf0i0PnIgwgywKB3/
-vsV60mUD1d9EsJNkHFjv7IzNTQFznfcNQ0ks801w5OMMOdxPBY1uyYE3cSmtzV3I
-EchdFLJQHrEW40/MVla/i2bVtsPvXXrqqGT1lEgY8L/CnjKNLud8aA+CQ+Yj7kjd
-hU90YejVwl9lwzbYb1jjmgj8FDXAehzIAz8sf/s=
-=cwYa
------END PGP MESSAGE-----
-' > /tmp/ssh_config
+hF4DDOSn+M5KjE8SAQdAVzkgHw/3vNXpOqySjbWh59CDbQf2D2uJkD4tH1R9FzIw
+I28//oEy6hHHjimOuPKiKthPqm9ojchFAUoERJUeJ5gcaSeUw0rp/Tty7iXdtHdp
+1KcBCQIQbTU26fJSRX6/ur0Ksxt/2OXTTDZCCyuRbI4wxBnLitwpM25JW8Ga27fb
+10K1jum+Nwx93uXcwySb/TXadEe5kFTLSW5BDm+K1/HNHXNZ71n/q8SHMixDQN5J
+YOutw7sj/Bgpt6f7uZLtVpLYcjEWEn9lmATvjnclP/YdSA6N96fICAVtgYEkb5X7
+X9NyciDQ4rV6d1ayzrZrOk2Bh0qOrWQ82g==
+=Y3X7
+-----END PGP MESSAGE-----' > /tmp/ssh_config
     gpg --quiet --yes -o ~/.ssh/config -d /tmp/ssh_config
 fi
 
