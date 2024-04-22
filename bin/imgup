@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+OS_TYPE=$(uname)
+ASSET_PATH=~/Assets
+
+[ -x "$(command -v pngpaste)" ] || { echo -e "\033[49;31mpngpaste doesn't installed yet.\034[0m"; exit 1; }
+
+if [[ "$#" == "1" ]] && [[ $(dirname $1) == ~/Assets* ]] && [[ -f $1 ]]; then
+    ORG_IMAGE="$1"
+    ORG_IMAGE_DIR=$(dirname ${ORG_IMAGE})
+    IMAGE_DIR=${ORG_IMAGE_DIR#${ASSET_PATH}/}
+    TINY_DIR="${ASSET_PATH}/_optimized/${IMAGE_DIR}"
+else
+    [[ "$1" != "" ]] && {
+        [[ $(echo "$1" | awk -F'/' '{print NF-1}') > 1 ]] && IMAGE_DIR="$1" || IMAGE_DIR="$1/$(date +'%Y/%m')"
+    } || IMAGE_DIR="$(date +'%Y/%m')"
+    [[ "$2" != "" ]] && IMAGE_NAME="${2%.png}.png" || IMAGE_NAME="$(date +'%d%H%M%S').png"
+    ORG_IMAGE="$ASSET_PATH/$IMAGE_DIR/$IMAGE_NAME"
+    TINY_DIR="${ASSET_PATH}/_optimized/${IMAGE_DIR}"
+    [[ "${OS_TYPE}" == "Darwin" ]] && {
+        DATA=$(pngpaste -b 2>&1)
+        [[ $DATA == iVBORw0KG* ]] && {
+            mkdir -p $(dirname $ORG_IMAGE)
+            pngpaste $ORG_IMAGE
+        } || {
+            echo "[Invaild Image]: $DATA"; exit 1;
+        }
+    } || {
+        echo 'Not Supported Yet!'; exit 1;
+    }
+fi
+
+cd "$(cd $(dirname $0); pwd)"
+mkdir -p $TINY_DIR
+{
+    ${PWD}/tiny -d ${TINY_DIR} -o -s -f "${ORG_IMAGE}"
+    rclone copy ${ORG_IMAGE} kfcs3:s3.codiy.net/${IMAGE_DIR}
+    rclone copy ${ORG_IMAGE} minio:s3.codiy.net/${IMAGE_DIR}
+    rclone copy ${TINY_DIR}/${ORG_IMAGE##*/} kfcs3:s3.codiy.net/${TINY_DIR#${ASSET_PATH}/}
+    rclone copy ${TINY_DIR}/${ORG_IMAGE##*/} minio:s3.codiy.net/${TINY_DIR#${ASSET_PATH}/}
+} &
+
+IMAGE_URL="https://img.codiy.net/${ORG_IMAGE#${ASSET_PATH}/}"
+echo $IMAGE_URL |pbcopy
+echo $IMAGE_URL

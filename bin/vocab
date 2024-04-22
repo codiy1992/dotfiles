@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+# set -ex
+
+OS_TYPE=$(uname)
+deck="English"
+model="Vocabulary"
+query=""
+field=""
+value=""
+tag=""
+
+declare -A FIELDS
+
+FIELDS["i"]="Images"
+FIELDS["n"]="Notes"
+
+if [[ $# < 1 ]] || [[ $# > 3 ]]; then
+    echo -e "\033[49;31mWrong parameters.\033[0m"; exit 1;
+fi
+
+if [[ $# == 1 ]]; then
+    field="Word"
+    value="$1"
+fi
+
+if [[ $# == 2 ]]; then
+    query="deck:$deck Word:$1"
+    field="${FIELDS[$2]-$2}"
+    if [[ "$field" == "Images" ]]; then
+        value=$(imgup "vocabulary/${1:0:2}/$1" "$(date +'%Y-%m-%d-%H-%M-%S').png")
+        value="<img src='$value' />"
+    else
+        [[ "${OS_TYPE}" == "Darwin" ]] && {
+            value="$(pbpaste)"
+        }
+    fi
+fi
+
+if [[ $# == 3 ]]; then
+    query="deck:$deck Word:$1"
+    field="${FIELDS[$2]-$2}"
+    value="$3"
+    if [[ "$field" == "Images" ]]; then
+        value="<img src='$3' />"
+    fi
+fi
+
+{
+    if [[ "$query" != "" ]]; then
+        aclt note -d $deck -q "$query" -f "$field:$value"
+    else
+        aclt note -d $deck -m $model -M Word -f "Word:$value" --dict-query
+    fi
+} &

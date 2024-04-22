@@ -1,0 +1,50 @@
+{
+    "http.proxy": "https://127.0.0.1:7890",
+    "http.proxyStrictSSL": false,
+    "coc.preferences.semanticTokensHighlights": false,
+    "coc.preferences.enableFloatHighlight": true,
+    "coc.preferences.snippetStatusText": "Ⓢ ",
+    "coc.preferences.extensionUpdateCheck": "daily",
+    "coc.preferences.messageLevel": "error",
+    "coc.source.around.firstMatch": false,
+    "coc.source.buffer.firstMatch": false,
+    "coc.source.syntax.firstMatch": false,
+    "suggest.detailMaxLength": 60,
+    "suggest.noselect": true,
+    "suggest.enablePreselect": false,
+    "suggest.triggerAfterInsertEnter": false,
+    "suggest.autoTrigger": "none",
+    "diagnostic.enable": false,
+    "codeLens.enable": false,
+    "coc.preferences.formatOnSaveFiletypes": [
+        "javascript",
+        "typescript",
+        "css",
+        "less",
+        "scss",
+        "json",
+        "graphql",
+        "markdown",
+        "vue",
+        "svelte",
+        "yaml",
+        "html"
+    ],
+    "signature.enable": false,
+    "signature.target": "float",
+    "explorer.width": 38,
+    "explorer.quitOnOpen": false,
+    "explorer.sources": [
+        {
+            "name": "file",
+            "expand": true
+        }
+    ],
+    "explorer.file.column.indent.indentLine": true,
+    "explorer.file.showHiddenFiles": true,
+    "explorer.icon.enableNerdfont": true,
+    "explorer.keyMappingMode": "default",
+    "explorer.buffer.showHiddenBuffers": false,
+    "explorer.keyMappings.global": {},
+    "languageserver": {}
+}

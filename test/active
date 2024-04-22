@@ -1,0 +1,8 @@
+#!/bin/bash
+
+[[ "`docker images -q dotfiles:latest 2> /dev/null`" != "" ]] || docker build -t dotfiles .
+docker run --name dotfiles \
+    -v ${HOME}/install.sh:/root/test.sh \
+    -v ${HOME}/.gnupg/main.sec.key:/root/.gnupg/main.sec.key \
+    -v ${HOME}/.gnupg/main.id_rsa.gpg:/root/.gnupg/main.id_rsa.gpg \
+    --rm -it dotfiles bash --login

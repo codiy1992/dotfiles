@@ -1,0 +1,103 @@
+#!/bin/bash
+#!/usr/bin/env bash
+
+BASE_DIR="${HOME}/certs"
+CommonName="Kimfung Root CA"
+
+
+# Make sure this script is run as root
+if [ "$EUID" -ne 0 ] ; then
+        echo "Please run as root. Try again by typing: sudo !!"
+    exit
+fi
+
+function command_exists () {
+    type "$1" &> /dev/null ;
+}
+
+# Make sure openssl exists
+if ! command_exists openssl ; then
+        echo "OpenSSL isn't installed. You need that to generate SSL certificates."
+    exit
+fi
+
+domain="$1"
+if [ -z "$domain" ]; then
+        echo "No name argument provided!"
+        echo "Try ./generate-ssl.sh name.dev"
+    exit
+fi
+
+OPTIONS="[req]
+prompt = no
+distinguished_name = req_distinguished_name
+
+[req_distinguished_name]
+C = US
+ST = Fake State
+L = Fake Locality
+O = Fake Company
+# OU = Org Unit Name
+emailAddress = mail@codiy.net
+CN = $CommonName
+"
+
+[[ -f "${BASE_DIR}/CA.pem" ]] || {
+    echo -e "${OPTIONS}" > /tmp/options.conf
+    # Generate Certificate Authority
+    openssl genrsa -des3 -out "${BASE_DIR}/CA.key" 2048
+    openssl req -x509 -config /tmp/options.conf -new -nodes -key "${BASE_DIR}/CA.key" -sha256 -days 3650 -out "${BASE_DIR}/CA.pem"
+
+    if command_exists security ; then
+        # Delete trusted certs by their common name via https://unix.stackexchange.com/a/227014
+        security find-certificate -c "${CommonName}" -a -Z | sudo awk '/SHA-1/{system("security delete-certificate -Z "$NF)}'
+
+        # Trust the Root Certificate cert
+        security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain "${BASE_DIR}/CA.pem"
+    fi
+}
+
+[[ $(echo "$domain" | awk -F'.' '{print NF-1}') > 1 ]] && {
+    CommonName="$(echo ${domain} |sed 's/[^.]*./*./')"
+} || {
+    CommonName="${domain}"
+}
+
+TARGET_DIR="${BASE_DIR}/${CommonName/\*}"
+rm -fr "$TARGET_DIR"
+mkdir -p "$TARGET_DIR"
+
+cat > "${TARGET_DIR}/options.ext" << EOF
+authorityKeyIdentifier=keyid,issuer
+basicConstraints=CA:FALSE
+keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+subjectAltName = @alt_names
+[alt_names]
+# Local hosts
+DNS.1 = localhost
+DNS.2 = 127.0.0.1
+DNS.3 = ::1
+DNS.4 = $domain
+EOF
+
+[[ "$CommonName" != "$domain" ]] && {
+    echo "DNS.5 = $CommonName" >> "${TARGET_DIR}/options.ext"
+}
+
+domain="${CommonName/\*}"
+
+echo -e "$OPTIONS" | sed "s/^CN.*/CN = ${CommonName}/" > "${TARGET_DIR}/options.conf"
+
+# Generate CA-signed Certificate
+openssl genrsa -out "${TARGET_DIR}/${domain}.key" 2048
+openssl req -new -config "${TARGET_DIR}/options.conf" -key "${TARGET_DIR}/${domain}.key" -out "${TARGET_DIR}/${domain}.csr"
+
+# Generate SSL Certificate
+openssl x509 -req -in "${TARGET_DIR}/${domain}.csr" -CA "${BASE_DIR}/CA.pem" -CAkey "${BASE_DIR}/CA.key" -CAcreateserial -out "${TARGET_DIR}/${domain}.crt" -days 825 -sha256 -extfile "${TARGET_DIR}/options.ext"
+
+# Cleanup a stray file
+rm ./*.srl
+
+# The username behind sudo, to give ownership back
+user=$( who am i | awk '{ print $1 }')
+chown -R "$user" "${BASE_DIR}"
