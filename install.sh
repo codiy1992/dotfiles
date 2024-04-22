@@ -79,6 +79,7 @@ if [ ! -d ~/secrets/data ]; then
 fi
 
 if [ -d ~/secrets/data ]; then
+    cd ~/secrets/
     . decrypt
 fi
 
