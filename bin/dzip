@@ -1,0 +1,8 @@
+#!/bin/bash
+
+curl -o /tmp/${1}.png -fs $2
+INPUT_FILE=/tmp/${1}.png
+OUTPUT_FILE=${PWD}/${1}.zip
+LENGTH=$(($(curl -fs https://s3.codiy.net/empty.png |wc -c)))
+dd if=${INPUT_FILE} of=${OUTPUT_FILE} bs=1 skip=${LENGTH}
+unzip ${OUTPUT_FILE}

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+INPUT_FILE=${PWD}/${1}
+OUTPUT_FILE=${PWD}/${1}.png
+EMPTY_PNG=https://s3.codiy.net/empty.png
+
+zip -e ${INPUT_FILE}.zip ${INPUT_FILE}
+
+curl -o /tmp/empty.png -fs https://s3.codiy.net/empty.png
+cat /tmp/empty.png ${INPUT_FILE}.zip > ${OUTPUT_FILE}
+
+# dd if=${OUTPUT_FILE} of=${OUTPUT_FILE}2 bs=1 count=111
+# dd if=${OUTPUT_FILE} of=${OUTPUT_FILE}2 bs=1 skip=116 seek=111
