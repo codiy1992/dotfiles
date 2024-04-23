@@ -12,27 +12,11 @@ export PATH="${HOME}/bin:${HOME}/go/bin:${PATH}"
 
 OS_TYPE=$(uname)
 
-function dev01() {
-    if [[ "${1:0:5}" = "dev01" || "${1:0:2}" = "wn" || "${1:0:2}" = "cn" || "${1:0:2}" = "bk" ]]; then
-        ssh wangle@192.168.50.10 /Users/wangle/Works/dockers/compose/devmacos/deploy.sh "$1" "${1//_/-}" "$2"
-    else
-        ssh wangle@192.168.50.10 /Users/wangle/Works/dockers/compose/devmacos/deploy.sh "dev01_$1" "dev01-${1//_/-}" "$2"
-    fi
-}
-
-function dev03() {
-    if [[ "${1:0:5}" = "dev01" || "${1:0:2}" = "wn" || "${1:0:2}" = "cn" || "${1:0:2}" = "bk" ]]; then
-        ssh wangle@192.168.50.30 /Users/wangle/Works/dockers/compose/devmacos/deploy.sh "$1" "${1//_/-}" "$2"
-    else
-        ssh wangle@192.168.50.30 /Users/wangle/Works/dockers/compose/devmacos/deploy.sh "dev03_$1" "dev03-${1//_/-}" "$2"
-    fi
-}
-
 # 导入函数
 source ${HOME}/scripts/functions.sh
 
 if [[ "${OS_TYPE}" == "Darwin" ]]; then
-    source ${HOME}/scripts/.zshrc.osx.sh
+    # source ${HOME}/scripts/.zshrc.osx.sh
 else
     DISTRO=$(lsb_release -i | cut -f 2-)
     if [[ ! "${DISTRO}" == "Ubuntu" ]]; then
@@ -63,8 +47,6 @@ function restore {
 }
 
 # 命令别名 - 通用
-alias pd='popd'
-alias ll='ls -al'
 alias vim='nvim'
 alias copyssh="pbcopy < ${HOME}/.ssh/id_rsa.pub"
 alias rmkh='_func() { sed -i "" "$1"d  ${HOME}/.ssh/known_hosts;}; _func'
@@ -74,9 +56,6 @@ alias git.branch.rm='_func(){git branch -d "$1"; git push origin --delete "$1"};
 alias got='git --git-dir=${HOME}/.dotfiles --work-tree=${HOME}'
 alias got.encrypt='${HOME}/secrets/encrypt'
 alias got.decrypt='${HOME}/secrets/decrypt'
-alias gat='git --git-dir=${HOME}/.anki --work-tree=${HOME}/Library/Application\ Support/Anki2'
-alias gat.encrypt='gpg --quiet --yes --armor -e ${HOME}/Library/Application\ Support/Anki2/prefs21.db'
-alias gat.decrypt='TARGET_DIR="${HOME}/Library/Application Support/Anki2"; gpg --quiet --yes -o "${TARGET_DIR}"/prefs21.db -d "${TARGET_DIR}"/prefs21.db.asc'
 alias tmd='_func() {tmux new -s ${1:-codiy}}; _func'
 alias tma='_func() {tmux attach-session -t ${1:-codiy}}; _func'
 
@@ -84,14 +63,8 @@ alias tma='_func() {tmux attach-session -t ${1:-codiy}}; _func'
 alias tcp='lsof -i -n -P | grep TCP'
 
 # 命令别名 - 项目管理
-alias af.push='yes|rclone sync -i ~/Repos/Alfred remote:Alfred > /dev/null 2>&1'
-alias af.pull='yes|rclone sync -i remote:Alfred ~/Repos/Alfred > /dev/null 2>&1'
 alias repo='_func() {cd "${HOME}/Repos/dockers/compose"; if [ -n "$1" ]; then make "$@"; else make; fi; popd}; _func'
-alias work='_func() {cd "${HOME}/Works/dockers/compose"; if [ -n "$1" ]; then make "$@"; else make; fi; popd}; _func'
 alias ops='_func() {cd ~/Repos/aws && make bash PROFILE=${1:-default}}; _func'
-alias scrapy='_func() {cd "${HOME}/Works/dockers/compose"; make scrapy}; _func'
-alias deploy='ssh -t deploy "cd /devops; make bash"'
-alias @='_func() { cd ~/Works/"$1"; vim }; _func'
 
 # 命令别名 - docker
 alias docker.clean='docker stop $(docker ps -a -q); docker rm $(docker ps -a -q); docker rmi $(docker images -q -f dangling=true);'
@@ -119,25 +92,10 @@ alias rec.start='asciinema rec '
 alias rec.upload='asciinema upload '
 alias rec.auth='asciinema auth'
 
-function calibre() {
-    remote="nas:/share/CACHEDEV2_DATA/calibre"
-    local="${HOME}/calibre"
-    rclone sync --dry-run --checksum --exclude-from ~/calibre/.rcexclude $remote $local
-    confirm || {
-        rclone sync --progress --checksum --exclude-from ~/calibre/.rcexclude $remote $local
-        /usr/local/bin/calibre
-        rclone sync --dry-run --checksum --exclude-from ~/calibre/.rcexclude $local $remote
-        confirm || {
-            rclone sync --progress --checksum --exclude-from ~/calibre/.rcexclude $local $remote
-        }
-    }
-}
-
 # 命令别名 - rclone
 function a() {
     assetRoot=~/Assets
     s3Bucket="kfcs3:s3.codiy.net"
-    minioBucket="minio:s3.codiy.net"
     X=$#
     ARR=("$@")
     if [ "$#" -ge 2 ]; then
@@ -148,13 +106,11 @@ function a() {
     fi
 
     rclone "$RC_OPTIONS" "$s3Bucket${RC_LOCATION+/}$RC_LOCATION"
-    # rclone "$RC_OPTIONS" "$minioBucket${RC_LOCATION+/}/$RC_LOCATION"
 }
 
 function a.pull() {
     assetRoot=~/Assets
     s3Bucket="kfcs3:s3.codiy.net"
-    minioBucket="minio:s3.codiy.net"
 
     rclone sync --dry-run --exclude ".DS_Store" "$s3Bucket/$@" "$assetRoot/$@"
     confirm || {
@@ -165,71 +121,10 @@ function a.pull() {
 function a.push() {
     assetRoot=~/Assets
     s3Bucket="kfcs3:s3.codiy.net"
-    minioBucket="minio:s3.codiy.net"
 
     rclone sync --dry-run --exclude ".DS_Store" "$assetRoot/$@" "$s3Bucket/$@"
     confirm || {
         rclone sync --exclude ".DS_Store" "$assetRoot/$@" "$s3Bucket/$@"
-    }
-}
-
-function wlive.pull() {
-    assetRoot=~/Works/wlive
-    s3Bucket="wlive:wl-habibi-bucket"
-    rclone sync --dry-run --exclude ".DS_Store" "$s3Bucket/$@" "$assetRoot/$@"
-    confirm || {
-        rclone sync --exclude ".DS_Store" "$s3Bucket/$@" "$assetRoot/$@"
-    }
-}
-
-function wlive.push() {
-    assetRoot=~/Works/wlive
-    s3Bucket="wlive:wl-habibi-bucket"
-
-    rclone sync --dry-run --exclude ".DS_Store" "$assetRoot/$@" "$s3Bucket/$@"
-    confirm || {
-        rclone sync --exclude ".DS_Store" "$assetRoot/$@" "$s3Bucket/$@"
-    }
-}
-function cnbiz.push() {
-    assetRoot=~/Works/cnbiz
-    s3Bucket="cnbiz:cnbiz-baka"
-
-    rclone sync --dry-run --exclude ".DS_Store" "$assetRoot/$@" "$s3Bucket/$@"
-    confirm || {
-        rclone sync --exclude ".DS_Store" "$assetRoot/$@" "$s3Bucket/$@"
-    }
-}
-
-function yemen.pull() {
-    assetRoot=~/Works/yemen
-    s3Bucket="yemen:ye-storage"
-    rclone sync --dry-run --exclude ".DS_Store" "$s3Bucket/$@" "$assetRoot/$@"
-    confirm || {
-        rclone sync --exclude ".DS_Store" "$s3Bucket/$@" "$assetRoot/$@"
-    }
-}
-function yemen.push() {
-    assetRoot=~/Works/yemen
-    s3Bucket="yemen:ye-storage"
-
-    rclone sync --dry-run --exclude ".DS_Store" "$assetRoot/$@" "$s3Bucket/$@"
-    confirm || {
-        rclone sync --exclude ".DS_Store" "$assetRoot/$@" "$s3Bucket/$@"
-    }
-}
-
-function xf.push() {
-    assetRoot=~/Works/w3-xingfuli
-    s3Bucket="cnbiz:cnbiz-baka"
-    cd ${assetRoot}
-    git checkout .
-    git clean -f
-    git pull
-    rclone sync --dry-run --exclude ".DS_Store" --exclude ".git/**" "$assetRoot/$@" "$s3Bucket/www/$@"
-    confirm || {
-        rclone sync --exclude ".DS_Store" --exclude ".git/**" "$assetRoot/$@" "$s3Bucket/www/$@"
-        aws cloudfront create-invalidation --profile cnbiz --distribution-id E17ZUU2DN8QFRJ --paths "/www/*"
     }
 }
 
@@ -242,32 +137,6 @@ function git.fresh() {
     git push -f origin master
     git gc --aggressive --prune=all
 }
-
-# 命令别名 - youtube-dl
-# --proxy "socks5://127.0.0.1:7891" \
-alias ydl='
-    youtube-dl \
-    --hls-prefer-ffmpeg \
-    --merge-output-format mp4 \
-    --external-downloader aria2c \
-    --external-downloader-args "-c -x 6 -k 1M --all-proxy=127.0.0.1:7890" \
-    -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio/best" \
-    -o "%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s"'
-
-# 命令别名 - wireshark
-alias ws.get='
-    _func () {
-        echo "dns.qry.name contains \"$1\" || ip.addr == "`dig "$1" +short | grep -oP '\''((\d)+.){3}\d+'\''| sort | sed '\'':a;N;s/\n/ || ip.addr == /;t a;'\''`
-    }; _func
-'
-alias ws.weixin='
-    echo "dns.qry.name contains \"qq.com\" || dns.qry.name contains \"weixin\" || dns.qry.name contains \"tencent\" || dns.qry.name contains \"wechat\" || ip.addr == "`
-    dig \
-        dns.weixin.qq.com \
-        minorshort.weixin.qq.com \
-        safebrowsing.urlsec.qq.com \
-    +short | grep -oP '\''((\d)+.){3}\d+'\''| sort | sed '\'':a;N;s/\n/ || ip.addr == /;t a;'\''`
-'
 
 # 比较两个文本行的不同(找出在 $2 里但不在 $1 中的行)
 function gdiff() {
@@ -282,7 +151,6 @@ function normal() {
 function intersect() {
     comm ${3--12} <(grep -o '^[^#]*' $1 | sort|uniq) <(grep -o '^[^#]*' $2 |sort|uniq)
 }
-
 
 # terraform auto-complete
 autoload -U +X bashcompinit && bashcompinit
@@ -308,7 +176,6 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 # -- Auto Add keyfinger to known_hosts
 # ssh-keygen -F git.wangle.ltd || ssh-keyscan git.wangle.ltd >> ~/.ssh/known_hosts
 
-
 # https://github.com/driesvints/dotfiles/blob/main/Brewfile
 # brew bundle dump
 # brew bundle [install]
@@ -324,16 +191,3 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 
 # Subscriable Clash Container
 # docker run -d --name=clash --net=host --log-opt max-size=10m -e CLASH_SUBSCRIBE_URL=http://xxxxxx/config/docker codiy/clash
-
-
-# -- eudic crack method
-# cp ~/.config/eudic/com.eusoft.eudic.plist ~/Library/Preferences/
-# sudo chmod 0444 ~/Library/Preferences/com.eusoft.eudic.plist
-# sudo chflags -R schg ~/Library/Preferences/com.eusoft.eudic.plist
-# [optional] sudo chflags -R noschg ~/Library/Preferences/com.eusoft.eudic.plist
-# 剑桥英汉在线词典
-# https://api.frdic.com/api/v2/dictlib/download?dict_id=20607
-# 词根词缀词典
-# https://api.frdic.com/api/v2/dictlib/download?dict_id=792060457
-# 词根词缀词典(纯文字版)
-# https://api.frdic.com/api/v2/dictlib/download?dict_id=792060557
