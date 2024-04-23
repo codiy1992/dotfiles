@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export GPG_TTY=$(tty)
+
 REPO_DOMAIN=github.com
 REPO_NAME=codiy1992/dotfiles
 REPOSITORY=${HOME}/.dotfiles
