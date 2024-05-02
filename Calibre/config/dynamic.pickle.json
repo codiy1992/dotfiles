@@ -1,0 +1,27 @@
+{
+  "choose calibre library": "/Users/codiy/calibre/library/default",
+  "choose library location": "/Users/codiy/calibre/library/default",
+  "database location dialog": "/Users/codiy/Calibre/default",
+  "notified-version-updates": {
+    "__class__": "set",
+    "__value__": [
+      "5.38",
+      "5.41",
+      "6.29",
+      "5.40",
+      "5.39"
+    ]
+  },
+  "sort_history": [
+    [
+      "timestamp",
+      false
+    ],
+    [
+      "timestamp",
+      false
+    ]
+  ],
+  "welcome_wizard_device": "default",
+  "welcome_wizard_was_run": true
+}

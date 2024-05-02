@@ -1,0 +1,265 @@
+{
+  "actions-toolbar-actions": [
+    "back",
+    "forward",
+    null,
+    "open",
+    "increase_font_size",
+    "decrease_font_size",
+    "fullscreen",
+    null,
+    "previous",
+    "next",
+    null,
+    "toc",
+    "search",
+    "bookmarks",
+    "lookup",
+    "toggle_highlights",
+    null,
+    "mode",
+    "preferences",
+    "metadata"
+  ],
+  "configure-viewer-toolbar-geometry": {
+    "__class__": "bytearray",
+    "__value__": "AdnQywADAAAAAAFCAAAAagAAA6sAAAKaAAABQgAAAIYAAAOrAAACmgAAAAAAAAAABpAAAAFCAAAAhgAAA6sAAAKa"
+  },
+  "geometry-of-main_window_geometry": {
+    "frame_geometry": {
+      "height": 988,
+      "width": 1155,
+      "x": 367,
+      "y": 314
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 960,
+      "width": 1155,
+      "x": 367,
+      "y": 342
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 960,
+      "width": 1155,
+      "x": 367,
+      "y": 342
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAFvAAABOgAABfEAAAUVAAABbwAAAVYAAAXxAAAFFQAAAAAAAAAACgAAAAFvAAABVgAABfEAAAUV"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1440,
+        "width": 2560,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "",
+      "model": "",
+      "name": "Q27G2SG4B+",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 1440,
+        "width": 2560
+      },
+      "virtual_geometry": {
+        "height": 1440,
+        "width": 4240,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "local_storage": {
+    "search-bar-history-search-for-sc": [
+      "table"
+    ],
+    "simple_input_history_net_search_url": [
+      "https://google.com/search?q={q}"
+    ]
+  },
+  "main_window_geometry": {
+    "__class__": "bytearray",
+    "__value__": "AdnQywADAAAAAAFvAAABOgAABf0AAAUVAAABbwAAAVYAAAX9AAAFFQAAAAAAAAAACgAAAAFvAAABVgAABf0AAAUV"
+  },
+  "main_window_state": {
+    "__class__": "bytearray",
+    "__value__": "AAAA/wAAAAH9AAAAAgAAAAAAAAEeAAADwPwCAAAAAvsAAAAQAHQAbwBjAC0AZABvAGMAawEAAAAAAAADwAAAAIcA////+wAAABYAcwBlAGEAcgBjAGgALQBkAG8AYwBrAAAAAAD/////AAAAlQD///8AAAABAAACKgAAA+X8AgAAAAT7AAAAFgBsAG8AbwBrAHUAcAAtAGQAbwBjAGsAAAAAAP////8AAAB8AP////sAAAAcAGIAbwBvAGsAbQBhAHIAawBzAC0AZABvAGMAawAAAAAAAAAD5QAAAOcA////+wAAABwAaQBuAHMAcABlAGMAdABvAHIALQBkAG8AYwBrAAAAAAAAAAK8AAAAEwD////7AAAAHgBoAGkAZwBoAGwAaQBnAGgAdABzAC0AZABvAGMAawAAAAAAAAACvAAAANAA////AAADKwAAA8AAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAAAAAAAAQAAAB4AYQBjAHQAaQBvAG4AcwBfAHQAbwBvAGwAYgBhAHIDAAAAAP////8AAAAAAAAAAA=="
+  },
+  "old_prefs_migrated": true,
+  "session_data": {
+    "base_font_size": 19,
+    "controls_help_shown_count": 2,
+    "current_color_scheme": "white",
+    "hide_tooltips": null,
+    "keyboard_shortcuts": {},
+    "max_text_height": 997,
+    "max_text_width": 837,
+    "selection_bar_actions": [],
+    "selection_bar_quick_highlights": [],
+    "show_selection_bar": false,
+    "standalone_font_settings": {},
+    "standalone_misc_settings": {
+      "auto_hide_mouse": false,
+      "remember_window_geometry": true,
+      "show_actions_toolbar": true,
+      "show_actions_toolbar_in_fullscreen": true,
+      "singleinstance": true
+    },
+    "standalone_recently_opened": [
+      {
+        "authors": [
+          "John Schember"
+        ],
+        "key": "/Users/codiy/calibre/library/default/John Schember/Quick Start Guide (1)/Quick Start Guide - John Schember.epub",
+        "pathtoebook": "/Users/codiy/calibre/library/default/John Schember/Quick Start Guide (1)/Quick Start Guide - John Schember.epub",
+        "timestamp": "2024-05-01T01:54:32.135Z",
+        "title": "Quick Start Guide"
+      },
+      {
+        "authors": [
+          "[美]Ian Goodfellow（伊恩·古德费洛）",
+          "[加]Aaron Courville（亚伦·库维尔）",
+          "[加]Yoshua Bengio（约书亚·本吉奥）"
+        ],
+        "key": "/Users/codiy/calibre/library/default/[Mei ]Ian Goodfellow(Yi En _Gu De Fe/Shen Du Xue Xi (35)/Shen Du Xue Xi - [Mei ]Ian Goodfellow(Yi En _Gu .epub",
+        "pathtoebook": "/Users/codiy/calibre/library/default/[Mei ]Ian Goodfellow(Yi En _Gu De Fe/Shen Du Xue Xi (35)/Shen Du Xue Xi - [Mei ]Ian Goodfellow(Yi En _Gu .epub",
+        "timestamp": "2024-01-13T12:02:25.212Z",
+        "title": "深度学习"
+      },
+      {
+        "authors": [
+          "Nanami SHIONO"
+        ],
+        "key": "/Users/codiy/calibre/library/default/Nanami SHIONO/Rome Was Not Built in a Day - The Story of the Roman People vol. I (123)/Rome Was Not Built in a Day - The Story of - Nanami SHIONO.epub",
+        "pathtoebook": "/Users/codiy/calibre/library/default/Nanami SHIONO/Rome Was Not Built in a Day - The Story of the Roman People vol. I (123)/Rome Was Not Built in a Day - The Story of - Nanami SHIONO.epub",
+        "timestamp": "2023-11-01T14:56:03.815Z",
+        "title": "Rome Was Not Built in a Day - The Story of the Roman People vol. I"
+      },
+      {
+        "authors": [
+          "Alexander, L. G. (Louis George), author"
+        ],
+        "key": "/Users/codiy/calibre/library/default/Alexander, L. G. (Louis George), author/Xin gai nian ying yu = New concept English _ [Student's book] (107)/Xin gai nian ying yu = New concept English - Alexander, L. G. (Louis George), author.epub",
+        "pathtoebook": "/Users/codiy/calibre/library/default/Alexander, L. G. (Louis George), author/Xin gai nian ying yu = New concept English _ [Student's book] (107)/Xin gai nian ying yu = New concept English - Alexander, L. G. (Louis George), author.epub",
+        "timestamp": "2022-04-28T02:33:51.392Z",
+        "title": "Xin gai nian ying yu = New concept English : [Student's book]"
+      },
+      {
+        "authors": [
+          "亚历山大",
+          "何其莘"
+        ],
+        "key": "/Users/codiy/calibre/library/default/Ya Li Shan Da/Xin Gai Nian Ying Yu Di Yi Ce (105)/Xin Gai Nian Ying Yu Di Yi Ce - Ya Li Shan Da.epub",
+        "pathtoebook": "/Users/codiy/calibre/library/default/Ya Li Shan Da/Xin Gai Nian Ying Yu Di Yi Ce (105)/Xin Gai Nian Ying Yu Di Yi Ce - Ya Li Shan Da.epub",
+        "timestamp": "2022-04-28T02:24:49.231Z",
+        "title": "新概念英语第一册"
+      },
+      {
+        "authors": [
+          "亚历山大",
+          "何其莘"
+        ],
+        "key": "/Users/codiy/calibre/library/default/Ya Li Shan Da/Xin Gai Nian Ying Yu Di Er Ce (75)/Xin Gai Nian Ying Yu Di Er Ce - Ya Li Shan Da.mobi",
+        "pathtoebook": "/Users/codiy/calibre/library/default/Ya Li Shan Da/Xin Gai Nian Ying Yu Di Er Ce (75)/Xin Gai Nian Ying Yu Di Er Ce - Ya Li Shan Da.mobi",
+        "timestamp": "2022-04-28T02:01:54.746Z",
+        "title": "新概念英语第二册"
+      },
+      {
+        "authors": [
+          "Randal E. Bryant",
+          "David R. O'Hallaron"
+        ],
+        "key": "/Users/codiy/calibre/library/default/Randal E. Bryant/Computer Systems_ A Programmer's Perspective (84)/Computer Systems_ A Programmer's Perspecti - Randal E. Bryant.epub",
+        "pathtoebook": "/Users/codiy/calibre/library/default/Randal E. Bryant/Computer Systems_ A Programmer's Perspective (84)/Computer Systems_ A Programmer's Perspecti - Randal E. Bryant.epub",
+        "timestamp": "2022-04-20T09:37:55.870Z",
+        "title": "Computer Systems: A Programmer's Perspective"
+      },
+      {
+        "key": "/Users/codiy/calibre/library/default/Unknown/Shen Ru Li Jie Ji Suan Ji Xi Tong (85)/Shen Ru Li Jie Ji Suan Ji Xi Tong - Unknown.epub",
+        "pathtoebook": "/Users/codiy/calibre/library/default/Unknown/Shen Ru Li Jie Ji Suan Ji Xi Tong (85)/Shen Ru Li Jie Ji Suan Ji Xi Tong - Unknown.epub",
+        "timestamp": "2022-04-20T08:03:25.919Z",
+        "title": "深入理解计算机系统"
+      },
+      {
+        "authors": [
+          "H. Thomas, David"
+        ],
+        "key": "/Users/codiy/calibre/library/default/H. Thomas, David/Laravel (8) PHP Framework Handbook _ Start From Zero Knowledge._ Ideal programming book for anyo (82)/Laravel (8) PHP Framework Handbook _ Start - H. Thomas, David.epub",
+        "pathtoebook": "/Users/codiy/calibre/library/default/H. Thomas, David/Laravel (8) PHP Framework Handbook _ Start From Zero Knowledge._ Ideal programming book for anyo (82)/Laravel (8) PHP Framework Handbook _ Start - H. Thomas, David.epub",
+        "timestamp": "2022-04-20T07:43:06.793Z",
+        "title": "Laravel (8) PHP Framework Handbook | Start From Zero Knowledge.: Ideal programming book for anyone who wants to learn more about the implementation, practical use of Laravel 8.x"
+      },
+      {
+        "authors": [
+          "Donald E. Knuth"
+        ],
+        "key": "/Users/codiy/calibre/library/default/Donald E. Knuth/Art of Computer Programming, Volume 2_ Seminumerical Algorithms, Third Edition (78)/Art of Computer Programming, Volume 2_ Sem - Donald E. Knuth.epub",
+        "pathtoebook": "/Users/codiy/calibre/library/default/Donald E. Knuth/Art of Computer Programming, Volume 2_ Seminumerical Algorithms, Third Edition (78)/Art of Computer Programming, Volume 2_ Sem - Donald E. Knuth.epub",
+        "timestamp": "2022-04-20T07:14:41.500Z",
+        "title": "Art of Computer Programming, Volume 2: Seminumerical Algorithms, Third Edition"
+      },
+      {
+        "authors": [
+          "Donald E. Knuth"
+        ],
+        "key": "/Users/codiy/calibre/library/default/Donald E. Knuth/The Art of Computer Programming_ Volume 1 _ Fundamental Algorithms, Third Edition (77)/The Art of Computer Programming_ Volume 1 - Donald E. Knuth.epub",
+        "pathtoebook": "/Users/codiy/calibre/library/default/Donald E. Knuth/The Art of Computer Programming_ Volume 1 _ Fundamental Algorithms, Third Edition (77)/The Art of Computer Programming_ Volume 1 - Donald E. Knuth.epub",
+        "timestamp": "2022-04-20T07:07:21.136Z",
+        "title": "The Art of Computer Programming: Volume 1 / Fundamental Algorithms, Third Edition"
+      },
+      {
+        "authors": [
+          "Felicity O'Dell Michael McCarthy"
+        ],
+        "key": "/Users/codiy/calibre/library/default/Felicity O'Dell Michael McCarthy/English Vocabulary in Use_ Advanced Book with Answers and Enhanced eBook Vocabulary Reference an (74)/English Vocabulary in Use_ Advanced Book w - Felicity O'Dell Michael McCarthy.mobi",
+        "pathtoebook": "/Users/codiy/calibre/library/default/Felicity O'Dell Michael McCarthy/English Vocabulary in Use_ Advanced Book with Answers and Enhanced eBook Vocabulary Reference an (74)/English Vocabulary in Use_ Advanced Book w - Felicity O'Dell Michael McCarthy.mobi",
+        "timestamp": "2022-03-31T14:42:24.583Z",
+        "title": "English Vocabulary in Use: Advanced Book with Answers and Enhanced eBook Vocabulary Reference and Practice 3rd Edition"
+      },
+      {
+        "authors": [
+          "calibre"
+        ],
+        "key": "/Users/codiy/calibre/library/default/calibre/National Geographic [Wed, 09 Mar, 2022] (71)/National Geographic [Wed, 09 Mar, 2022] - calibre.epub",
+        "pathtoebook": "/Users/codiy/calibre/library/default/calibre/National Geographic [Wed, 09 Mar, 2022] (71)/National Geographic [Wed, 09 Mar, 2022] - calibre.epub",
+        "timestamp": "2022-03-09T08:00:24.449Z",
+        "title": "National Geographic [Wed, 09 Mar, 2022]"
+      },
+      {
+        "authors": [
+          "Scott Chacon, Ben Straub"
+        ],
+        "key": "/Users/codiy/Calibre/default/Scott Chacon, Ben Straub/Pro Git (57)/Pro Git - Scott Chacon, Ben Straub.epub",
+        "pathtoebook": "/Users/codiy/Calibre/default/Scott Chacon, Ben Straub/Pro Git (57)/Pro Git - Scott Chacon, Ben Straub.epub",
+        "timestamp": "2022-03-03T15:01:58.487Z",
+        "title": "Pro Git"
+      },
+      {
+        "authors": [
+          "Alfred V. Aho,Monica S. Lam,Ravi Sethi,Jeffrey D. Ullman"
+        ],
+        "key": "/Users/codiy/Calibre/default/Alfred V. Aho,Monica S. Lam,Ravi Sethi,Jeffrey D. Ullman/Bian Yi Yuan Li (Di 2Ban ) (Ji Suan Ji Ke Xue Cong Shu ) (55)/Bian Yi Yuan Li (Di 2Ban ) (Ji Suan Ji Ke - Alfred V. Aho,Monica S. Lam,Ravi Sethi,Jef.azw3",
+        "pathtoebook": "/Users/codiy/Calibre/default/Alfred V. Aho,Monica S. Lam,Ravi Sethi,Jeffrey D. Ullman/Bian Yi Yuan Li (Di 2Ban ) (Ji Suan Ji Ke Xue Cong Shu ) (55)/Bian Yi Yuan Li (Di 2Ban ) (Ji Suan Ji Ke - Alfred V. Aho,Monica S. Lam,Ravi Sethi,Jef.azw3",
+        "timestamp": "2022-02-26T12:04:06.649Z",
+        "title": "编译原理（第2版） (计算机科学丛书)"
+      },
+      {
+        "authors": [
+          "谢希仁"
+        ],
+        "key": "/Users/codiy/Calibre/default/Xie Xi Ren/Ji Suan Ji Wang Luo (Di 7Ban ) (_Shi Er Wu _Pu Tong Gao Deng Jiao Yu Ben Ke Guo Jia Ji Gui Hua J (54)/Ji Suan Ji Wang Luo (Di 7Ban ) (_Shi Er Wu - Xie Xi Ren.azw3",
+        "pathtoebook": "/Users/codiy/Calibre/default/Xie Xi Ren/Ji Suan Ji Wang Luo (Di 7Ban ) (_Shi Er Wu _Pu Tong Gao Deng Jiao Yu Ben Ke Guo Jia Ji Gui Hua J (54)/Ji Suan Ji Wang Luo (Di 7Ban ) (_Shi Er Wu - Xie Xi Ren.azw3",
+        "timestamp": "2022-02-26T07:27:32.499Z",
+        "title": "计算机网络（第7版） (\"十二五\"普通高等教育本科国家级规划教材)"
+      }
+    ],
+    "user_stylesheet": "body {\n        line-height:1.5em !important;\n}"
+  }
+}

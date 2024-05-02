@@ -12,6 +12,7 @@
 !/.aria2/
 !/bin/
 !/test/
+!/Calibre/
 !/scripts/
 !/secrets/
 !/Brewfile
