@@ -1,6 +1,4 @@
 {
-    "http.proxy": "https://127.0.0.1:7890",
-    "http.proxyStrictSSL": false,
     "coc.preferences.semanticTokensHighlights": false,
     "coc.preferences.enableFloatHighlight": true,
     "coc.preferences.snippetStatusText": "Ⓢ ",
