@@ -35,5 +35,6 @@ cask "snipaste"
 cask "spotify"
 cask "telegram"
 cask "tor-browser"
+cask "wechat"
 cask "zoom"
 mas "RESP.app - Developer GUI for Redis®", id: 1475905948
