@@ -23,9 +23,12 @@ hi NonText ctermfg=gray guifg=grey30
 " for `nbsp`, `space`, `tab` and `trail`
 hi Whitespace ctermfg=gray guifg=grey30
 
+let g:python3_host_prog='/usr/bin/python3'
+
 runtime! config/functions.vim config/mappings.vim
 
 runtime! config/plugins.d/**/*.vim config/modules.d/**/*.vim
+
 
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 

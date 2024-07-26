@@ -31,7 +31,7 @@ alias proxy.off='proxy_off'
 alias restic='. ~/.config/restic/env; restic'
 
 function backup {
-    restic backup --quiet --tag canada /Users/codiy/Documents/canada/*
+    restic backup --quiet --tag canada /Users/codiy/Canada/*
     # 最近10年每年保留1条, 最近6个月每个月保留1条, 最近4周每周保留1条, 保留最近5条
     restic forget --quiet --cleanup-cache --host mbp.local \
         --tag canada \
@@ -43,7 +43,7 @@ function backup {
 }
 
 function restore {
-    restic restore latest --host mbp.local --path /Users/codiy/Documents/canada/$1 --target ${2:-/}
+    restic restore latest --host mbp.local --path /Users/codiy/Canada/$1 --target ${2:-/}
 }
 
 # 命令别名 - 通用
