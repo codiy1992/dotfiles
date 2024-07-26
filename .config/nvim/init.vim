@@ -23,21 +23,9 @@ hi NonText ctermfg=gray guifg=grey30
 " for `nbsp`, `space`, `tab` and `trail`
 hi Whitespace ctermfg=gray guifg=grey30
 
-
 runtime! config/functions.vim config/mappings.vim
 
 runtime! config/plugins.d/**/*.vim config/modules.d/**/*.vim
-
-
-
-let has_machine_specific_file = 1
-if empty(glob('~/.config/nvim/_machine_specific.vim'))
-	let has_machine_specific_file = 0
-	silent! exec "!cp $HOME/.config/nvim/templates/_machine_specific_default.vim $HOME/.config/nvim/_machine_specific.vim"
-endif
-runtime! _machine_specific.vim
-
-
 
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
