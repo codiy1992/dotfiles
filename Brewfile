@@ -30,6 +30,7 @@ cask "microsoft-auto-update"
 cask "microsoft-edge"
 cask "microsoft-excel"
 cask "microsoft-onenote"
+cask "microsoft-word"
 cask "obsidian"
 cask "postman"
 cask "raycast"
@@ -41,4 +42,5 @@ cask "telegram"
 cask "tor-browser"
 cask "wechat"
 cask "zoom"
+mas "PDFgear", id: 6469021132
 mas "RESP.app - Developer GUI for Redis®", id: 1475905948
