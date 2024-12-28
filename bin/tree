@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+dir_count=0
+max_depth=-1
+IGNORED_DIRS=(".obsidian" ".git")
+
+traverse() {
+  dir_count=$((dir_count + 1))
+  local directory=$1
+  local prefix=$2
+  local depth=$3
+
+  if [[ $max_depth -ne -1 && $depth -ge $max_depth ]]; then
+    return
+  fi
+
+  local children=("$directory"/*)
+  local child_count=${#children[@]}
+
+  for idx in "${!children[@]}"; do
+    local child=${children[$idx]}
+    local child_name=${child##*/}
+
+    if [[ " ${IGNORED_DIRS[@]} " =~ " $child_name " ]]; then
+      continue
+    fi
+
+    local child_prefix="│   "
+    local pointer="├── "
+
+    if [ $idx -eq $((child_count - 1)) ]; then
+      pointer="└── "
+      child_prefix="    "
+    fi
+
+    if [ -d "$child" ]; then
+      echo "${prefix}${pointer}${child_name}/"
+      traverse "$child" "${prefix}$child_prefix" $((depth + 1))
+    else
+      echo "${prefix}${pointer}${child_name}"
+    fi
+  done
+}
+
+[[ "$1" != "" ]] && [[ -e "$1" ]] && {
+    traverse "$1" "" 0
+}
