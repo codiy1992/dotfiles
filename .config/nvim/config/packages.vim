@@ -45,6 +45,8 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'andersevenrud/compe-tmux', { 'branch': 'compe' }
 Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 
 " Undo Tree
 Plug 'mbbill/undotree'
@@ -63,6 +65,9 @@ Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' , 'do': 'go instal
 " Markdown
 Plug 'codiy1992/clipboard-image.nvim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
+" Hex
+Plug 'RaafatTurki/hex.nvim' 
 
 " Editor Enhancement
 Plug 'windwp/nvim-autopairs'

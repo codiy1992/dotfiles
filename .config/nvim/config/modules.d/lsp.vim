@@ -27,6 +27,10 @@ require'lspconfig'.gopls.setup{
   },
 }
 
+require("lspconfig").pyright.setup {
+    capabilities = capabilities,
+}
+
 function OrgImports(wait_ms)
     local params = vim.lsp.util.make_range_params()
     params.context = {only = {"source.organizeImports"}}
