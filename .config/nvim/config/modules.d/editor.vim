@@ -54,6 +54,9 @@ LUA
 " --- @link https://github.com/hrsh7th/nvim-cmp
 " ---
 lua <<EOF
+  if vim.g.vscode then
+      return
+  end
   local cmp = require('cmp')
   cmp.setup {
     -- You can set mappings if you want
