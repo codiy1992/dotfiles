@@ -156,6 +156,21 @@ function intersect() {
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 
+function pv {
+    if [ "$#" -eq 1 ]; then
+        source ~/Repos/pyenv/$1/bin/activate
+    fi
+}
+
+function pvc {
+    if [ "$#" -eq 1 ]; then
+        python3 -m venv ~/Repos/pyenv/$1
+    fi
+
+    if [ "$#" -eq 2 ]; then
+        $1 -m venv ~/Repos/pyenv/$2
+    fi
+}
 # -- 根据私钥生成公钥
 # ssh-keygen -y -f ~/.ssh/privateKey
 
@@ -191,3 +206,10 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 
 # Subscriable Clash Container
 # docker run -d --name=clash --net=host --log-opt max-size=10m -e CLASH_SUBSCRIBE_URL=http://xxxxxx/config/docker codiy/clash
+
+if tmux has-session -t codiy &>/dev/null; then
+    tmux attach-session -t codiy &>/dev/null
+else
+    tmux new-session -s codiy &>/dev/null
+fi
+return 0
