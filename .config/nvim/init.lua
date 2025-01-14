@@ -1,3 +1,4 @@
+-- Reference: https://github.com/nvim-lua/kickstart.nvim
 
 require('general')
 require('mappings')
@@ -33,68 +34,49 @@ require('lazy').setup({
 
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-
-  { -- Useful plugin to show you pending keybinds.
-    'folke/which-key.nvim',
-    event = 'VimEnter', -- Sets the loading event to 'VimEnter'
-    opts = {
-      -- delay between pressing a key and opening which-key (milliseconds)
-      -- this setting is independent of vim.opt.timeoutlen
-      delay = 0,
-      icons = {
-        -- set icon mappings to true if you have a Nerd Font
-        mappings = vim.g.have_nerd_font,
-        -- If you are using a Nerd Font: set icons.keys to an empty table which will use the
-        -- default which-key.nvim defined Nerd Font icons, otherwise define a string table
-        keys = vim.g.have_nerd_font and {} or {
-          Up = '<Up> ',
-          Down = '<Down> ',
-          Left = '<Left> ',
-          Right = '<Right> ',
-          C = '<C-…> ',
-          M = '<M-…> ',
-          D = '<D-…> ',
-          S = '<S-…> ',
-          CR = '<CR> ',
-          Esc = '<Esc> ',
-          ScrollWheelDown = '<ScrollWheelDown> ',
-          ScrollWheelUp = '<ScrollWheelUp> ',
-          NL = '<NL> ',
-          BS = '<BS> ',
-          Space = '<Space> ',
-          Tab = '<Tab> ',
-          F1 = '<F1>',
-          F2 = '<F2>',
-          F3 = '<F3>',
-          F4 = '<F4>',
-          F5 = '<F5>',
-          F6 = '<F6>',
-          F7 = '<F7>',
-          F8 = '<F8>',
-          F9 = '<F9>',
-          F10 = '<F10>',
-          F11 = '<F11>',
-          F12 = '<F12>',
-        },
-      },
-
-      -- Document existing key chains
-      spec = {
-        { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
-        { '<leader>d', group = '[D]ocument' },
-        { '<leader>r', group = '[R]ename' },
-        { '<leader>s', group = '[S]earch' },
-        { '<leader>w', group = '[W]orkspace' },
-        { '<leader>t', group = '[T]oggle' },
-        { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
-      },
-    },
+  {
+    'luochen1990/rainbow',
+    config = function()
+        vim.g.rainbow_active = 1
+    end
   },
+
+  {
+      -- https://github.com/smoka7/hop.nvim
+    'smoka7/hop.nvim',
+    version = "*",
+    config = function()
+        require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+        vim.api.nvim_set_keymap('n', 'W', "<cmd>lua require'hop'.hint_words()<cr>", { silent = true })
+    end
+  },
+  {
+    "goolord/alpha-nvim",
+    -- dependencies = { 'echasnovski/mini.icons' },
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      local startify = require("alpha.themes.startify")
+      -- available: devicons, mini, default is mini
+      -- if provider not loaded and enabled is true, it will try to use another provider
+      startify.file_icons.provider = "devicons"
+      require("alpha").setup(
+        startify.config
+      )
+    end,
+  },
+  { 'RaafatTurki/hex.nvim', opts = {} },
+  {
+    'junegunn/vim-easy-align', -- https://github.com/junegunn/vim-easy-align
+    config = function()
+        vim.api.nvim_set_keymap('x', '<Leader>a', '<Plug>(EasyAlign)', { noremap = false, silent = true })
+        vim.api.nvim_set_keymap('n', '<Leader>a', '<Plug>(EasyAlign)', { noremap = false, silent = true })
+    end
+  },
+  require 'plugins.which_key',
   require 'plugins.telescope',
   require 'plugins.lsp',
   require 'plugins.auto_format',
   require 'plugins.auto_completion',
-  require 'plugins.theme',
   require 'plugins.enhancement',
   require 'plugins.debug',
   require 'plugins.indent_line',
@@ -102,6 +84,7 @@ require('lazy').setup({
   require 'plugins.auto_pairs',
   require 'plugins.neo_tree',
   require 'plugins.git_signs',
+  require 'plugins.theme',
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
@@ -120,4 +103,30 @@ require('lazy').setup({
       lazy = '💤 ',
     },
   },
+})
+
+-- When open file Auto Jump to last edit position
+vim.api.nvim_create_augroup('JumpToLastEdit', { clear = true })
+vim.api.nvim_create_autocmd('BufReadPost', {
+    group = 'JumpToLastEdit',
+    pattern = '*',
+    callback = function()
+        local last_line = vim.fn.line("'\"")
+        local current_line = vim.fn.line("$")
+        if last_line > 1 and last_line <= current_line then
+            vim.cmd('normal! g\'\"')
+        end
+    end,
+})
+
+-- Auto Remove Trailing Whitespace on Save
+vim.api.nvim_create_augroup('TrimTrailingWhitespace', { clear = true })
+vim.api.nvim_create_autocmd('BufWritePre', {
+    group = 'TrimTrailingWhitespace',
+    pattern = '*',
+    callback = function()
+        if vim.fn.expand('%:e') ~= 'md' then
+            vim.cmd('%s/\\s\\+$//e')
+        end
+    end,
 })

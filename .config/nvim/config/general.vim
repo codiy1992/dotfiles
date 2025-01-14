@@ -3,7 +3,7 @@ let &t_ut=''
 set re=0 " Use new regular expression engine
 set exrc
 set secure
-set nonumber                    " Don't Show Line Number
+set number                    " Don't Show Line Number
 set relativenumber              " Show Relative Line Number
 set signcolumn=auto             " 是否显示标志列
 set cursorline
