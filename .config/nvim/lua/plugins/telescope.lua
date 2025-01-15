@@ -44,16 +44,48 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
+    --  Variable 'vimgrep_arguments' will be used for `live_grep` and `grep_string` pickers
+      local telescopeConfig = require("telescope.config")
+      local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
+      -- to search in hidden/dot files.
+      -- table.insert(vimgrep_arguments, "--hidden")
+      --
+      -- table.insert(vimgrep_arguments, "--glob")
+      -- table.insert(vimgrep_arguments, "!/**/*")
+
       require('telescope').setup {
-        -- You can put your default mappings / updates / etc. in here
-        --  All the info you're looking for is in `:help telescope.setup()`
-        --
-        -- defaults = {
-        --   mappings = {
-        --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-        --   },
-        -- },
-        -- pickers = {}
+        defaults = {
+          -- `hidden = true` is not supported in text grep commands.
+          vimgrep_arguments = vimgrep_arguments,
+          -- Variable `file_ignore_patterns` will be used in all pickers
+          file_ignore_patterns = {
+            "^Documents/",
+            "^Library/",
+            "^Movies/",
+            "^Repos/",
+            "^Downloads/",
+            "^Music/",
+            "^Applications/",
+            "^Pictures/",
+            "%w+/pkg/mod/",
+            "%.css",
+            "%.pdf",
+            "%.png",
+            "%.jpg",
+            "%.gif",
+            "%.mp4",
+            "%.py[co]",
+          },
+          mappings = {
+            -- You can put your default mappings / updates / etc. in here
+          },
+        },
+        pickers = {
+          live_grep = {},
+          find_files = {
+            -- hidden=true
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),

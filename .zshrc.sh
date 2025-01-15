@@ -47,8 +47,8 @@ function restore {
 }
 
 # 命令别名 - 通用
-alias vim='nvim -u ~/.config/nvim/init.vim'
-alias nvim='nvim -u ~/.config/nvim/init.lua'
+alias vim='nvim -u ~/.config/nvim/init.lua'
+alias nim='nvim -u ~/.config/nvim/_init.vim'
 alias copyssh="pbcopy < ${HOME}/.ssh/id_rsa.pub"
 alias rmkh='_func() { sed -i "" "$1"d  ${HOME}/.ssh/known_hosts;}; _func'
 alias ascii2hex='_func(){echo "$1" | hexdump -vC |  awk '\''BEGIN {IFS="\t"} {$1=""; print }'\'' | awk '\''{sub(/\|.*/,"")}1'\'' | tr -d '\''\n'\''|sed '\''s/  / /g'\'' |sed '\''s/ /\\x/g'\''|rev|cut -c 3- |rev }; _func'

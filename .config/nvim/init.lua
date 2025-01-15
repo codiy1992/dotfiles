@@ -1,8 +1,8 @@
 -- Reference: https://github.com/nvim-lua/kickstart.nvim
 
-require('general')
-require('mappings')
-require('autocmds')
+require 'general'
+require 'mappings'
+require 'autocmds'
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 -- See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
@@ -15,7 +15,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
-
+vim.api.nvim_set_keymap('n', '<leader>p', ':Lazy<CR>', { noremap = true, silent = true })
 
 require('lazy').setup({
 
@@ -23,31 +23,27 @@ require('lazy').setup({
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
   { -- Startify
-    "goolord/alpha-nvim",
+    'goolord/alpha-nvim',
     -- dependencies = { 'echasnovski/mini.icons' },
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
-      local startify = require("alpha.themes.startify")
+      local startify = require 'alpha.themes.startify'
       -- available: devicons, mini, default is mini
       -- if provider not loaded and enabled is true, it will try to use another provider
-      startify.file_icons.provider = "devicons"
-      require("alpha").setup(
-        startify.config
-      )
-      startify.section.top_buttons.val = {
-      }
+      startify.file_icons.provider = 'devicons'
+      require('alpha').setup(startify.config)
+      startify.section.top_buttons.val = {}
       startify.section.bottom_buttons.val = {
-        startify.button( "e", "  New file" , ":ene <BAR> startinsert <CR>"),
-        startify.button( "q", "󰅚  Quit NVIM" , ":qa<CR>"),
+        startify.button('e', '  New file', ':ene <BAR> startinsert <CR>'),
+        startify.button('q', '󰅚  Quit NVIM', ':qa<CR>'),
       }
     end,
   },
-  {-- Color theme
+  { -- Color theme
     'sainnhe/everforest',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
-
-      vim.cmd.colorscheme('everforest')
+      vim.cmd.colorscheme 'everforest'
 
       vim.g.everforest_background = 'hard'
       vim.g.everforest_better_performance = 1
@@ -58,7 +54,7 @@ require('lazy').setup({
       -- Windows Separator highlight Color
       -- vim.cmd [[
       --       highlight WinSeparator guifg=#7AA697
-      --       highlight WinSeparator ctermfg=lightcyan
+      --       highlight WinSep karator ctermfg=lightcyan
       -- ]]
       -- vim.wo.winhighlight = 'WinSeparator:WinSeparator'
     end,
@@ -66,7 +62,7 @@ require('lazy').setup({
   require 'plugins.which_key',
   require 'plugins.telescope',
   require 'plugins.lsp',
-  -- require 'plugins.auto_format',
+  require 'plugins.auto_format',
   require 'plugins.auto_completion',
   require 'plugins.enhancement',
   require 'plugins.debug',

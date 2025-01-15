@@ -13,8 +13,25 @@ return {
     { '<Leader>e', ':Neotree toggle<CR>', desc = 'NeoTree toggle', silent = true },
   },
   opts = {
+    default_component_configs = {
+      git_status = {
+        symbols = {
+          -- Change type
+          added     = "✚",
+          deleted   = "✖",
+          modified  = "",
+          renamed   = "󰁕",
+          -- Status type
+          untracked = "",
+          ignored   = "",
+          unstaged  = "󰄱",
+          staged    = "",
+          conflict  = "",
+        }
+      }
+    },
     filesystem = {
-      follow_current_file = true,
+      follow_current_file = {enable = true},
       group_empty_dirs = true,
       filtered_items = {
         visible = true,
