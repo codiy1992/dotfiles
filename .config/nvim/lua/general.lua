@@ -67,3 +67,9 @@ vim.opt.foldmethod = 'indent'
 vim.opt.foldlevel = 99
 vim.opt.foldenable = true
 
+-- Tab
+vim.opt.softtabstop = 2
+vim.opt.tabstop = 4
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+

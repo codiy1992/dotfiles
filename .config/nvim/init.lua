@@ -53,7 +53,6 @@ require('lazy').setup({
       vim.g.everforest_better_performance = 1
       vim.g.everforest_ui_contrast = 'high'
 
-
       -- vim.cmd.hi 'Comment gui=none'
 
       -- Windows Separator highlight Color
@@ -67,7 +66,7 @@ require('lazy').setup({
   require 'plugins.which_key',
   require 'plugins.telescope',
   require 'plugins.lsp',
-  require 'plugins.auto_format',
+  -- require 'plugins.auto_format',
   require 'plugins.auto_completion',
   require 'plugins.enhancement',
   require 'plugins.debug',
@@ -97,4 +96,3 @@ require('lazy').setup({
     },
   },
 })
-
