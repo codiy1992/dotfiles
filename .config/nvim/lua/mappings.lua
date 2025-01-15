@@ -71,8 +71,8 @@ vim.api.nvim_set_keymap('n', 'sv', '<C-w>t<C-w>H', { noremap = true })
 vim.api.nvim_set_keymap('n', 'srh', '<C-w>b<C-w>K', { noremap = true })
 vim.api.nvim_set_keymap('n', 'srv', '<C-w>b<C-w>H', { noremap = true })
 
--- Press <SPACE> + qq to close current window
-vim.api.nvim_set_keymap('n', '<LEADER>qq', '<C-w>:q!<CR>', { noremap = true })
+-- Press <SPACE> + w to close current window
+vim.api.nvim_set_keymap('n', '<LEADER>w', '<C-w>:q!<CR>', { noremap = true })
 
 
 

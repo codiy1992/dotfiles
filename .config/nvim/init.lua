@@ -2,23 +2,10 @@
 
 require('general')
 require('mappings')
-
--- [[ Basic Autocommands ]]
---  See `:help lua-guide-autocommands`
-
--- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
+require('autocmds')
 
 -- [[ Install `lazy.nvim` plugin manager ]]
---    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
+-- See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
@@ -34,23 +21,8 @@ require('lazy').setup({
 
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-  {
-    'luochen1990/rainbow',
-    config = function()
-        vim.g.rainbow_active = 1
-    end
-  },
 
-  {
-      -- https://github.com/smoka7/hop.nvim
-    'smoka7/hop.nvim',
-    version = "*",
-    config = function()
-        require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-        vim.api.nvim_set_keymap('n', 'W', "<cmd>lua require'hop'.hint_words()<cr>", { silent = true })
-    end
-  },
-  {
+  { -- Startify
     "goolord/alpha-nvim",
     -- dependencies = { 'echasnovski/mini.icons' },
     dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -62,15 +34,35 @@ require('lazy').setup({
       require("alpha").setup(
         startify.config
       )
+      startify.section.top_buttons.val = {
+      }
+      startify.section.bottom_buttons.val = {
+        startify.button( "e", "  New file" , ":ene <BAR> startinsert <CR>"),
+        startify.button( "q", "󰅚  Quit NVIM" , ":qa<CR>"),
+      }
     end,
   },
-  { 'RaafatTurki/hex.nvim', opts = {} },
-  {
-    'junegunn/vim-easy-align', -- https://github.com/junegunn/vim-easy-align
-    config = function()
-        vim.api.nvim_set_keymap('x', '<Leader>a', '<Plug>(EasyAlign)', { noremap = false, silent = true })
-        vim.api.nvim_set_keymap('n', '<Leader>a', '<Plug>(EasyAlign)', { noremap = false, silent = true })
-    end
+  {-- Color theme
+    'sainnhe/everforest',
+    priority = 1000, -- Make sure to load this before all the other start plugins.
+    init = function()
+
+      vim.cmd.colorscheme('everforest')
+
+      vim.g.everforest_background = 'hard'
+      vim.g.everforest_better_performance = 1
+      vim.g.everforest_ui_contrast = 'high'
+
+
+      -- vim.cmd.hi 'Comment gui=none'
+
+      -- Windows Separator highlight Color
+      -- vim.cmd [[
+      --       highlight WinSeparator guifg=#7AA697
+      --       highlight WinSeparator ctermfg=lightcyan
+      -- ]]
+      -- vim.wo.winhighlight = 'WinSeparator:WinSeparator'
+    end,
   },
   require 'plugins.which_key',
   require 'plugins.telescope',
@@ -84,7 +76,8 @@ require('lazy').setup({
   require 'plugins.auto_pairs',
   require 'plugins.neo_tree',
   require 'plugins.git_signs',
-  require 'plugins.theme',
+  require 'plugins.misc',
+  require 'plugins.tmux',
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
@@ -105,28 +98,3 @@ require('lazy').setup({
   },
 })
 
--- When open file Auto Jump to last edit position
-vim.api.nvim_create_augroup('JumpToLastEdit', { clear = true })
-vim.api.nvim_create_autocmd('BufReadPost', {
-    group = 'JumpToLastEdit',
-    pattern = '*',
-    callback = function()
-        local last_line = vim.fn.line("'\"")
-        local current_line = vim.fn.line("$")
-        if last_line > 1 and last_line <= current_line then
-            vim.cmd('normal! g\'\"')
-        end
-    end,
-})
-
--- Auto Remove Trailing Whitespace on Save
-vim.api.nvim_create_augroup('TrimTrailingWhitespace', { clear = true })
-vim.api.nvim_create_autocmd('BufWritePre', {
-    group = 'TrimTrailingWhitespace',
-    pattern = '*',
-    callback = function()
-        if vim.fn.expand('%:e') ~= 'md' then
-            vim.cmd('%s/\\s\\+$//e')
-        end
-    end,
-})

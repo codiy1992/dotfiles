@@ -63,5 +63,24 @@ return {
       --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
       --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
-  }
+  },
+
+
+  { -- Css Color Preview
+    'ap/vim-css-color',
+    config = function()
+    end
+  },
+
+
+  { -- Under cursor word highlight
+      'RRethy/vim-illuminate',
+      config = function()
+        vim.api.nvim_set_hl(0, 'illuminatedWordText', { bg = 'NONE', fg = '#11bbcc' })
+        vim.api.nvim_set_hl(0, 'illuminatedWordRead', { bg = 'NONE', fg = '#11bbcc' })
+        vim.api.nvim_set_hl(0, 'illuminatedWordWrite', { bg = 'NONE', fg = '#11bbcc' })
+      end
+  },
+
+
 }

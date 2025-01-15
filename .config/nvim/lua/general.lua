@@ -1,9 +1,9 @@
 -- Set <space> as the leader key
--- See `:help mapleader`
---  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+-- Nerd font
 vim.g.have_nerd_font = true
+-- Line number
 vim.opt.number = true
 vim.opt.relativenumber = true
 -- Enable mouse mode, can be useful for resizing splits for example!
@@ -12,9 +12,6 @@ vim.opt.mouse = 'a'
 vim.opt.showmode = false
 
 -- Sync clipboard between OS and Neovim.
---  Schedule the setting after `UiEnter` because it can increase startup-time.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
 vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
@@ -29,7 +26,7 @@ vim.opt.undofile = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
--- Keep signcolumn on by default
+-- Keep signcolumn only when there are git-signs need to be shown
 vim.opt.signcolumn = 'auto'
 
 -- Decrease update time
@@ -57,5 +54,16 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+
+
 -- Line number width
 vim.wo.numberwidth = 1
+
+-- Color Maximum line characters
+vim.wo.colorcolumn = '100'
+
+-- Code folding
+vim.opt.foldmethod = 'indent'
+vim.opt.foldlevel = 99
+vim.opt.foldenable = true
+
