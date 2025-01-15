@@ -17,21 +17,21 @@ return {
       git_status = {
         symbols = {
           -- Change type
-          added     = "✚",
-          deleted   = "✖",
-          modified  = "",
-          renamed   = "󰁕",
+          added = '✚',
+          deleted = '✖',
+          modified = '',
+          renamed = '󰁕',
           -- Status type
-          untracked = "",
-          ignored   = "",
-          unstaged  = "󰄱",
-          staged    = "",
-          conflict  = "",
-        }
-      }
+          untracked = '',
+          ignored = '',
+          unstaged = '󰄱',
+          staged = '',
+          conflict = '',
+        },
+      },
     },
     filesystem = {
-      follow_current_file = {enable = true},
+      follow_current_file = { enable = true },
       group_empty_dirs = true,
       filtered_items = {
         visible = true,
@@ -49,19 +49,20 @@ return {
     window = {
       width = 30,
       mappings = {
+        ['/'] = '',
         ['<Leader>e'] = 'close_window',
-        ["h"] = "close_node",
-        ["l"] = function(state)
-            local node = state.tree:get_node()
-              if node.type == 'directory' then
-                if not node:is_expanded() then
-                  require'neo-tree.sources.filesystem'.toggle_directory(state, node)
-                elseif node:has_children() then
-                  require'neo-tree.ui.renderer'.focus_node(state, node:get_child_ids()[1])
-                end
-              else
-                  state.commands['focus_preview'](state)
-              end
+        ['h'] = 'close_node',
+        ['l'] = function(state)
+          local node = state.tree:get_node()
+          if node.type == 'directory' then
+            if not node:is_expanded() then
+              require('neo-tree.sources.filesystem').toggle_directory(state, node)
+            elseif node:has_children() then
+              require('neo-tree.ui.renderer').focus_node(state, node:get_child_ids()[1])
+            end
+          else
+            state.commands['focus_preview'](state)
+          end
         end,
       },
     },
