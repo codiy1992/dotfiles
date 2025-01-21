@@ -47,6 +47,7 @@ function restore {
 }
 
 # 命令别名 - 通用
+alias cl='clear'
 alias vim='nvim -u ~/.config/nvim/init.lua'
 alias nim='nvim -u ~/.config/nvim/_init.vim'
 alias copyssh="pbcopy < ${HOME}/.ssh/id_rsa.pub"
@@ -172,6 +173,8 @@ function pvc {
         $1 -m venv ~/Repos/pyenv/$2
     fi
 }
+alias pta='eval $(poetry env activate)'
+alias pt='poetry'
 # -- 根据私钥生成公钥
 # ssh-keygen -y -f ~/.ssh/privateKey
 
@@ -209,7 +212,9 @@ function pvc {
 # docker run -d --name=clash --net=host --log-opt max-size=10m -e CLASH_SUBSCRIBE_URL=http://xxxxxx/config/docker codiy/clash
 
 if tmux has-session -t codiy &>/dev/null; then
-    tmux attach-session -t codiy &>/dev/null
+    if [ -z "$TMUX" ]; then
+        tmux attach-session -t codiy &>/dev/null
+    fi
 else
     tmux new-session -s codiy &>/dev/null
 fi

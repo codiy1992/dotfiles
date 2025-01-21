@@ -51,6 +51,7 @@ return {
       mappings = {
         ['/'] = '',
         ['<Leader>e'] = 'close_window',
+        ['<Leader>Q'] = ':qa!<CR>',
         ['h'] = 'close_node',
         ['l'] = function(state)
           local node = state.tree:get_node()

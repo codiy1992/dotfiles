@@ -8,14 +8,6 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
--- is not what someone will guess without a bit more experience.
---
--- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
--- or just use <C-\><C-n> to exit terminal mode
--- vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
 -- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
@@ -31,7 +23,6 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-
 -- Command Mode Cursor Movement
 vim.api.nvim_set_keymap('c', '<C-a>', '<Home>', { noremap = true })
 -- Other useful stuff
@@ -42,8 +33,6 @@ vim.api.nvim_set_keymap('n', '<LEADER>Q', ':qa!<CR>', { noremap = true })
 -- find and replace
 vim.api.nvim_set_keymap('n', '\\s', ':s//g<left><left>', { noremap = true })
 vim.api.nvim_set_keymap('n', '\\S', ':%s//g<left><left>', { noremap = true })
-
-
 
 -------------
 -- Windows
@@ -74,8 +63,6 @@ vim.api.nvim_set_keymap('n', 'srv', '<C-w>b<C-w>H', { noremap = true })
 -- Press <SPACE> + w to close current window
 vim.api.nvim_set_keymap('n', '<LEADER>w', '<C-w>:q!<CR>', { noremap = true })
 
-
-
 -------------
 -- Tabs
 -------------
@@ -92,3 +79,24 @@ vim.api.nvim_set_keymap('n', '<leader>2', '2gt', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>3', '3gt', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>4', '4gt', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>5', '5gt', { noremap = true })
+
+-------------
+-- Terminals
+-------------
+vim.api.nvim_create_augroup('neovim_terminal', { clear = true })
+vim.api.nvim_create_autocmd('TermOpen', { group = 'neovim_terminal', pattern = '*', command = 'startinsert' })
+vim.api.nvim_create_autocmd('TermOpen', { group = 'neovim_terminal', pattern = '*', command = 'setlocal nonumber norelativenumber' })
+vim.api.nvim_create_autocmd('TermEnter', { group = 'neovim_terminal', pattern = '*', command = 'startinsert' })
+vim.api.nvim_create_autocmd('BufEnter', { group = 'neovim_terminal', pattern = 'term://*', command = 'startinsert' })
+-- Opening a terminal window
+vim.api.nvim_set_keymap('n', '<leader>j', ':set splitbelow<CR>:split<CR>:term<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>l', ':set splitright<CR>:vsplit<CR>:term<CR>', { noremap = true, silent = true })
+-- Enter Normal Mode
+vim.api.nvim_set_keymap('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
+-- Buffers Movement
+vim.api.nvim_set_keymap('t', '<C-h>', [[<C-\><C-n><C-w>h]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<C-j>', [[<C-\><C-n><C-w>j]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<C-k>', [[<C-\><C-n><C-w>k]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<C-l>', [[<C-\><C-n><C-w>l]], { noremap = true, silent = true })
+-- Quit Current Terminal Buffer
+vim.api.nvim_set_keymap('t', '<leader>w', [[<C-\><C-n><C-w>q]], { noremap = true, silent = true })
